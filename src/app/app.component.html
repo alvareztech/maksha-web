@@ -1,10 +1,10 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-  <a class="navbar-brand">{{ title }}</a>
+  <a class="navbar-brand" routerLink="">{{ title }}</a>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link">Publicaciones<span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="labs">Labs<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link">Eventos</a>
@@ -27,7 +27,7 @@
   </div>
 </nav>
 <div class="container">
-  <!--<router-outlet></router-outlet>-->
+  <router-outlet></router-outlet>
 </div>
 <footer>
   <div class="container">

@@ -9,6 +9,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import {FIREBASE_CONFIG} from './keys';
+import {AppRoutingModule} from './app-routing.module';
+import { LabListComponent } from './lab-list/lab-list.component';
+import { LabDetailComponent } from './lab-detail/lab-detail.component';
+import { HomeComponent } from './home/home.component';
 
 const firebaseAuthConfig = {
   provider: AuthProviders.Google,
@@ -17,12 +21,16 @@ const firebaseAuthConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LabListComponent,
+    LabDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    AppRoutingModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(FIREBASE_CONFIG, firebaseAuthConfig)
   ],
