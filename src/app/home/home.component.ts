@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  labsPreview: FirebaseListObservable<any>;
+  articlesPreview: FirebaseListObservable<any>;
+
+  constructor(af: AngularFire) {
+    this.labsPreview = af.database.list('/previews', {
+      query: {
+        orderByChild: 'category',
+        equalTo: 'lab'
+      }
+    });
+    this.articlesPreview = af.database.list('/previews', {
+      query: {
+        orderByChild: 'category',
+        equalTo: 'article'
+      }
+    });
+  }
 
   ngOnInit() {
   }

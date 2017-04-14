@@ -1,3 +1,13 @@
-<p>
-  home works!
-</p>
+<div class="card" style="width: 20rem;" *ngFor="let lab of labsPreview | async">
+  <div class="card-block">
+    <h4 class="card-title">{{ lab.title }}</h4>
+    <p class="card-text">Android</p>
+  </div>
+</div>
+<hr>
+<div class="card" style="width: 20rem;" *ngFor="let article of articlesPreview | async">
+  <div class="card-block">
+    <h4 class="card-title">{{ article.title }}</h4>
+    <p class="card-text">Android</p>
+  </div>
+</div>
