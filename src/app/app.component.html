@@ -1,3 +1,36 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+  <a class="navbar-brand">{{ title }}</a>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link">Publicaciones<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Eventos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Cursos</a>
+      </li>
+    </ul>
+
+    <img src="{{ (af.auth | async)?.auth.photoURL }}" height="36" width="36" class="rounded-circle">
+    <span>{{ (af.auth | async)?.auth.displayName }}</span>
+
+    <button class="btn btn-primary" (click)="login()" *ngIf="(af.auth | async)?.auth == null">
+      Ingresar
+    </button>
+
+    <button class="btn btn-secondary" (click)="logout()">
+      <span>Salir</span>
+    </button>
+  </div>
+</nav>
+<div class="container">
+  <!--<router-outlet></router-outlet>-->
+</div>
+<footer>
+  <div class="container">
+    <span class="text-muted">Daniel Alvarez</span>
+  </div>
+</footer>
