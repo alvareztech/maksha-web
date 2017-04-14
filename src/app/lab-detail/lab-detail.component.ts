@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-lab-detail',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.route.params.forEach(params => {
+      console.log('Params:' + params['id']);
+    });
   }
 
 }
