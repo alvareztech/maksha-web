@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {ActivatedRoute, Params} from '@angular/router';
+import {AngularFire, FirebaseObjectObservable} from 'angularfire2';
 
 @Component({
   selector: 'app-lab-detail',
@@ -9,12 +10,15 @@ import {ActivatedRoute, Params} from '@angular/router';
 })
 export class LabDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {
+  lab: FirebaseObjectObservable<any>;
+
+  constructor(private route: ActivatedRoute, private af: AngularFire) {
   }
 
   ngOnInit() {
     this.route.params.forEach(params => {
       console.log('Params:' + params['id']);
+      this.lab = this.af.database.object('/labs/' + params['id']);
     });
   }
 

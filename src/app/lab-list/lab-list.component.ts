@@ -9,10 +9,15 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 })
 export class LabListComponent implements OnInit {
 
-  items: FirebaseListObservable<any>;
+  labsPreview: FirebaseListObservable<any>;
 
   constructor(af: AngularFire) {
-    this.items = af.database.list('/labs-preview');
+    this.labsPreview = af.database.list('/previews', {
+      query: {
+        orderByChild: 'category',
+        equalTo: 'lab'
+      }
+    });
   }
 
   ngOnInit() {

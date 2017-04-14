@@ -1,13 +1,26 @@
-<div class="card" style="width: 20rem;" *ngFor="let lab of labsPreview | async">
-  <div class="card-block">
-    <h4 class="card-title">{{ lab.title }}</h4>
-    <p class="card-text">Android</p>
+<section class="jumbotron">
+  <h1>Creación y capacitación</h1>
+  <p>Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
+</section>
+
+<h2>Labs</h2>
+<div class="row">
+  <div class="card" style="width: 20rem;" *ngFor="let lab of labsPreview | async">
+    <div class="card-block">
+      <h4 class="card-title">{{ lab.title }}</h4>
+      <p class="card-text">{{ lab.description }}</p>
+      <a class="btn btn-primary" [routerLink]="'/labs/' + [lab.$key]">Iniciar</a>
+    </div>
   </div>
 </div>
-<hr>
-<div class="card" style="width: 20rem;" *ngFor="let article of articlesPreview | async">
-  <div class="card-block">
-    <h4 class="card-title">{{ article.title }}</h4>
-    <p class="card-text">Android</p>
+
+<h2>Articles</h2>
+<div class="row">
+  <div class="card" style="width: 20rem;" *ngFor="let article of articlesPreview | async">
+    <div class="card-block">
+      <h4 class="card-title">{{ article.title }}</h4>
+      <p class="card-text">{{ article.description }}</p>
+      <a class="btn btn-primary" routerLink="labs">Leer</a>
+    </div>
   </div>
 </div>

@@ -15,13 +15,15 @@ export class HomeComponent implements OnInit {
     this.labsPreview = af.database.list('/previews', {
       query: {
         orderByChild: 'category',
-        equalTo: 'lab'
+        equalTo: 'lab',
+        limitToFirst: 3
       }
     });
     this.articlesPreview = af.database.list('/previews', {
       query: {
         orderByChild: 'category',
-        equalTo: 'article'
+        equalTo: 'article',
+        limitToFirst: 3
       }
     });
   }
