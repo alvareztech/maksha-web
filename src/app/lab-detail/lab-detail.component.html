@@ -1,11 +1,13 @@
-<div class="row row-offcanvas row-offcanvas-right">
-
-  <div class="main col-lg-8">
+<div class="card text-center mb-4"
+     [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
+  <div class="card-block">
+    <img class="pb-1" src="/assets/{{ technologyService.getTechnology((lab | async)?.technology)?.icon }}"
+         alt="{{ technologyService.getTechnology((lab | async)?.technology)?.name }}">
     <h1>{{ (lab | async)?.title }}</h1>
-    <p> {{ (lab | async)?.description }} </p>
-
-    <hr>
-
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-8">
     <span class="badge badge-primary">{{ currentStep + 1 }}</span>
     <h2>
       {{ currentTitle }}
