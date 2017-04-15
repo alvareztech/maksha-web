@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import {TechnologyService} from '../services/technology.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   labsPreview: FirebaseListObservable<any>;
   articlesPreview: FirebaseListObservable<any>;
 
-  constructor(af: AngularFire) {
+  constructor(af: AngularFire, private technologyService: TechnologyService) {
     this.labsPreview = af.database.list('/previews', {
       query: {
         orderByChild: 'category',

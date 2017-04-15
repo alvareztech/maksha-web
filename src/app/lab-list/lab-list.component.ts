@@ -19,8 +19,6 @@ export class LabListComponent implements OnInit {
         equalTo: 'lab'
       }
     });
-    const x = technologyService.getTechnology('ios');
-    console.log('object tech %j', x);
   }
 
   ngOnInit() {

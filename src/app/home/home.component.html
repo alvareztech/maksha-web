@@ -9,7 +9,11 @@
   <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
 
     <div class="card mb-4">
-      <img class="card-img-top p-2" src="/assets/android.svg" alt="Android">
+      <img class="card-img-top p-2"
+           src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
+           alt="{{ technologyService.getTechnology(lab.technology).name }}"
+           [style.background]="technologyService.getTechnology(lab.technology).color"
+      >
       <div class="card-block">
         <h4 class="card-title">{{ lab.title }}</h4>
         <p class="card-text">{{ lab.description }}</p>
