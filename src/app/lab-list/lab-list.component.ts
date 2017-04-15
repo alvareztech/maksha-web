@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {TechnologyService} from '../services/technology.service';
 
 @Component({
   selector: 'app-lab-list',
@@ -11,13 +12,15 @@ export class LabListComponent implements OnInit {
 
   labsPreview: FirebaseListObservable<any>;
 
-  constructor(af: AngularFire) {
+  constructor(af: AngularFire, private technologyService: TechnologyService) {
     this.labsPreview = af.database.list('/previews', {
       query: {
         orderByChild: 'category',
         equalTo: 'lab'
       }
     });
+    const x = technologyService.getTechnology('ios');
+    console.log('object tech %j', x);
   }
 
   ngOnInit() {
