@@ -1,12 +1,12 @@
 <div class="row row-offcanvas row-offcanvas-right">
 
-  <div class="col-12 col-md-9">
+  <div class="main col-lg-8">
     <h1>{{ (lab | async)?.title }}</h1>
     <p> {{ (lab | async)?.description }} </p>
 
     <hr>
 
-      <span class="badge badge-primary">{{ currentStep + 1 }}</span>
+    <span class="badge badge-primary">{{ currentStep + 1 }}</span>
     <h2>
       {{ currentTitle }}
     </h2>
@@ -17,10 +17,12 @@
     <button type="button" class="btn btn-outline-primary" (click)="goNextStep()">Siguiente</button>
   </div>
 
-  <div class="col-6 col-md-3 sidebar-offcanvas">
+  <div class="col-lg-3 offset-lg-1 sidebar-offcanvas">
+
     <p>
       Esto es una descripción de ejemplo que puede servir para varias cosas.
     </p>
+
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let step of (lab | async)?.steps; let i = index;"
           (click)="changeStep(i, step.title, step.content)">

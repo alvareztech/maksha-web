@@ -4,5 +4,6 @@ body {
 }
 
 .container {
+  max-width: 60rem;
   /*background-color: aqua;*/
 }
