@@ -1,11 +1,11 @@
-.card {
+.card.title-lab {
   color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
-.card h1 {
+.card.title-lab h1 {
   font-size: 1.5rem;
   font-weight: normal;
 }
-.card img {
+.card.title-lab img {
   height: 40px;
 }

@@ -1,8 +1,28 @@
 import {Injectable} from '@angular/core';
 import {Technology} from '../interfaces/technology';
+import {Level} from '../interfaces/level';
 
 @Injectable()
 export class TechnologyService {
+
+  levels: Level[] = [
+    {
+      id: 1,
+      name: 'Básico'
+    },
+    {
+      id: 2,
+      name: 'Intermedio'
+    },
+    {
+      id: 3,
+      name: 'Avanzado'
+    },
+    {
+      id: 4,
+      name: 'Desafiante'
+    }
+  ];
 
   technologies: Technology[] = [
     {
@@ -42,6 +62,10 @@ export class TechnologyService {
 
   getTechnology(id: string): Technology {
     return this.technologies.find(x => x.id === id);
+  }
+
+  getLevel(id: number): Level {
+    return this.levels.find(x => x.id === id);
   }
 
 }

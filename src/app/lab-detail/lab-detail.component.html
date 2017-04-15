@@ -1,4 +1,4 @@
-<div class="card text-center mb-4"
+<div class="card title-lab text-center mb-4"
      [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
   <div class="card-block">
     <img class="pb-1" src="/assets/{{ technologyService.getTechnology((lab | async)?.technology)?.icon }}"
@@ -21,9 +21,13 @@
 
   <div class="col-lg-3 offset-lg-1 sidebar-offcanvas">
 
-    <p>
-      Esto es una descripción de ejemplo que puede servir para varias cosas.
-    </p>
+    <div class="card mb-2 card-inverse card-primary">
+      <div class="card-block">
+        <blockquote class="card-blockquote">
+          {{ technologyService.getLevel((lab | async)?.level )?.name }}
+        </blockquote>
+      </div>
+    </div>
 
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let step of (lab | async)?.steps; let i = index;"
