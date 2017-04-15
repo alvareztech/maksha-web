@@ -1,10 +1,18 @@
-<h1>Labs</h1>
+<section class="jumbotron">
+  <h1>Labs</h1>
+  <p>Laboratorios para completarlos paso a paso</p>
+</section>
+
 <div class="row">
-  <div class="card" style="width: 20rem;" *ngFor="let lab of labsPreview | async">
-    <div class="card-block">
-      <h4 class="card-title">{{ lab.title }}</h4>
-      <p class="card-text">{{ lab.description }}</p>
-      <a class="btn btn-primary" [routerLink]="'/labs/' + [lab.$key]">Iniciar</a>
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
+    <div class="card mb-4">
+      <img class="card-img-top p-2" src="/assets/java.svg" alt="Android">
+      <div class="card-block">
+        <h4 class="card-title">{{ lab.title }}</h4>
+        <p class="card-text">{{ lab.description }}</p>
+        <p class="card-text"><small class="text-muted">Actualizado</small></p>
+        <a class="btn btn-primary" [routerLink]="'/labs/' + [lab.$key]">Iniciar</a>
+      </div>
     </div>
   </div>
 </div>

@@ -6,7 +6,10 @@
 
     <hr>
 
-    <h2>{{ currentTitle }}</h2>
+      <span class="badge badge-primary">{{ currentStep + 1 }}</span>
+    <h2>
+      {{ currentTitle }}
+    </h2>
     <div [innerHtml]="currentContent"></div>
 
     <hr>
@@ -21,7 +24,7 @@
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let step of (lab | async)?.steps; let i = index;"
           (click)="changeStep(i, step.title, step.content)">
-        <span class="badge badge-default badge-pill">{{ i + 1 }}</span>
+        <span class="badge badge-primary">{{ i + 1 }}</span>
         &nbsp;
         {{ step.title }}
       </li>

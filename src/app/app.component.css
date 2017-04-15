@@ -1,3 +1,12 @@
-.bg-inverse {
-  background-color: #32325D!important;
+nav {
+  background-color: #32325D;
+}
+
+.btn-outline-primary {
+  border-color: #6772E5;
+  border-width: 2px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #6772E5;
 }
