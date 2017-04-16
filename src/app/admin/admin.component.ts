@@ -14,6 +14,7 @@ export class AdminComponent implements OnInit {
 
   labsPreview: FirebaseListObservable<any>;
   lab: FirebaseObjectObservable<any>;
+  labPreview: FirebaseObjectObservable<any>;
 
   currentStepNumber = 0;
 
@@ -32,9 +33,14 @@ export class AdminComponent implements OnInit {
   saveLab() {
     this.currentLab.steps[this.currentStepNumber] = this.currentStep;
     console.log('saveLab(): %j', this.currentLab);
-    // this.lab.update({
-    //   technology: 'ios'
-    // });
+    this.currentLab['updated'] = new Date();
+    this.lab.update(this.currentLab);
+    this.labsPreview.update(this.currentLab['$key'], {
+      title: this.currentLab['title'],
+      category: 'lab',
+      updated: new Date(),
+      technology: this.currentLab['technology']
+    });
   }
 
   goLab(id: string) {
@@ -42,20 +48,23 @@ export class AdminComponent implements OnInit {
 
     this.isSaveLab = false;
     this.lab = this.af.database.object('/labs/' + id);
+    this.labPreview = this.af.database.object('/previews/' + id);
+
     this.lab.forEach(value => {
       console.log('Lab: %j', value);
       this.currentLab = value;
       this.currentStep = value.steps[0];
-      this.currentStepNumber = 1;
+      this.currentStepNumber = 0;
     });
   }
 
   newStep() {
     console.log('newStep()');
-    this.currentStepNumber = this.currentLab.steps.length + 1;
     this.currentLab.steps.push({
       title: 'Nuevo título'
     });
+    this.currentStepNumber = this.currentLab.steps.length - 1;
+    this.currentStep = this.currentLab.steps[this.currentStepNumber];
   }
 
   setStep(position: number) {

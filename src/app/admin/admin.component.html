@@ -23,7 +23,7 @@
       <h2>Steps</h2>
 
       <ul class="pagination">
-        <li class="page-item" *ngFor="let x of currentLab.steps; let i = index;">
+        <li class="page-item" *ngFor="let x of currentLab.steps; let i = index;" [class.active]="currentStepNumber == i">
           <a class="page-link" (click)="setStep(i)">{{ i }}</a>
         </li>
       </ul>
