@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-lg-8">
-    <form>
+    <form (ngSubmit)="saveLab()">
       <div class="form-group">
         <label for="titleLab">Title</label>
         <input type="text" class="form-control" id="titleLab" aria-describedby="Title"
                placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
-        <small id="emailHelp" class="form-text text-muted">Identifier auto-generated: {{currentLab.title}}</small>
+        <small id="emailHelp" class="form-text text-muted">Identifier: {{currentLab.$key}}</small>
       </div>
       <div class="form-group">
         <label for="techLab">Technology</label>
@@ -22,7 +22,11 @@
 
       <h2>Steps</h2>
 
-      <ngb-pagination [collectionSize]="currentLab.steps?.length * 10" [(page)]="currentStepNumber" [directionLinks]="false" (click)="goStepSelect()"></ngb-pagination>
+      <ul class="pagination">
+        <li class="page-item" *ngFor="let x of currentLab.steps; let i = index;">
+          <a class="page-link" (click)="setStep(i)">{{ i }}</a>
+        </li>
+      </ul>
 
       <button type="button" class="btn btn-secondary btn-sm" (click)="newStep()">New step</button>
 
@@ -33,10 +37,13 @@
         <input type="text" class="form-control" id="stepTitle" aria-describedby="stepTitle"
                placeholder="Title" [(ngModel)]="currentStep.title" name="Step Title">
       </div>
+
       <div class="form-group">
-        <label for="exampleTextarea">Content</label>
-        <textarea class="form-control" id="exampleTextarea" rows="20" [(ngModel)]="currentStep.content" name="Content"></textarea>
+        <label for="contentStep">Content</label>
+        <textarea class="form-control" id="contentStep" rows="20" [(ngModel)]="currentStep.content"
+                  name="Content"></textarea>
       </div>
+
       <button type="submit" class="btn btn-primary">Save</button>
 
 

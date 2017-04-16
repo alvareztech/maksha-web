@@ -8,9 +8,9 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  currentLab = {  };
-  currentStep = {  };
-  saveLab = true; // update otherwise
+  currentLab = {steps: []};
+  currentStep = {};
+  isSaveLab = true; // update otherwise
 
   labsPreview: FirebaseListObservable<any>;
   lab: FirebaseObjectObservable<any>;
@@ -29,10 +29,18 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
+  saveLab() {
+    this.currentLab.steps[this.currentStepNumber] = this.currentStep;
+    console.log('saveLab(): %j', this.currentLab);
+    // this.lab.update({
+    //   technology: 'ios'
+    // });
+  }
+
   goLab(id: string) {
     console.log('Id ' + id + ' pressed');
 
-    this.saveLab = false;
+    this.isSaveLab = false;
     this.lab = this.af.database.object('/labs/' + id);
     this.lab.forEach(value => {
       console.log('Lab: %j', value);
@@ -43,11 +51,17 @@ export class AdminComponent implements OnInit {
   }
 
   newStep() {
-    console.log('New step pressed');
+    console.log('newStep()');
+    this.currentStepNumber = this.currentLab.steps.length + 1;
+    this.currentLab.steps.push({
+      title: 'Nuevo título'
+    });
   }
 
-  goStepSelect() {
-    console.log('goStepSelect()');
+  setStep(position: number) {
+    console.log('setStep():' + position);
+    this.currentStepNumber = position;
+    this.currentStep = this.currentLab.steps[this.currentStepNumber];
   }
 
   // const article = this.af.database.list('articles');
