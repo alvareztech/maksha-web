@@ -15,6 +15,7 @@ import { LabDetailComponent } from './lab-detail/lab-detail.component';
 import { HomeComponent } from './home/home.component';
 import {TechnologyService} from './services/technology.service';
 import { AdminComponent } from './admin/admin.component';
+import { MarkdownPipe } from './pipes/markdown.pipe';
 
 const firebaseAuthConfig = {
   provider: AuthProviders.Google,
@@ -27,7 +28,8 @@ const firebaseAuthConfig = {
     LabListComponent,
     LabDetailComponent,
     HomeComponent,
-    AdminComponent
+    AdminComponent,
+    MarkdownPipe
   ],
   imports: [
     BrowserModule,

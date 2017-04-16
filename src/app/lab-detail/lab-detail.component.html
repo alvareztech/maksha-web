@@ -15,7 +15,7 @@
         {{ currentTitle }}
       </h2>
     </div>
-    <div [innerHtml]="currentContent"></div>
+    <div [innerHtml]="currentContent | markdown"></div>
 
     <hr>
 
