@@ -2,34 +2,40 @@
   <div class="col-lg-8">
     <form>
       <div class="form-group">
-        <label for="exampleInputEmail1">Title</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-               placeholder="Title">
-        <small id="emailHelp" class="form-text text-muted">Identifier auto-generated:</small>
+        <label for="titleLab">Title</label>
+        <input type="text" class="form-control" id="titleLab" aria-describedby="Title"
+               placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
+        <small id="emailHelp" class="form-text text-muted">Identifier auto-generated: {{currentLab.title}}</small>
       </div>
       <div class="form-group">
-        <label for="exampleSelect1">Technology</label>
-        <select class="form-control" id="exampleSelect1">
-          <option *ngFor="let t of technologyService.getTechnologies()">{{ t.name }}</option>
+        <label for="techLab">Technology</label>
+        <select class="form-control" id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required>
+          <option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">{{ tech.name }}</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="exampleSelect2">Level</label>
-        <select class="form-control" id="exampleSelect2">
-          <option *ngFor="let t of technologyService.getLevels()">{{ t.name }}</option>
+        <label for="levelLab">Level</label>
+        <select class="form-control" id="levelLab" name="Level" [(ngModel)]="currentLab.level" name="Level" required>
+          <option *ngFor="let level of technologyService.getLevels()" [value]="level.id">{{ level.name }}</option>
         </select>
       </div>
+
       <h2>Steps</h2>
-      <ngb-pagination [collectionSize]="100" [(page)]="currentPage" [directionLinks]="false"></ngb-pagination>
+
+      <ngb-pagination [collectionSize]="currentLab.steps?.length * 10" [(page)]="currentStepNumber" [directionLinks]="false" (click)="goStepSelect()"></ngb-pagination>
+
       <button type="button" class="btn btn-secondary btn-sm" (click)="newStep()">New step</button>
+
+      {{ (currentLab.steps?.length > 0) ? currentLab.steps[0] : 'No steps'}}
+
       <div class="form-group">
         <label for="stepTitle">Title</label>
         <input type="text" class="form-control" id="stepTitle" aria-describedby="stepTitle"
-               placeholder="Title">
+               placeholder="Title" [(ngModel)]="currentStep.title" name="Step Title">
       </div>
       <div class="form-group">
         <label for="exampleTextarea">Content</label>
-        <textarea class="form-control" id="exampleTextarea" rows="20"></textarea>
+        <textarea class="form-control" id="exampleTextarea" rows="20" [(ngModel)]="currentStep.content" name="Content"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Save</button>
 

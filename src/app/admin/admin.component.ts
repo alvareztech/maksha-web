@@ -8,12 +8,14 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  currentLab = {  };
+  currentStep = {  };
   saveLab = true; // update otherwise
 
   labsPreview: FirebaseListObservable<any>;
   lab: FirebaseObjectObservable<any>;
 
-  currentPage = 3;
+  currentStepNumber = 0;
 
   constructor(private technologyService: TechnologyService, private af: AngularFire) {
     this.labsPreview = af.database.list('/previews', {
@@ -34,11 +36,21 @@ export class AdminComponent implements OnInit {
     this.lab = this.af.database.object('/labs/' + id);
     this.lab.forEach(value => {
       console.log('Lab: %j', value);
+      this.currentLab = value;
+      this.currentStep = value.steps[0];
+      this.currentStepNumber = 1;
     });
   }
 
   newStep() {
     console.log('New step pressed');
   }
+
+  goStepSelect() {
+    console.log('goStepSelect()');
+  }
+
+  // const article = this.af.database.list('articles');
+  // article.update(this.article.link, this.article);
 
 }
