@@ -8,15 +8,20 @@
 </div>
 <div class="row">
   <div class="col-lg-8">
-    <span class="badge badge-primary">{{ currentStep + 1 }}</span>
-    <h2>
-      {{ currentTitle }}
-    </h2>
+
+    <div *ngIf="currentStep > 0">
+      <h2>
+      <span class="badge badge-primary">{{ currentStep }}</span>
+        {{ currentTitle }}
+      </h2>
+    </div>
     <div [innerHtml]="currentContent"></div>
 
     <hr>
 
-    <button type="button" class="btn btn-outline-primary" (click)="goNextStep()">Siguiente</button>
+    <button type="button" class="btn btn-outline-primary" (click)="goNextStep()">
+      {{ currentStep === 0 ? 'Iniciar' : 'Siguiente'}}
+    </button>
   </div>
 
   <div class="col-lg-3 offset-lg-1 sidebar-offcanvas">
@@ -30,9 +35,10 @@
     </div>
 
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let step of (lab | async)?.steps; let i = index;"
+      <li class="list-group-item"
+          *ngFor="let step of (lab | async)?.steps; let i = index;"
           (click)="changeStep(i, step.title, step.content)">
-        <span class="badge badge-primary">{{ i + 1 }}</span>
+        <span class="badge badge-primary" *ngIf="i > 0">{{ i }}</span>
         &nbsp;
         {{ step.title }}
       </li>

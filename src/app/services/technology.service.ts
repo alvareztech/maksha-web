@@ -60,12 +60,20 @@ export class TechnologyService {
   constructor() {
   }
 
+  getTechnologies(): Technology[] {
+    return this.technologies;
+  }
+
   getTechnology(id: string): Technology {
     return this.technologies.find(x => x.id === id);
   }
 
   getLevel(id: number): Level {
     return this.levels.find(x => x.id === id);
+  }
+
+  getLevels(): Level[] {
+    return this.levels;
   }
 
 }

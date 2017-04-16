@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-lg-8">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="Title">
+        <small id="emailHelp" class="form-text text-muted">Identifier auto-generated:</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1">Technology</label>
+        <select class="form-control" id="exampleSelect1">
+          <option *ngFor="let t of technologyService.getTechnologies()">{{ t.name }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect2">Level</label>
+        <select class="form-control" id="exampleSelect2">
+          <option *ngFor="let t of technologyService.getLevels()">{{ t.name }}</option>
+        </select>
+      </div>
+      <h2>Steps</h2>
+      <ngb-pagination [collectionSize]="100" [(page)]="currentPage" [directionLinks]="false"></ngb-pagination>
+      <button type="button" class="btn btn-secondary btn-sm" (click)="newStep()">New step</button>
+      <div class="form-group">
+        <label for="stepTitle">Title</label>
+        <input type="text" class="form-control" id="stepTitle" aria-describedby="stepTitle"
+               placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea">Content</label>
+        <textarea class="form-control" id="exampleTextarea" rows="20"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+
+
+    </form>
+  </div>
+  <div class="col-lg-4">
+    <h4>Labs</h4>
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action flex-column align-items-start"
+         *ngFor="let lab of labsPreview | async" (click)="goLab(lab.$key)">
+        <h5 class="mb-1">{{ lab.title }}</h5>
+        <small>{{ lab.technology }}</small>
+      </a>
+    </div>
+  </div>
+</div>

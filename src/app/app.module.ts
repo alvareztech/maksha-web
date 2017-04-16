@@ -14,6 +14,7 @@ import { LabListComponent } from './lab-list/lab-list.component';
 import { LabDetailComponent } from './lab-detail/lab-detail.component';
 import { HomeComponent } from './home/home.component';
 import {TechnologyService} from './services/technology.service';
+import { AdminComponent } from './admin/admin.component';
 
 const firebaseAuthConfig = {
   provider: AuthProviders.Google,
@@ -25,7 +26,8 @@ const firebaseAuthConfig = {
     AppComponent,
     LabListComponent,
     LabDetailComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
