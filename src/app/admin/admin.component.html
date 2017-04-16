@@ -2,19 +2,16 @@
   <div class="col-lg-8">
     <form (ngSubmit)="saveLab()">
       <div class="form-group">
-        <label for="titleLab">Title</label>
         <input type="text" class="form-control" id="titleLab" aria-describedby="Title"
                placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
         <small id="emailHelp" class="form-text text-muted">Identifier: {{currentLab.$key}}</small>
       </div>
       <div class="form-group">
-        <label for="techLab">Technology</label>
         <select class="form-control" id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required>
           <option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">{{ tech.name }}</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="levelLab">Level</label>
         <select class="form-control" id="levelLab" name="Level" [(ngModel)]="currentLab.level" name="Level" required>
           <option *ngFor="let level of technologyService.getLevels()" [value]="level.id">{{ level.name }}</option>
         </select>
@@ -22,24 +19,22 @@
 
       <h2>Steps</h2>
 
-      <ul class="pagination">
-        <li class="page-item" *ngFor="let x of currentLab.steps; let i = index;" [class.active]="currentStepNumber == i">
-          <a class="page-link" (click)="setStep(i)">{{ i }}</a>
-        </li>
-      </ul>
-
-      <button type="button" class="btn btn-secondary btn-sm" (click)="newStep()">New step</button>
-
-      {{ (currentLab.steps?.length > 0) ? currentLab.steps[0] : 'No steps'}}
+      <div class="form-group">
+        <ul class="pagination">
+          <li class="page-item" *ngFor="let x of currentLab.steps; let i = index;"
+              [class.active]="currentStepNumber == i">
+            <a class="page-link" (click)="setStep(i)">{{ i }}</a>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-secondary btn-sm" (click)="newStep()">New step</button>
+      </div>
 
       <div class="form-group">
-        <label for="stepTitle">Title</label>
         <input type="text" class="form-control" id="stepTitle" aria-describedby="stepTitle"
                placeholder="Title" [(ngModel)]="currentStep.title" name="Step Title">
       </div>
 
       <div class="form-group">
-        <label for="contentStep">Content</label>
         <textarea class="form-control" id="contentStep" rows="20" [(ngModel)]="currentStep.content"
                   name="Content"></textarea>
       </div>

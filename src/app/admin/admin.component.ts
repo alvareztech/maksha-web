@@ -33,12 +33,12 @@ export class AdminComponent implements OnInit {
   saveLab() {
     this.currentLab.steps[this.currentStepNumber] = this.currentStep;
     console.log('saveLab(): %j', this.currentLab);
-    this.currentLab['updated'] = new Date();
+    this.currentLab['updated'] = new Date().getTime();
     this.lab.update(this.currentLab);
     this.labsPreview.update(this.currentLab['$key'], {
       title: this.currentLab['title'],
       category: 'lab',
-      updated: new Date(),
+      updated: new Date().getTime(),
       technology: this.currentLab['technology']
     });
   }
