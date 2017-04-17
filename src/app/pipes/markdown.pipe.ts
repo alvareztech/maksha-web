@@ -34,6 +34,10 @@ export class MarkdownPipe implements PipeTransform {
           newValue += '<li>' + line.substring(2, line.length) + '</li>';
         } else if (line.length === 0) {
           newValue += '';
+        } else if (line.startsWith('[')) {
+          const url = line.substring(line.indexOf('(') + 1, line.indexOf(')'));
+          const show = line.substring(line.indexOf('[') + 1, line.indexOf(']'));
+          newValue += '<a class="btn btn-outline-primary mb-3" href="' + url + '" target="_blank">' + show + '</a>';
         } else if (line.startsWith('![')) {
           const imageUrl = line.substring(line.indexOf('(') + 1, line.indexOf(')'));
           const imageAlt = line.substring(line.indexOf('[') + 1, line.indexOf(']'));
