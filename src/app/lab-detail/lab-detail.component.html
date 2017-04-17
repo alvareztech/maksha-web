@@ -37,9 +37,11 @@
     </div>
 
     <ul class="list-group">
-      <li class="list-group-item"
+      <li class="list-group-item list-group-item-action"
           *ngFor="let step of (lab | async)?.steps; let i = index;"
-          (click)="changeStep(i, step.title, step.content)">
+          (click)="changeStep(i, step.title, step.content)"
+          [class.active]="currentStepNumber === i"
+      >
         <span class="badge badge-primary" *ngIf="i > 0">{{ i }}</span>
         &nbsp;
         {{ step.title }}
