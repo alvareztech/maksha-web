@@ -40,7 +40,7 @@ export class MarkdownPipe implements PipeTransform {
           console.log('Alt:' + imageAlt);
           newValue += '<img src="' + imageUrl + '" alt="' + imageAlt + '">';
         } else {
-          newValue += '<p>' + line.replace(' `', ' <code>').replace('` ', '</code> ') + '</p>';
+          newValue += '<p>' + line.replace(' `', ' <code>').replace('`', '</code>') + '</p>';
         }
       }
       return newValue;
