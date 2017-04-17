@@ -11,7 +11,7 @@ export class MarkdownPipe implements PipeTransform {
       const lines = value.split('\n');
       let newValue = '';
       for (const line of lines) {
-        console.log('-> ' + line);
+        // console.log('-> ' + line);
         // Pre questions
         if (isContinueUl && !line.startsWith('* ')) {
           newValue += '</ul>';
@@ -34,6 +34,11 @@ export class MarkdownPipe implements PipeTransform {
           newValue += '<li>' + line.substring(2, line.length) + '</li>';
         } else if (line.length === 0) {
           newValue += '';
+        } else if (line.startsWith('![')) {
+          const imageUrl = line.substring(line.indexOf('(') + 1, line.indexOf(')'));
+          const imageAlt = line.substring(line.indexOf('[') + 1, line.indexOf(']'));
+          console.log('Alt:' + imageAlt);
+          newValue += '<img src="' + imageUrl + '" alt="' + imageAlt + '">';
         } else {
           newValue += '<p>' + line.replace(' `', ' <code>').replace('` ', '</code> ') + '</p>';
         }

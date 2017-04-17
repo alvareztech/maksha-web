@@ -9,3 +9,9 @@
 .card.title-lab img {
   height: 40px;
 }
+:host >>> .lab-content img {
+  display: block;
+  margin: auto auto 1em;
+  max-width: 100%;
+  /*background-color: #8484bd;*/
+}
