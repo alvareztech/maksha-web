@@ -35,7 +35,7 @@ export class MarkdownPipe implements PipeTransform {
         } else if (line.length === 0) {
           newValue += '';
         } else {
-          newValue += '<p>' + line + '</p>';
+          newValue += '<p>' + line.replace(' `', ' <code>').replace('` ', '</code> ') + '</p>';
         }
       }
       return newValue;
