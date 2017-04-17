@@ -17,7 +17,7 @@ export class LabDetailComponent implements OnInit {
   currentStep: number;
   labObject: object;
 
-  constructor(private route: ActivatedRoute, private af: AngularFire, private technologyService: TechnologyService) {
+  constructor(private route: ActivatedRoute, private af: AngularFire, public technologyService: TechnologyService) {
   }
 
   ngOnInit() {

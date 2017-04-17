@@ -8,8 +8,17 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  currentLab = {steps: []};
-  currentStep = {};
+  currentLab = {
+    $key: '',
+    title: '',
+    level: 0,
+    technology: '',
+    steps: []
+  };
+  currentStep = {
+    title: '',
+    content: ''
+  };
   isSaveLab = true; // update otherwise
 
   labsPreview: FirebaseListObservable<any>;
@@ -18,7 +27,7 @@ export class AdminComponent implements OnInit {
 
   currentStepNumber = 0;
 
-  constructor(private technologyService: TechnologyService, private af: AngularFire) {
+  constructor(public technologyService: TechnologyService, private af: AngularFire) {
     this.labsPreview = af.database.list('/previews', {
       query: {
         orderByChild: 'category',
@@ -43,12 +52,12 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  goLab(id: string) {
-    console.log('Id ' + id + ' pressed');
+  goLab(o: any) {
+    console.log('Id ' + o.$key + ' pressed');
 
     this.isSaveLab = false;
-    this.lab = this.af.database.object('/labs/' + id);
-    this.labPreview = this.af.database.object('/previews/' + id);
+    this.lab = this.af.database.object('/labs/' + o.$key);
+    this.labPreview = this.af.database.object('/previews/' + o.$key);
 
     this.lab.forEach(value => {
       console.log('Lab: %j', value);

@@ -4,7 +4,7 @@
       <div class="form-group">
         <input type="text" class="form-control" id="titleLab" aria-describedby="Title"
                placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
-        <small id="emailHelp" class="form-text text-muted">Identifier: {{currentLab.$key}}</small>
+        <small id="emailHelp" class="form-text text-muted">Identifier: {{currentLab?.$key}}</small>
       </div>
       <div class="form-group">
         <select class="form-control" id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required>
@@ -48,7 +48,7 @@
     <h4>Labs</h4>
     <div class="list-group">
       <a class="list-group-item list-group-item-action flex-column align-items-start"
-         *ngFor="let lab of labsPreview | async" (click)="goLab(lab.$key)">
+         *ngFor="let lab of labsPreview | async" (click)="goLab(lab)">
         <h5 class="mb-1">{{ lab.title }}</h5>
         <small>{{ lab.technology }}</small>
       </a>
