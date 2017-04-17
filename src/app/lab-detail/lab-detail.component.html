@@ -7,21 +7,22 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-8 mb-4">
 
-    <div *ngIf="currentStep > 0">
+    <div *ngIf="currentStepNumber > 0">
       <h2>
-      <span class="badge badge-primary">{{ currentStep }}</span>
-        {{ currentTitle }}
+        <span class="badge badge-primary">{{ currentStepNumber }}</span>
+        {{ currentStep.title }}
       </h2>
     </div>
-    <div class="lab-content" [innerHtml]="currentContent | markdown">
+    <div class="lab-content" [innerHtml]="currentStep.content | markdown">
     </div>
 
     <hr>
 
-    <button type="button" class="btn btn-outline-primary" (click)="goNextStep()">
-      {{ currentStep === 0 ? 'Iniciar' : 'Siguiente'}}
+    <button type="button" class="btn btn-outline-primary" (click)="goNextStep()"
+            *ngIf="currentStepNumber < totalStepsNumber-1">
+      {{ currentStepNumber === 0 ? 'Iniciar' : 'Siguiente'}}
     </button>
   </div>
 

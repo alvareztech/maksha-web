@@ -12,10 +12,16 @@ import {TechnologyService} from '../services/technology.service';
 export class LabDetailComponent implements OnInit {
 
   lab: FirebaseObjectObservable<any>;
-  currentTitle: string;
-  currentContent: string;
-  currentStep: number;
-  labObject: object;
+  currentStepNumber: number;
+  totalStepsNumber: number;
+  currentStep = {
+    title: '',
+    content: ''
+  };
+  labObject = {
+    title: '',
+    steps: []
+  };
 
   constructor(private route: ActivatedRoute, private af: AngularFire, public technologyService: TechnologyService) {
   }
@@ -25,30 +31,24 @@ export class LabDetailComponent implements OnInit {
       console.log('Params:' + params['id']);
       this.lab = this.af.database.object('/labs/' + params['id']);
       this.lab.forEach(value => {
-        console.log('LabDetail: %j', value);
+        console.log('Lab: %j', value);
         this.labObject = value;
-        const step = value.steps[0];
-        this.currentStep = 0;
-        this.currentTitle = step.title;
-        this.currentContent = step.content;
+        this.currentStep = this.labObject.steps[0];
+        this.currentStepNumber = 0;
+        this.totalStepsNumber = this.labObject.steps.length;
       });
     });
   }
 
-  changeStep(i: number, title: string, content: string) {
+  changeStep(i: number) {
     console.log('step selected: ' + i);
-    this.currentStep = i;
-    this.currentTitle = title;
-    this.currentContent = content;
+    this.currentStepNumber = i;
+    this.currentStep = this.labObject.steps[this.currentStepNumber];
   }
 
   goNextStep() {
-    console.log('goNextStep pressed: %j', this.labObject);
-    // const step = value.steps[0];
-    // this.currentStep = 0;
-    // this.currentTitle = step.title;
-    // this.currentContent = step.content;
-    // const step = this.labObject.steps[0];
+    this.currentStepNumber++;
+    this.currentStep = this.labObject.steps[this.currentStepNumber];
   }
 
 }

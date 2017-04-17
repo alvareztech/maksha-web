@@ -37,7 +37,6 @@ export class MarkdownPipe implements PipeTransform {
         } else if (line.startsWith('![')) {
           const imageUrl = line.substring(line.indexOf('(') + 1, line.indexOf(')'));
           const imageAlt = line.substring(line.indexOf('[') + 1, line.indexOf(']'));
-          console.log('Alt:' + imageAlt);
           newValue += '<img src="' + imageUrl + '" alt="' + imageAlt + '">';
         } else {
           newValue += '<p>' + line.replace(' `', ' <code>').replace('`', '</code>') + '</p>';
