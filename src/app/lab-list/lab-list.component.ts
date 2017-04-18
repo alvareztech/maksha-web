@@ -15,8 +15,8 @@ export class LabListComponent implements OnInit {
   constructor(af: AngularFire, private technologyService: TechnologyService) {
     this.labsPreview = af.database.list('/previews', {
       query: {
-        orderByChild: 'category',
-        equalTo: 'lab'
+        orderByChild: 'published',
+        equalTo: true,
       }
     });
   }
