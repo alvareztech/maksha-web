@@ -28,10 +28,9 @@ export class AdminComponent implements OnInit {
   currentStepNumber = 0;
 
   constructor(public technologyService: TechnologyService, private af: AngularFire) {
-    this.labsPreview = af.database.list('/previews', {
+    this.labsPreview = af.database.list('/previews/labs', {
       query: {
-        orderByChild: 'category',
-        equalTo: 'lab'
+        orderByChild: 'technology'
       }
     });
   }
@@ -57,7 +56,7 @@ export class AdminComponent implements OnInit {
 
     this.isSaveLab = false;
     this.lab = this.af.database.object('/labs/' + o.$key);
-    this.labPreview = this.af.database.object('/previews/' + o.$key);
+    this.labPreview = this.af.database.object('/previews/labs/' + o.$key);
 
     this.lab.forEach(value => {
       console.log('Lab: %j', value);

@@ -13,7 +13,7 @@ export class LabListComponent implements OnInit {
   labsPreview: FirebaseListObservable<any>;
 
   constructor(af: AngularFire, private technologyService: TechnologyService) {
-    this.labsPreview = af.database.list('/previews', {
+    this.labsPreview = af.database.list('/previews/labs', {
       query: {
         orderByChild: 'published',
         equalTo: true,

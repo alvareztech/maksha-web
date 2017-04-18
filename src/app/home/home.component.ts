@@ -13,17 +13,17 @@ export class HomeComponent implements OnInit {
   articlesPreview: FirebaseListObservable<any>;
 
   constructor(af: AngularFire, private technologyService: TechnologyService) {
-    this.labsPreview = af.database.list('/previews', {
+    this.labsPreview = af.database.list('/previews/labs', {
       query: {
-        orderByChild: 'category',
-        equalTo: 'lab',
+        orderByChild: 'published',
+        equalTo: true,
         limitToFirst: 3
       }
     });
-    this.articlesPreview = af.database.list('/previews', {
+    this.articlesPreview = af.database.list('/previews/articles', {
       query: {
-        orderByChild: 'category',
-        equalTo: 'article',
+        orderByChild: 'published',
+        equalTo: true,
         limitToFirst: 3
       }
     });
