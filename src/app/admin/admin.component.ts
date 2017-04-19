@@ -8,6 +8,7 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  successMessage = '';
   currentLab = {
     $key: '',
     title: '',
@@ -49,6 +50,10 @@ export class AdminComponent implements OnInit {
       category: 'lab',
       updated: new Date().getTime(),
       technology: this.currentLab['technology'],
+    }).then(a => {
+      this.successMessage = 'se guardo correctamente';
+    }).catch(a => {
+      this.successMessage = 'error';
     });
     if (this.isNewLab) {
       this.labs.update(this.currentLab['$key'], {
