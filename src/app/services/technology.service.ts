@@ -21,6 +21,10 @@ export class TechnologyService {
     {
       id: 4,
       name: 'Desafiante'
+    },
+    {
+      id: 5,
+      name: 'Desafiante'
     }
   ];
 
