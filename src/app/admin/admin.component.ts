@@ -19,15 +19,17 @@ export class AdminComponent implements OnInit {
     title: '',
     content: ''
   };
-  isSaveLab = true; // update otherwise
+  isNewLab = true; // update otherwise
 
+  labPreview: FirebaseObjectObservable<any>;
   labsPreview: FirebaseListObservable<any>;
   lab: FirebaseObjectObservable<any>;
-  labPreview: FirebaseObjectObservable<any>;
+  labs: FirebaseListObservable<any>;
 
   currentStepNumber = 0;
 
   constructor(public technologyService: TechnologyService, private af: AngularFire) {
+    this.labs = af.database.list('/labs');
     this.labsPreview = af.database.list('/previews/labs', {
       query: {
         orderByChild: 'technology'
@@ -42,19 +44,31 @@ export class AdminComponent implements OnInit {
     this.currentLab.steps[this.currentStepNumber] = this.currentStep;
     console.log('saveLab(): %j', this.currentLab);
     this.currentLab['updated'] = new Date().getTime();
-    this.lab.update(this.currentLab);
     this.labsPreview.update(this.currentLab['$key'], {
       title: this.currentLab['title'],
       category: 'lab',
       updated: new Date().getTime(),
-      technology: this.currentLab['technology']
+      technology: this.currentLab['technology'],
     });
+    if (this.isNewLab) {
+      this.labs.update(this.currentLab['$key'], {
+        title: this.currentLab['title'],
+        updated: new Date().getTime(),
+        technology: this.currentLab['technology'],
+        steps: [{
+          title: 'Resumen',
+          content: 'Resumen \n## Aprenderás\n* Primero\n##Requisitos\n*Otro'
+        }]
+      });
+    } else {
+      this.lab.update(this.currentLab);
+    }
   }
 
   goLab(o: any) {
     console.log('Id ' + o.$key + ' pressed');
 
-    this.isSaveLab = false;
+    this.isNewLab = false;
     this.lab = this.af.database.object('/labs/' + o.$key);
     this.labPreview = this.af.database.object('/previews/labs/' + o.$key);
 
@@ -81,7 +95,20 @@ export class AdminComponent implements OnInit {
     this.currentStep = this.currentLab.steps[this.currentStepNumber];
   }
 
-  // const article = this.af.database.list('articles');
-  // article.update(this.article.link, this.article);
+  newLab() {
+    this.isNewLab = true;
+    this.currentStepNumber = 0;
+    this.currentLab = {
+      $key: '',
+      title: 'New',
+      level: 1,
+      technology: '',
+      steps: []
+    };
+    this.currentStep = {
+      title: 'Resumen',
+      content: ''
+    };
+  }
 
 }

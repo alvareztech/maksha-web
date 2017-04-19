@@ -1,10 +1,14 @@
 <div class="row">
-  <div class="col-lg-8">
-    <form (ngSubmit)="saveLab()">
+  <div class="col-lg-9">
+    <form>
       <div class="form-group">
         <input type="text" class="form-control" id="titleLab" aria-describedby="Title"
                placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
-        <small id="emailHelp" class="form-text text-muted">Identifier: {{currentLab?.$key}}</small>
+        <small id="identifier" class="form-text text-muted">Identifier: {{currentLab?.$key}}</small>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="identifierLab" aria-describedby="Title" *ngIf="isNewLab"
+               placeholder="Identifier" [(ngModel)]="currentLab.$key" name="Identifier">
       </div>
       <div class="form-group">
         <select class="form-control" id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required>
@@ -17,7 +21,7 @@
         </select>
       </div>
 
-      <h2>Steps</h2>
+      <h3>Steps</h3>
 
       <div class="form-group">
         <ul class="pagination">
@@ -39,13 +43,13 @@
                   name="Content"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-primary" (click)="saveLab()">Save</button>
 
 
     </form>
   </div>
-  <div class="col-lg-4">
-    <h4>Labs</h4>
+  <div class="col-lg-3">
+    <h4>Labs</h4><button type="button" class="btn btn-secondary" (click)="newLab()">New</button>
     <div class="list-group">
       <a class="list-group-item list-group-item-action flex-column align-items-start"
          *ngFor="let lab of labsPreview | async" (click)="goLab(lab)">
