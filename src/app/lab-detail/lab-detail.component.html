@@ -1,7 +1,8 @@
 <div class="card title-lab text-center mb-4"
      [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
   <div class="card-block">
-    <img *ngIf="(lab | async)" class="pb-1" [src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"
+    <img *ngIf="(lab | async)" class="pb-1"
+         [src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"
          alt="{{ technologyService.getTechnology((lab | async)?.technology)?.name }}">
     <h1>{{ (lab | async)?.title }}</h1>
   </div>
@@ -15,7 +16,8 @@
         {{ currentStep.title }}
       </h2>
     </div>
-    <div class="lab-content" [innerHtml]="currentStep.content | markdown">
+
+    <div class="lab-content" [innerHtml]="currentStep.content | markdown | sanitizeHtml">
     </div>
 
     <hr>

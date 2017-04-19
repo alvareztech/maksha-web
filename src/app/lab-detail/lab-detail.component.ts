@@ -41,7 +41,6 @@ export class LabDetailComponent implements OnInit {
   }
 
   changeStep(i: number) {
-    console.log('step selected: ' + i);
     this.currentStepNumber = i;
     this.currentStep = this.labObject.steps[this.currentStepNumber];
   }
