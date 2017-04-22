@@ -1,4 +1,9 @@
-<div class="card title-lab text-center mb-4"
+<div class="progress" *ngIf="!(lab | async)">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+       aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+</div>
+
+<div class="card title-lab text-center mb-4" *ngIf="(lab | async)"
      [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
   <div class="card-block">
     <img *ngIf="(lab | async)" class="pb-1"
@@ -7,7 +12,9 @@
     <h1>{{ (lab | async)?.title }}</h1>
   </div>
 </div>
-<div class="row">
+
+<div class="row" *ngIf="(lab | async)">
+
   <div class="col-lg-8 mb-4">
 
     <div *ngIf="currentStepNumber > 0">

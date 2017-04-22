@@ -50,6 +50,7 @@ export class AdminComponent implements OnInit {
       category: 'lab',
       updated: new Date().getTime(),
       technology: this.currentLab['technology'],
+      level: this.currentLab['level']
     }).then(a => {
       this.successMessage = 'se guardo correctamente';
     }).catch(a => {
@@ -62,7 +63,7 @@ export class AdminComponent implements OnInit {
         technology: this.currentLab['technology'],
         steps: [{
           title: 'Resumen',
-          content: 'Resumen \n## Aprenderás\n* Primero\n##Requisitos\n*Otro'
+          content: 'Resumen \n\n## Aprenderás\n\n* Primero\n\n## Requisitos\n\n* Otro'
         }]
       });
     } else {
