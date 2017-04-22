@@ -52,9 +52,9 @@ export class AdminComponent implements OnInit {
       technology: this.currentLab['technology'],
       level: this.currentLab['level']
     }).then(a => {
-      this.successMessage = 'se guardo correctamente';
+      this.successMessage = 'Se guardo correctamente';
     }).catch(a => {
-      this.successMessage = 'error';
+      this.successMessage = 'Error';
     });
     if (this.isNewLab) {
       this.labs.update(this.currentLab['$key'], {
@@ -115,6 +115,11 @@ export class AdminComponent implements OnInit {
       title: 'Resumen',
       content: ''
     };
+  }
+
+  toNumber() {
+    this.currentLab['level'] = +this.currentLab['level'];
+    console.log(this.currentLab);
   }
 
 }
