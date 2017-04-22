@@ -61,12 +61,14 @@ export class AdminComponent implements OnInit {
         title: this.currentLab['title'],
         updated: new Date().getTime(),
         technology: this.currentLab['technology'],
+        level: +this.currentLab['level'],
         steps: [{
           title: 'Resumen',
           content: 'Resumen \n\n## Aprenderás\n\n* Primero\n\n## Requisitos\n\n* Otro'
         }]
       });
     } else {
+      this.currentLab['level'] = +this.currentLab['level'];
       this.lab.update(this.currentLab);
     }
   }
@@ -115,11 +117,6 @@ export class AdminComponent implements OnInit {
       title: 'Resumen',
       content: ''
     };
-  }
-
-  toNumber() {
-    this.currentLab['level'] = +this.currentLab['level'];
-    console.log(this.currentLab);
   }
 
 }
