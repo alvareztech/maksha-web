@@ -13,6 +13,7 @@
       >
       <div class="card-block">
         <h4 class="card-title">{{ lab.title }}</h4>
+        <h6 class="card-subtitle text-muted">{{ technologyService.getLevel(lab.level).name }}</h6>
         <p class="card-text">{{ lab.description }}</p>
         <p class="card-text">
           <small class="text-muted">{{ lab.updated | date }}</small>

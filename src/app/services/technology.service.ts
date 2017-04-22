@@ -24,7 +24,7 @@ export class TechnologyService {
     },
     {
       id: 5,
-      name: 'Desafiante'
+      name: 'Otro nivel'
     }
   ];
 

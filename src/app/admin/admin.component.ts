@@ -50,7 +50,7 @@ export class AdminComponent implements OnInit {
       category: 'lab',
       updated: new Date().getTime(),
       technology: this.currentLab['technology'],
-      level: this.currentLab['level']
+      level: +this.currentLab['level']
     }).then(a => {
       this.successMessage = 'Se guardo correctamente';
     }).catch(a => {
