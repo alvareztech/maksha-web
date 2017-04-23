@@ -14,6 +14,7 @@ export class AdminComponent implements OnInit {
     title: '',
     level: 0,
     technology: '',
+    published: false,
     steps: []
   };
   currentStep = {
@@ -45,6 +46,7 @@ export class AdminComponent implements OnInit {
         updated: new Date().getTime(),
         technology: this.currentLab['technology'],
         level: +this.currentLab['level'],
+        published: false,
         steps: [{
           title: 'Resumen',
           content: 'Resumen \n\n## Aprenderás\n\n* Primero\n\n## Requisitos\n\n* Otro'
@@ -93,6 +95,7 @@ export class AdminComponent implements OnInit {
       title: 'New',
       level: 1,
       technology: '',
+      published: false,
       steps: []
     };
     this.currentStep = {
