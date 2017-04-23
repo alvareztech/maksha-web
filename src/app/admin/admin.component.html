@@ -44,16 +44,24 @@
                   name="Content"></textarea>
       </div>
 
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" [(ngModel)]="currentLab.published" name="Published">
+          Published
+        </label>
+      </div>
+
       <button type="button" class="btn btn-primary" (click)="saveLab()">Save</button>
 
 
     </form>
   </div>
   <div class="col-lg-3">
-    <h4>Labs</h4><button type="button" class="btn btn-secondary" (click)="newLab()">New</button>
+    <h4>Labs</h4>
+    <button type="button" class="btn btn-secondary" (click)="newLab()">New</button>
     <div class="list-group">
       <a class="list-group-item list-group-item-action flex-column align-items-start"
-         *ngFor="let lab of labsPreview | async" (click)="goLab(lab)">
+         *ngFor="let lab of labs | async" (click)="goLab(lab)">
         <h6 class="mb-1">{{ lab.title }}</h6>
         <small>{{ lab.technology }}</small>
       </a>

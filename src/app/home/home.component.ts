@@ -15,15 +15,13 @@ export class HomeComponent implements OnInit {
   constructor(af: AngularFire, private technologyService: TechnologyService) {
     this.labsPreview = af.database.list('/previews/labs', {
       query: {
-        orderByChild: 'published',
-        equalTo: true,
+        orderByChild: 'updated',
         limitToFirst: 3
       }
     });
     this.articlesPreview = af.database.list('/previews/articles', {
       query: {
-        orderByChild: 'published',
-        equalTo: true,
+        orderByChild: 'updated',
         limitToFirst: 3
       }
     });

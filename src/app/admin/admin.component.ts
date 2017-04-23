@@ -22,8 +22,6 @@ export class AdminComponent implements OnInit {
   };
   isNewLab = true; // update otherwise
 
-  labPreview: FirebaseObjectObservable<any>;
-  labsPreview: FirebaseListObservable<any>;
   lab: FirebaseObjectObservable<any>;
   labs: FirebaseListObservable<any>;
 
@@ -31,11 +29,6 @@ export class AdminComponent implements OnInit {
 
   constructor(public technologyService: TechnologyService, private af: AngularFire) {
     this.labs = af.database.list('/labs');
-    this.labsPreview = af.database.list('/previews/labs', {
-      query: {
-        orderByChild: 'technology'
-      }
-    });
   }
 
   ngOnInit() {
@@ -45,17 +38,7 @@ export class AdminComponent implements OnInit {
     this.currentLab.steps[this.currentStepNumber] = this.currentStep;
     console.log('saveLab(): %j', this.currentLab);
     this.currentLab['updated'] = new Date().getTime();
-    this.labsPreview.update(this.currentLab['$key'], {
-      title: this.currentLab['title'],
-      category: 'lab',
-      updated: new Date().getTime(),
-      technology: this.currentLab['technology'],
-      level: +this.currentLab['level']
-    }).then(a => {
-      this.successMessage = 'Se guardo correctamente';
-    }).catch(a => {
-      this.successMessage = 'Error';
-    });
+    // this.successMessage = 'Se guardo correctamente';
     if (this.isNewLab) {
       this.labs.update(this.currentLab['$key'], {
         title: this.currentLab['title'],
@@ -78,7 +61,6 @@ export class AdminComponent implements OnInit {
 
     this.isNewLab = false;
     this.lab = this.af.database.object('/labs/' + o.$key);
-    this.labPreview = this.af.database.object('/previews/labs/' + o.$key);
 
     this.lab.forEach(value => {
       console.log('Lab: %j', value);
