@@ -1,9 +1,17 @@
 <section class="jumbotron">
-  <h1>Creación y capacitación</h1>
+  <h1>Creación & capacitación</h1>
   <p>Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
 </section>
 
-<h2>Labs</h2>
+<div class="text-divider d-flex">
+  <div class="mr-auto">
+    <h2>Labs</h2>
+  </div>
+  <div>
+    <button type="button" class="btn btn-outline-primary btn-sm" routerLink="labs">Ver más</button>
+  </div>
+</div>
+
 <div class="row">
 
   <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
@@ -16,7 +24,7 @@
       >
       <div class="card-block">
         <h4 class="card-title">{{ lab.title }}</h4>
-        <p class="card-text">{{ lab.description }}</p>
+        <p class="card-text">{{ technologyService.getLevel(lab.level).name }}</p>
         <p class="card-text">
           <small class="text-muted">{{ lab.updated | date }}</small>
         </p>
@@ -27,7 +35,16 @@
   </div>
 </div>
 
-<h2>Artículos</h2>
+<div class="text-divider d-flex">
+  <div class="mr-auto">
+    <h2>Artículos</h2>
+  </div>
+  <div>
+    <button type="button" class="btn btn-outline-primary btn-sm align-middle" routerLink="">Ver más</button>
+  </div>
+</div>
+
+
 <div class="row">
 
   <div class="col-12 col-md-6 col-lg-4" *ngFor="let article of articlesPreview | async">

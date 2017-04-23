@@ -3,11 +3,13 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
 .card.title-lab h1 {
+  font-family: 'PT Mono', monospace;
+  letter-spacing: -1px;
   font-size: 1.5rem;
-  font-weight: normal;
+  /*font-weight: normal;*/
 }
 .card.title-lab img {
-  height: 40px;
+  height: 2.5em;
 }
 :host >>> .lab-content img {
   display: block;

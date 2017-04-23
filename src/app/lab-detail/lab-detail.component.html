@@ -6,7 +6,7 @@
 <div class="card title-lab text-center mb-4" *ngIf="(lab | async)"
      [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
   <div class="card-block">
-    <img *ngIf="(lab | async)" class="pb-1"
+    <img *ngIf="(lab | async)" class="mb-1"
          [src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"
          alt="{{ technologyService.getTechnology((lab | async)?.technology)?.name }}">
     <h1>{{ (lab | async)?.title }}</h1>
