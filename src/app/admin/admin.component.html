@@ -1,16 +1,45 @@
-<div class="row">
-  <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
-  <div class="col-lg-9">
-    <form>
+<div class="row" *ngIf="!isLabSelected">
+  <div class="col-2">
+    <h4>Labs</h4>
+    <button type="button" class="btn btn-secondary" (click)="newLab()">New</button>
+  </div>
+  <div class="col-10">
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action flex-column align-items-start"
+         *ngFor="let lab of labs | async" (click)="goLab(lab)">
+        <h6 class="mb-1">{{ lab.title }}</h6>
+        <small>{{ lab.technology }}</small>
+      </a>
+    </div>
+  </div>
+</div>
+<form>
+  <div class="row" *ngIf="isLabSelected">
+    <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+    <div class="col-lg-9">
       <div class="form-group">
         <input type="text" class="form-control" id="titleLab" aria-describedby="Title"
                placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
-        <small id="identifier" class="form-text text-muted">Identifier: {{currentLab?.$key}}</small>
+        <small id="identifier" class="form-text text-muted">Identifier: <a href="https://beta.alvarez.tech/labs/{{ currentLab?.$key }}" target="_blank">{{currentLab?.$key}}</a>
+        </small>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" id="identifierLab" aria-describedby="Title" *ngIf="isNewLab"
                placeholder="Identifier" [(ngModel)]="currentLab.$key" name="Identifier">
       </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" id="stepTitle" aria-describedby="stepTitle"
+               placeholder="Title" [(ngModel)]="currentStep.title" name="Step Title">
+      </div>
+
+      <div class="form-group">
+        <textarea class="form-control" id="contentStep" rows="25" [(ngModel)]="currentStep.content"
+                  name="Content"></textarea>
+      </div>
+
+    </div>
+    <div class="col-lg-3">
       <div class="form-group">
         <select class="form-control" id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required>
           <option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">{{ tech.name }}</option>
@@ -21,11 +50,8 @@
           <option *ngFor="let level of technologyService.getLevels()" [value]="level.id">{{ level.name }}</option>
         </select>
       </div>
-
-      <h3>Steps</h3>
-
       <div class="form-group">
-        <ul class="pagination">
+        <ul class="pagination pagination-sm">
           <li class="page-item" *ngFor="let x of currentLab.steps; let i = index;"
               [class.active]="currentStepNumber == i">
             <a class="page-link" (click)="setStep(i)">{{ i }}</a>
@@ -33,38 +59,14 @@
         </ul>
         <button type="button" class="btn btn-secondary btn-sm" (click)="newStep()">New step</button>
       </div>
-
-      <div class="form-group">
-        <input type="text" class="form-control" id="stepTitle" aria-describedby="stepTitle"
-               placeholder="Title" [(ngModel)]="currentStep.title" name="Step Title">
-      </div>
-
-      <div class="form-group">
-        <textarea class="form-control" id="contentStep" rows="30" [(ngModel)]="currentStep.content"
-                  name="Content"></textarea>
-      </div>
-
       <div class="form-check">
         <label class="form-check-label">
           <input type="checkbox" class="form-check-input" [(ngModel)]="currentLab.published" name="Published">
           Published
         </label>
       </div>
-
       <button type="button" class="btn btn-primary" (click)="saveLab()">Save</button>
-
-
-    </form>
-  </div>
-  <div class="col-lg-3">
-    <h4>Labs</h4>
-    <button type="button" class="btn btn-secondary" (click)="newLab()">New</button>
-    <div class="list-group">
-      <a class="list-group-item list-group-item-action flex-column align-items-start"
-         *ngFor="let lab of labs | async" (click)="goLab(lab)">
-        <h6 class="mb-1">{{ lab.title }}</h6>
-        <small>{{ lab.technology }}</small>
-      </a>
+      <button type="button" class="btn btn-outline-primary" (click)="returnLabs()">Back</button>
     </div>
   </div>
-</div>
+</form>

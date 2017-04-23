@@ -28,6 +28,8 @@ export class AdminComponent implements OnInit {
 
   currentStepNumber = 0;
 
+  isLabSelected = false;
+
   constructor(public technologyService: TechnologyService, private af: AngularFire) {
     this.labs = af.database.list('/labs');
   }
@@ -60,6 +62,8 @@ export class AdminComponent implements OnInit {
 
   goLab(o: any) {
     console.log('Id ' + o.$key + ' pressed');
+
+    this.isLabSelected = true;
 
     this.isNewLab = false;
     this.lab = this.af.database.object('/labs/' + o.$key);
@@ -102,6 +106,10 @@ export class AdminComponent implements OnInit {
       title: 'Resumen',
       content: ''
     };
+  }
+
+  returnLabs() {
+    this.isLabSelected = false;
   }
 
 }
