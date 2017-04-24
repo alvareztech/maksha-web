@@ -92,6 +92,7 @@ export class AdminComponent implements OnInit {
   }
 
   newLab() {
+    this.isLabSelected = true;
     this.isNewLab = true;
     this.currentStepNumber = 0;
     this.currentLab = {
