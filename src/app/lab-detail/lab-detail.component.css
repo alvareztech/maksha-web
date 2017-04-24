@@ -20,3 +20,12 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
   /*background-color: #8484bd;*/
 }
+:host >>> pre {
+  background-color: #F6F9FC;
+  padding: 1em 1em 1em 1em;
+  border-radius: 0.5em;
+}
+:host >>> code {
+  color: #32325D;
+  background-color: #F6F9FC;
+}
