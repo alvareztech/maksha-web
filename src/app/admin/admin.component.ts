@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TechnologyService} from '../services/technology.service';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-admin',
@@ -40,7 +41,7 @@ export class AdminComponent implements OnInit {
   saveLab() {
     this.currentLab.steps[this.currentStepNumber] = this.currentStep;
     console.log('saveLab(): %j', this.currentLab);
-    this.currentLab['updated'] = new Date().getTime();
+    this.currentLab['updated'] = firebase.database.ServerValue.TIMESTAMP;
     // this.successMessage = 'Se guardo correctamente';
     if (this.isNewLab) {
       this.labs.update(this.currentLab['$key'], {
