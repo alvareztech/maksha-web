@@ -45,7 +45,7 @@ export class AdminComponent implements OnInit {
     if (this.isNewLab) {
       this.labs.update(this.currentLab['$key'], {
         title: this.currentLab['title'],
-        updated: new Date().getTime(),
+        updated: firebase.database.ServerValue.TIMESTAMP,
         technology: this.currentLab['technology'],
         level: +this.currentLab['level'],
         published: false,
