@@ -8,7 +8,6 @@ import {AngularFire} from 'angularfire2';
 })
 export class AppComponent {
   title = 'ALVAREZ.tech';
-  public isCollapsed = true;
 
   constructor(public af: AngularFire) {
   }

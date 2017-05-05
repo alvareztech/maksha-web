@@ -1,9 +1,33 @@
-body {
-  /*min-height: 75rem;*/
-  padding-top: 4.5rem;
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "https://fonts.googleapis.com/css?family=Material+Icons";
+@import "https://fonts.googleapis.com/css?family=Roboto:400,300";
+
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:500";
+@import "https://fonts.googleapis.com/css?family=Merriweather:300";
+
+html, body {
+  display: flex;
+  flex-direction: column;
+
+  font-family: Merriweather, Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+
+  background-color: #cccccc;
 }
 
-.container {
-  max-width: 60rem;
-  /*background-color: aqua;*/
-}
+/*body {*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*background-color: #fbfbfe;*/
+/*}*/
+
+/*body {*/
+  /*!*min-height: 75rem;*!*/
+  /*padding-top: 4.5rem;*/
+/*}*/
+
+/*.container {*/
+  /*max-width: 60rem;*/
+  /*!*background-color: aqua;*!*/
+/*}*/

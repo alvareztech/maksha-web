@@ -1,24 +1,26 @@
-<section class="jumbotron">
-  <h1>Labs</h1>
-  <p>Laboratorios para completarlos paso a paso</p>
-</section>
+<h1>Labs</h1>
+<p>Laboratorios para completarlos paso a paso</p>
 
-<div class="row">
-  <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
-    <div class="card mb-4">
-      <img class="card-img-top p-2"
-           src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
-           alt="{{ technologyService.getTechnology(lab.technology).name }}"
-           [style.background]="technologyService.getTechnology(lab.technology).color"
-      >
-      <div class="card-block">
-        <h4 class="card-title">{{ lab.title }}</h4>
-        <p class="card-text">{{ technologyService.getLevel(lab.level).name }}</p>
-        <p class="card-text">
-          <small class="text-muted">{{ lab.updated | date }}</small>
-        </p>
-        <a class="btn btn-primary" [routerLink]="'/labs/' + [lab.$key]">Iniciar</a>
+<div class="content" fxLayout="row" fxLayoutAlign="center stretch" fxLayout.xs="column" fxLayoutGap="16px">
+
+  <md-card *ngFor="let lab of labsPreview | async">
+    <md-card-header>
+      <div md-card-avatar [style.background]="technologyService.getTechnology(lab.technology).color">
+        <img src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
+             alt="{{ technologyService.getTechnology(lab.technology).name }}"
+             width="30"
+        >
       </div>
-    </div>
-  </div>
+      <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
+      <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
+    </md-card-header>
+
+    <md-card-title>{{ lab.title }}</md-card-title>
+    <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
+    <md-card-content>{{ lab.updated | date }}</md-card-content>
+    <md-card-actions>
+      <a md-button [routerLink]="'/labs/' + [lab.$key]">Iniciar</a>
+    </md-card-actions>
+  </md-card>
+
 </div>

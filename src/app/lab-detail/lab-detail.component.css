@@ -1,15 +1,10 @@
-.card.title-lab {
-  color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
-}
-.card.title-lab h1 {
-  font-family: 'PT Mono', monospace;
+md-card h1 {
+  font-family: 'Roboto Mono', monospace;
   letter-spacing: -1px;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  color: white;
+  /*text-transform: uppercase;*/
   /*font-weight: normal;*/
-}
-.card.title-lab img {
-  height: 2.5em;
 }
 :host >>> .lab-content img {
   display: block;
@@ -20,12 +15,33 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
   /*background-color: #8484bd;*/
 }
-:host >>> pre {
-  background-color: #F6F9FC;
-  padding: 1em 1em 1em 1em;
-  border-radius: 0.5em;
-}
-:host >>> code {
-  color: #32325D;
-  background-color: #F6F9FC;
+/*:host >>> pre {*/
+  /*background-color: #F6F9FC;*/
+  /*padding: 1em 1em 1em 1em;*/
+  /*border-radius: 0.5em;*/
+/*}*/
+/*:host >>> code {*/
+  /*color: #32325D;*/
+  /*background-color: #F6F9FC;*/
+/*}*/
+/*:host >>> p {*/
+  /*font-family: 'Merriweather', sans-serif;*/
+  /*!*font-size: 1.1rem;*!*/
+/*}*/
+/*:host >>> h2 {*/
+  /*font-family: 'Roboto Mono', sans-serif;*/
+  /*letter-spacing: -2px;*/
+  /*!*font-weight: 700;*!*/
+/*}*/
+/*:host >>> h3 {*/
+  /*font-family: 'Roboto Mono', sans-serif;*/
+  /*letter-spacing: -2px;*/
+  /*!*font-weight: 700;*!*/
+/*}*/
+
+
+
+
+.docs-sidebar {
+  height: 100%;
 }

@@ -1,39 +1,6 @@
-.jumbotron {
-  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
-  padding-left: 1.4em;
-  padding-right: 1.4em;
-}
-
-.jumbotron h1 {
-  color: #FFFFFF;
-  font-family: 'PT Mono', monospace;
-  letter-spacing: -2px;
-}
-
-.jumbotron p {
-  color: #FFFFFF;
-}
-
-.card {
-  min-height: 220px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
-  /*border-radius: 0.6em;*/
-}
-
-.card img {
+img {
   height: 3.5em;
-  /*border-radius: 0.69em 0.6em 0 0;*/
 }
-
-.text-divider {
-  font-family: 'PT Mono', monospace;
-  font-weight: bold;
-  padding: 0.8em 0.1em 1em 1.5em;
-  color: #32325D;
-}
-
-.text-divider h2 {
-  font-size: 1.5rem;
-  letter-spacing: -2px;
+.card {
+  min-width: 4em;
 }

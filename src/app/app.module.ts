@@ -5,18 +5,20 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import {FIREBASE_CONFIG} from './keys';
 import {AppRoutingModule} from './app-routing.module';
-import { LabListComponent } from './lab-list/lab-list.component';
-import { LabDetailComponent } from './lab-detail/lab-detail.component';
-import { HomeComponent } from './home/home.component';
+import {LabListComponent} from './lab-list/lab-list.component';
+import {LabDetailComponent} from './lab-detail/lab-detail.component';
+import {HomeComponent} from './home/home.component';
 import {TechnologyService} from './services/technology.service';
-import { AdminComponent } from './admin/admin.component';
-import { MarkdownPipe } from './pipes/markdown.pipe';
-import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
+import {AdminComponent} from './admin/admin.component';
+import {MarkdownPipe} from './pipes/markdown.pipe';
+import {SanitizeHtmlPipe} from './pipes/sanitize-html.pipe';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const firebaseAuthConfig = {
   provider: AuthProviders.Google,
@@ -38,7 +40,9 @@ const firebaseAuthConfig = {
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG, firebaseAuthConfig)
   ],
   providers: [TechnologyService],

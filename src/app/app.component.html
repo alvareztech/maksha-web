@@ -1,46 +1,41 @@
-<nav class="navbar navbar-inverse navbar-toggleable-md fixed-top">
+<div fxLayout="column" fxFlex>
 
-  <a class="navbar-brand" routerLink="">
-    <img src="/assets/alvareztech.svg" class="d-inline-block align-top" width="80" height="30" alt="ALVAREZ.tech">
-  </a>
+  <md-toolbar color="primary">
+    <a routerLink="">
+      <img src="/assets/alvareztech.svg" width="80" height="30" alt="ALVAREZ.tech">
+    </a>
 
-  <button class="navbar-toggler navbar-toggler-right" type="button" [attr.aria-expanded]="!isCollapsed" (click)="isCollapsed = !isCollapsed">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <span fxFlex></span>
 
-  <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+    <a md-button routerLink="">Inicio</a>
+    <a md-button routerLink="labs">Labs</a>
+    <a md-button>Artículos</a>
 
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="labs">Labs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Artículos</a>
-      </li>
+    <img src="{{ (af.auth | async)?.auth.photoURL }}" height="30" width="30"
+         *ngIf="(af.auth | async)?.auth != null">
 
-      <li class="nav-item">
-        <img src="{{ (af.auth | async)?.auth.photoURL }}" height="40" width="40" class="rounded-circle mr-2"
-             *ngIf="(af.auth | async)?.auth != null">
-      </li>
+    <a md-button [routerLink]="[user]" (click)="login()" *ngIf="(af.auth | async)?.auth == null">Ingresar</a>
 
-      <li class="nav-item" *ngIf="(af.auth | async)?.auth == null">
-        <a class="nav-link btn btn-outline-primary" [routerLink]="[user]" (click)="login()">Ingresar</a>
-      </li>
+    <button md-icon-button [mdMenuTriggerFor]="themeMenu">
+      <md-icon>more_vert</md-icon>
+    </button>
 
-      <li class="nav-item" *ngIf="(af.auth | async)?.auth != null">
-        <a class="nav-link btn btn-outline-primary" [routerLink]="[user]" (click)="logout()">Salir</a>
-      </li>
-    </ul>
-  </div>
+  </md-toolbar>
 
-
-
-</nav>
-
-<div class="container">
   <router-outlet></router-outlet>
+
+  <md-menu #themeMenu x-position="before">
+    <button md-menu-item (click)="logout()">Salir</button>
+  </md-menu>
+
+  <footer>
+    <p>
+      <a href="https://www.facebook.com/alvareztech" target="_blank">Facebook</a> |
+      <a href="https://twitter.com/alvareztech" target="_blank">Twitter</a> |
+      <a href="https://www.youtube.com/alvareztech" target="_blank">YouTube</a> |
+      Version <span class="version">1</span>
+    </p>
+    <p>Designed and built with ♥ by Daniel Alvarez.</p>
+  </footer>
+
 </div>
-<footer></footer>

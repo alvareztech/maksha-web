@@ -1,63 +1,50 @@
-<section class="jumbotron">
-  <h1>Creación & capacitación</h1>
-  <p>Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
-</section>
+<h2>Creación & capacitación</h2>
+<p>Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
 
-<div class="text-divider d-flex">
-  <div class="mr-auto">
-    <h2>Últimos labs</h2>
-  </div>
-  <div>
-    <button type="button" class="btn btn-outline-primary btn-sm" routerLink="labs">Ver más</button>
-  </div>
-</div>
+<h3>Últimos labs</h3>
+<button md-button routerLink="labs">Ver más</button>
 
-<div class="row">
+<div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
+  <div class="column col-*" *ngFor="let lab of labsPreview | async">
+    <md-card>
 
-  <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
+      <md-card-header>
+        <div md-card-avatar [style.background]="technologyService.getTechnology(lab.technology).color">
+          <img src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
+               alt="{{ technologyService.getTechnology(lab.technology).name }}"
+               width="30"
+          >
+        </div>
+        <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
+        <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
+      </md-card-header>
 
-    <div class="card mb-4">
-      <img class="card-img-top p-2"
-           src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
-           alt="{{ technologyService.getTechnology(lab.technology).name }}"
-           [style.background]="technologyService.getTechnology(lab.technology).color"
-      >
-      <div class="card-block">
-        <h4 class="card-title">{{ lab.title }}</h4>
-        <p class="card-text">{{ technologyService.getLevel(lab.level).name }}</p>
-        <p class="card-text">
-          <small class="text-muted">{{ lab.updated | date }}</small>
-        </p>
-        <a class="btn btn-primary" [routerLink]="'/labs/' + [lab.$key]">Iniciar</a>
-      </div>
-    </div>
-
+      <md-card-title>{{ lab.title }}</md-card-title>
+      <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
+      <md-card-content>
+        {{ lab.updated | date }}
+      </md-card-content>
+      <md-card-actions>
+        <button md-button [routerLink]="'/labs/' + [lab.$key]">Iniciar</button>
+      </md-card-actions>
+    </md-card>
   </div>
 </div>
 
-<div class="text-divider d-flex">
-  <div class="mr-auto">
-    <h2>Últimos artículos</h2>
-  </div>
-  <div>
-    <button type="button" class="btn btn-outline-primary btn-sm align-middle" routerLink="">Ver más</button>
-  </div>
-</div>
+<h3>Últimos artículos</h3>
+<button md-button routerLink="">Ver más</button>
 
-
-<div class="row">
-
-  <div class="col-12 col-md-6 col-lg-4" *ngFor="let article of articlesPreview | async">
-
-    <div class="card mb-4">
-      <div class="card-block">
-        <h4 class="card-title">{{ article.title }}</h4>
-        <p class="card-text">{{ article.description }}</p>
-        <p class="card-text">
-          <small class="text-muted">{{ article.updated | date }}</small>
-        </p>
-        <a class="btn btn-primary" href="{{ article.link }}" target="_blank">Leer</a>
-      </div>
-    </div>
+<div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
+  <div *ngFor="let article of articlesPreview | async">
+    <md-card>
+      <md-card-title>{{ article.title }}</md-card-title>
+      <md-card-subtitle>{{ article.description }}</md-card-subtitle>
+      <md-card-content>
+        {{ article.updated | date }}
+      </md-card-content>
+      <md-card-actions>
+        <a md-button href="{{ article.link }}" target="_blank">Leer</a>
+      </md-card-actions>
+    </md-card>
   </div>
 </div>
