@@ -4,6 +4,8 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {AngularFire, FirebaseObjectObservable} from 'angularfire2';
 import {TechnologyService} from '../services/technology.service';
 
+import {Title} from '@angular/platform-browser';
+
 @Component({
   selector: 'app-lab-detail',
   templateUrl: './lab-detail.component.html',
@@ -23,7 +25,10 @@ export class LabDetailComponent implements OnInit {
     steps: []
   };
 
-  constructor(private route: ActivatedRoute, private af: AngularFire, public technologyService: TechnologyService) {
+  constructor(private route: ActivatedRoute,
+              private af: AngularFire,
+              public technologyService: TechnologyService,
+              private titleService: Title) {
   }
 
   ngOnInit() {
@@ -32,6 +37,8 @@ export class LabDetailComponent implements OnInit {
       this.lab = this.af.database.object('/labs/' + params['id']);
       this.lab.forEach(value => {
         console.log('Lab: %j', value);
+        this.titleService.setTitle(value.title);
+
         this.labObject = value;
         this.currentStep = this.labObject.steps[0];
         this.currentStepNumber = 0;
