@@ -1,7 +1,6 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
 @import "https://fonts.googleapis.com/css?family=Roboto:400,300";
-
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:500";
 @import "https://fonts.googleapis.com/css?family=Merriweather:300";
 
@@ -13,21 +12,21 @@ html, body {
   margin: 0;
   height: 100%;
 
-  background-color: #cccccc;
+  background-color: #ECEFF1;
 }
 
 /*body {*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*background-color: #fbfbfe;*/
+/*margin: 0;*/
+/*padding: 0;*/
+/*background-color: #fbfbfe;*/
 /*}*/
 
 /*body {*/
-  /*!*min-height: 75rem;*!*/
-  /*padding-top: 4.5rem;*/
+/*!*min-height: 75rem;*!*/
+/*padding-top: 4.5rem;*/
 /*}*/
 
 /*.container {*/
-  /*max-width: 60rem;*/
-  /*!*background-color: aqua;*!*/
+/*max-width: 60rem;*/
+/*!*background-color: aqua;*!*/
 /*}*/

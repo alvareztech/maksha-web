@@ -17,7 +17,14 @@ import {MarkdownPipe} from './pipes/markdown.pipe';
 import {SanitizeHtmlPipe} from './pipes/sanitize-html.pipe';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from '@angular/material';
+import {
+  MdButtonModule,
+  MdMenuModule,
+  MdCardModule,
+  MdToolbarModule,
+  MdIconModule,
+  MdListModule
+} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
 const firebaseAuthConfig = {
@@ -40,10 +47,15 @@ const firebaseAuthConfig = {
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG, firebaseAuthConfig),
     BrowserAnimationsModule,
-    MaterialModule,
+    MdButtonModule,
+    MdMenuModule,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(FIREBASE_CONFIG, firebaseAuthConfig)
+    MdCardModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdListModule
   ],
   providers: [TechnologyService],
   bootstrap: [AppComponent]
