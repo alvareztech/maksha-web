@@ -1,4 +1,4 @@
-<div fxLayout="column" fxFlex>
+<div fxLayout="column">
 
   <md-toolbar color="primary">
     <a routerLink="">
@@ -7,7 +7,6 @@
 
     <span fxFlex></span>
 
-    <a md-button routerLink="">Inicio</a>
     <a md-button routerLink="labs">Labs</a>
     <a md-button>Artículos</a>
 
@@ -26,11 +25,11 @@
     <button md-menu-item (click)="logout()">Salir</button>
   </md-menu>
 
-  <footer>
+  <footer fxLayout="column" fxLayoutAlign=" center">
     <p>
-      <a href="https://www.facebook.com/alvareztech" target="_blank">Facebook</a> |
-      <a href="https://twitter.com/alvarez_tech" target="_blank">Twitter</a> |
-      <a href="https://www.youtube.com/alvareztech" target="_blank">YouTube</a> |
+      <a md-button href="https://www.facebook.com/alvareztech" target="_blank">Facebook</a>
+      <a md-button href="https://twitter.com/alvarez_tech" target="_blank">Twitter</a>
+      <a md-button href="https://www.youtube.com/alvareztech" target="_blank">YouTube</a>
       Version <span class="version">0.1</span>
     </p>
     <p>By Daniel Alvarez</p>

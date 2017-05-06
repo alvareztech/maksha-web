@@ -1,13 +1,19 @@
-<h2>Creación & capacitación</h2>
-<p>Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
+<div class="home-content" fxLayout="column" fxLayoutAlign=" center">
 
-<h3>Últimos labs</h3>
-<button md-button routerLink="labs">Ver más</button>
+  <md-card>
+    <h2>Creación & capacitación</h2>
+    <p>Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
+  </md-card>
 
-<div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
-  <div class="column col-*" *ngFor="let lab of labsPreview | async">
-    <md-card>
+  <h3>Últimos labs</h3>
 
+  <div class="preview-content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px" fxLayoutAlign="center start">
+    <md-card class="info-card" *ngFor="let lab of labsPreview | async">
+      <md-card-title>{{ lab.title }}</md-card-title>
+      <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
+      <md-card-content>
+        {{ lab.updated | date }}
+      </md-card-content>
       <md-card-header>
         <div md-card-avatar [style.background]="technologyService.getTechnology(lab.technology).color">
           <img src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
@@ -18,33 +24,28 @@
         <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
         <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
       </md-card-header>
-
-      <md-card-title>{{ lab.title }}</md-card-title>
-      <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
-      <md-card-content>
-        {{ lab.updated | date }}
-      </md-card-content>
       <md-card-actions>
-        <button md-button [routerLink]="'/labs/' + [lab.$key]">Iniciar</button>
+        <button md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">Iniciar</button>
       </md-card-actions>
     </md-card>
   </div>
-</div>
+  <button md-button routerLink="labs">Ver más</button>
 
-<h3>Últimos artículos</h3>
-<button md-button routerLink="">Ver más</button>
+  <h3>Últimos artículos</h3>
 
-<div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
-  <div *ngFor="let article of articlesPreview | async">
-    <md-card>
+  <div class="preview-content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px" fxLayoutAlign="center start">
+    <md-card class="info-card" *ngFor="let article of articlesPreview | async">
       <md-card-title>{{ article.title }}</md-card-title>
       <md-card-subtitle>{{ article.description }}</md-card-subtitle>
       <md-card-content>
         {{ article.updated | date }}
       </md-card-content>
       <md-card-actions>
-        <a md-button href="{{ article.link }}" target="_blank">Leer</a>
+        <a md-raised-button color="primary" href="{{ article.link }}" target="_blank">Leer</a>
       </md-card-actions>
     </md-card>
   </div>
+
+  <button md-button routerLink="">Ver más</button>
+
 </div>

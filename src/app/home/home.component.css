@@ -1,6 +1,6 @@
-img {
-  height: 3.5em;
+md-card.info-card {
+  max-width: 300px;
 }
-.card {
-  min-width: 4em;
-}
+/*img {*/
+  /*height: 3.5em;*/
+/*}*/

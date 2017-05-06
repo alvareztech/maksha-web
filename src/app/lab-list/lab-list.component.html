@@ -1,27 +1,26 @@
-<h1>Labs</h1>
-<p>Laboratorios para completarlos paso a paso</p>
+<div fxLayout="column" fxLayoutAlign=" center">
 
+  <div class="listcontent" fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="16px">
 
-<div class="content" fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="16px">
-
-  <md-card *ngFor="let lab of labsPreview | async">
-    <md-card-header>
-      <div md-card-avatar [style.background]="technologyService.getTechnology(lab.technology).color">
-        <img src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
-             alt="{{ technologyService.getTechnology(lab.technology).name }}"
-             width="30"
-        >
-      </div>
-      <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
+    <md-card *ngFor="let lab of labsPreview | async">
+      <md-card-title>{{ lab.title }}</md-card-title>
       <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
-    </md-card-header>
+      <md-card-content>{{ lab.updated | date }}</md-card-content>
+      <md-card-header>
+        <div md-card-avatar [style.background]="technologyService.getTechnology(lab.technology).color">
+          <img src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
+               alt="{{ technologyService.getTechnology(lab.technology).name }}"
+               width="30"
+          >
+        </div>
+        <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
+        <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
+      </md-card-header>
+      <md-card-actions>
+        <a md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">INICIAR</a>
+      </md-card-actions>
+    </md-card>
 
-    <md-card-title>{{ lab.title }}</md-card-title>
-    <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
-    <md-card-content>{{ lab.updated | date }}</md-card-content>
-    <md-card-actions>
-      <a md-button [routerLink]="'/labs/' + [lab.$key]">Iniciar</a>
-    </md-card-actions>
-  </md-card>
+  </div>
 
 </div>
