@@ -1,4 +1,4 @@
-.content {
+.lab-content {
   /*max-width: 800px;*/
 }
 
@@ -47,10 +47,3 @@ md-card h1 {
   /*letter-spacing: -2px;*/
   /*!*font-weight: 700;*!*/
 /*}*/
-
-
-
-
-.docs-sidebar {
-  height: 100%;
-}

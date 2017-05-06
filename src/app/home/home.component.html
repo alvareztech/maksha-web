@@ -24,9 +24,7 @@
         <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
         <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
       </md-card-header>
-      <md-card-actions>
-        <button md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">Iniciar</button>
-      </md-card-actions>
+      <button md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">INICIAR</button>
     </md-card>
   </div>
   <button md-button routerLink="labs">Ver más</button>
@@ -40,9 +38,7 @@
       <md-card-content>
         {{ article.updated | date }}
       </md-card-content>
-      <md-card-actions>
-        <a md-raised-button color="primary" href="{{ article.link }}" target="_blank">Leer</a>
-      </md-card-actions>
+      <a md-raised-button color="primary" href="{{ article.link }}" target="_blank">LEER</a>
     </md-card>
   </div>
 

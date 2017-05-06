@@ -5,7 +5,11 @@
 @import "https://fonts.googleapis.com/css?family=Merriweather:300";
 
 html, body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+
   flex-direction: column;
 
   font-family: Merriweather, Arial, sans-serif;

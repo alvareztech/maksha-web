@@ -27,7 +27,6 @@ import {
   MdIconModule,
   MdListModule
 } from '@angular/material';
-import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     BrowserAnimationsModule,
     MdButtonModule,
     MdMenuModule,
-    FlexLayoutModule,
     MdCardModule,
     MdToolbarModule,
     MdIconModule,

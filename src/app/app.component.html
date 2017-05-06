@@ -1,38 +1,34 @@
-<div fxLayout="column">
+<md-toolbar color="primary">
+  <a routerLink="">
+    <img src="/assets/alvareztech.svg" width="80" height="30" alt="ALVAREZ.tech">
+  </a>
 
-  <md-toolbar color="primary">
-    <a routerLink="">
-      <img src="/assets/alvareztech.svg" width="80" height="30" alt="ALVAREZ.tech">
-    </a>
+  <span fxFlex></span>
 
-    <span fxFlex></span>
+  <a md-button routerLink="labs">Labs</a>
+  <a md-button>Artículos</a>
 
-    <a md-button routerLink="labs">Labs</a>
-    <a md-button>Artículos</a>
+  <img [src]="(user | async)?.photoURL" height="30" width="30" *ngIf="(user | async)">
 
-    <img [src]="(user | async)?.photoURL" height="30" width="30" *ngIf="(user | async)">
+  <a md-button (click)="login()" *ngIf="!(user | async)">Ingresar</a>
+  <button md-icon-button [mdMenuTriggerFor]="themeMenu">
+    <md-icon>more_vert</md-icon>
+  </button>
 
-    <a md-button (click)="login()" *ngIf="!(user | async)">Ingresar</a>
-    <button md-icon-button [mdMenuTriggerFor]="themeMenu">
-      <md-icon>more_vert</md-icon>
-    </button>
+</md-toolbar>
 
-  </md-toolbar>
+<router-outlet></router-outlet>
 
-  <router-outlet></router-outlet>
+<md-menu #themeMenu x-position="before">
+  <button md-menu-item (click)="logout()">Salir</button>
+</md-menu>
 
-  <md-menu #themeMenu x-position="before">
-    <button md-menu-item (click)="logout()">Salir</button>
-  </md-menu>
-
-  <footer fxLayout="column" fxLayoutAlign=" center">
-    <p>
-      <a md-button href="https://www.facebook.com/alvareztech" target="_blank">Facebook</a>
-      <a md-button href="https://twitter.com/alvarez_tech" target="_blank">Twitter</a>
-      <a md-button href="https://www.youtube.com/alvareztech" target="_blank">YouTube</a>
-      Version <span class="version">0.1</span>
-    </p>
-    <p>By Daniel Alvarez</p>
-  </footer>
-
-</div>
+<footer fxLayout="column" fxLayoutAlign=" center">
+  <p>
+    <a md-button href="https://www.facebook.com/alvareztech" target="_blank">Facebook</a>
+    <a md-button href="https://twitter.com/alvarez_tech" target="_blank">Twitter</a>
+    <a md-button href="https://www.youtube.com/alvareztech" target="_blank">YouTube</a>
+    Version <span class="version">0.1</span>
+  </p>
+  <p>By Daniel Alvarez</p>
+</footer>

@@ -16,9 +16,7 @@
         <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
         <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
       </md-card-header>
-      <md-card-actions>
-        <a md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">INICIAR</a>
-      </md-card-actions>
+      <a md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">INICIAR</a>
     </md-card>
 
   </div>
