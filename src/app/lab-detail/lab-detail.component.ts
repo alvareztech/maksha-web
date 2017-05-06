@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
 import {ActivatedRoute, Params} from '@angular/router';
-import {AngularFire, FirebaseObjectObservable} from 'angularfire2';
 import {TechnologyService} from '../services/technology.service';
 
 import {Title} from '@angular/platform-browser';
+import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
 
 @Component({
   selector: 'app-lab-detail',
@@ -26,7 +26,7 @@ export class LabDetailComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute,
-              private af: AngularFire,
+              private db: AngularFireDatabase,
               public technologyService: TechnologyService,
               private titleService: Title) {
   }
@@ -34,7 +34,7 @@ export class LabDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach(params => {
       console.log('Params:' + params['id']);
-      this.lab = this.af.database.object('/labs/' + params['id']);
+      this.lab = this.db.object('/labs/' + params['id']);
       this.lab.forEach(value => {
         console.log('Lab: %j', value);
         this.titleService.setTitle(value.title);

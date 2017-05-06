@@ -11,11 +11,9 @@
     <a md-button routerLink="labs">Labs</a>
     <a md-button>Artículos</a>
 
-    <img src="{{ (af.auth | async)?.auth.photoURL }}" height="30" width="30"
-         *ngIf="(af.auth | async)?.auth != null">
+    <img [src]="(user | async)?.photoURL" height="30" width="30" *ngIf="(user | async)">
 
-    <a md-button [routerLink]="[user]" (click)="login()" *ngIf="(af.auth | async)?.auth == null">Ingresar</a>
-
+    <a md-button (click)="login()" *ngIf="!(user | async)">Ingresar</a>
     <button md-icon-button [mdMenuTriggerFor]="themeMenu">
       <md-icon>more_vert</md-icon>
     </button>

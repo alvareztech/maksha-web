@@ -5,7 +5,9 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 
-import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {FIREBASE_CONFIG} from './keys';
 import {AppRoutingModule} from './app-routing.module';
 import {LabListComponent} from './lab-list/lab-list.component';
@@ -27,11 +29,6 @@ import {
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
-const firebaseAuthConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Redirect
-};
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +44,9 @@ const firebaseAuthConfig = {
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(FIREBASE_CONFIG, firebaseAuthConfig),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     MdButtonModule,
     MdMenuModule,

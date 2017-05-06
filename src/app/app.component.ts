@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {AngularFire} from 'angularfire2';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {Observable} from 'rxjs/Observable';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +10,17 @@ import {AngularFire} from 'angularfire2';
 })
 export class AppComponent {
   title = 'ALVAREZ.tech';
+  user: Observable<firebase.User>;
 
-  constructor(public af: AngularFire) {
+  constructor(public afAuth: AngularFireAuth) {
+    this.user = afAuth.authState;
   }
 
   login() {
-    this.af.auth.login();
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
-    this.af.auth.logout();
+    this.afAuth.auth.signOut();
   }
 }

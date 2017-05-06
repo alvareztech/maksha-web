@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TechnologyService} from '../services/technology.service';
-import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import * as firebase from 'firebase';
 
 @Component({
@@ -31,8 +31,8 @@ export class AdminComponent implements OnInit {
 
   isLabSelected = false;
 
-  constructor(public technologyService: TechnologyService, private af: AngularFire) {
-    this.labs = af.database.list('/labs');
+  constructor(public technologyService: TechnologyService, private db: AngularFireDatabase) {
+    this.labs = db.list('/labs');
   }
 
   ngOnInit() {
@@ -67,7 +67,7 @@ export class AdminComponent implements OnInit {
     this.isLabSelected = true;
 
     this.isNewLab = false;
-    this.lab = this.af.database.object('/labs/' + o.$key);
+    this.lab = this.db.object('/labs/' + o.$key);
 
     this.lab.forEach(value => {
       console.log('Lab: %j', value);
