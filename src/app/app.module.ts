@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
@@ -25,7 +25,11 @@ import {
   MdCardModule,
   MdToolbarModule,
   MdIconModule,
-  MdListModule
+  MdListModule,
+  MdInputModule,
+  MdButtonToggleModule,
+  MdSelectModule,
+  MdCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -52,10 +56,17 @@ import {
     MdCardModule,
     MdToolbarModule,
     MdIconModule,
-    MdListModule
+    MdListModule,
+    MdInputModule,
+    MdSelectModule,
+    MdCheckboxModule,
+    MdButtonToggleModule
   ],
   providers: [TechnologyService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
 })
 export class AppModule {
 }
