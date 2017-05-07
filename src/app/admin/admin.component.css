@@ -2,3 +2,12 @@ textarea {
   font-family: 'PT Mono', monospace;
   font-size: 1em;
 }
+md-input-container {
+  width: 100%;
+}
+md-select {
+  width: 100%;
+}
+.dottech-spacer {
+  flex: 1 1 auto;
+}
