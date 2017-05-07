@@ -1,57 +1,52 @@
-<div class="lab-content" fxLayout="column" fxLayoutAlign=" center">
+<md-spinner *ngIf="!(lab | async)"></md-spinner>
 
-  <md-spinner *ngIf="!(lab | async)"></md-spinner>
+<md-card class="row"
+         *ngIf="(lab | async)"
+         [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
 
-  <md-card
-    *ngIf="(lab | async)"
-    [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
+  <img *ngIf="(lab | async)"
+       height="40"
+       [src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"
+       alt="{{ technologyService.getTechnology((lab | async)?.technology)?.name }}">
+  <h1>{{ (lab | async)?.title }}</h1>
 
-    <img *ngIf="(lab | async)"
-         height="40"
-         [src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"
-         alt="{{ technologyService.getTechnology((lab | async)?.technology)?.name }}">
-    <h1>{{ (lab | async)?.title }}</h1>
+</md-card>
+
+<div class="row">
+
+  <md-card class="col-lg-8 mb-4">
+
+    <div *ngIf="currentStepNumber > 0">
+      <h2>
+        <span class="badge badge-primary">{{ currentStepNumber }}</span>
+        {{ currentStep.title }}
+      </h2>
+    </div>
+
+    <div class="lab-content" [innerHtml]="currentStep.content | markdown | sanitizeHtml">
+    </div>
+
+    <button md-raised-button color="primary" (click)="goNextStep()"
+            *ngIf="currentStepNumber < totalStepsNumber-1">
+      {{ currentStepNumber === 0 ? 'INICIAR' : 'SIGUIENTE'}}
+    </button>
 
   </md-card>
 
-  <div class="content" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center start"
-       fxLayoutGap="16px">
-
-    <md-card fxFlex="80" class="thelab">
-
-      <div *ngIf="currentStepNumber > 0">
-        <h2>
-          <span class="badge badge-primary">{{ currentStepNumber }}</span>
-          {{ currentStep.title }}
-        </h2>
-      </div>
-
-      <div class="lab-content" [innerHtml]="currentStep.content | markdown | sanitizeHtml">
-      </div>
-
-      <button md-raised-button color="primary" (click)="goNextStep()"
-              *ngIf="currentStepNumber < totalStepsNumber-1">
-        {{ currentStepNumber === 0 ? 'INICIAR' : 'SIGUIENTE'}}
-      </button>
-
-    </md-card>
-
-    <md-card fxFlex="20">
-      <md-list>
-        <md-list-item>
-          {{ technologyService.getLevel((lab | async)?.level )?.name }}
-        </md-list-item>
-        <md-divider></md-divider>
-        <h3 md-subheader>Pasos</h3>
-        <md-list-item *ngFor="let step of (lab | async)?.steps; let i = index;"
-                      (click)="changeStep(i, step.title, step.content)"
-                      [class.active]="currentStepNumber === i">
-          {{ step.title }}
-        </md-list-item>
-      </md-list>
-      <p>Por Daniel Alvarez</p>
-    </md-card>
-
-  </div>
+  <md-card class="col-lg-3 offset-lg-1">
+    <md-list>
+      <md-list-item>
+        {{ technologyService.getLevel((lab | async)?.level )?.name }}
+      </md-list-item>
+      <md-divider></md-divider>
+      <h3 md-subheader>Pasos</h3>
+      <md-list-item *ngFor="let step of (lab | async)?.steps; let i = index;"
+                    (click)="changeStep(i, step.title, step.content)"
+                    [class.active]="currentStepNumber === i">
+        {{ step.title }}
+      </md-list-item>
+    </md-list>
+    <p>Por Daniel Alvarez</p>
+  </md-card>
 
 </div>

@@ -1,12 +1,3 @@
-.lab-content {
-  /*max-width: 800px;*/
-}
-
-md-card.thelab {
-  max-width: 760px !important;
-  /*background-color: #8484bd;*/
-}
-
 md-card h1 {
   font-family: 'Roboto Mono', monospace;
   letter-spacing: -1px;
