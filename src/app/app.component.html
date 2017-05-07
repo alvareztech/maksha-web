@@ -16,17 +16,8 @@
   </button>
 </md-toolbar>
 
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
 
 <md-menu #themeMenu x-position="before">
   <button md-menu-item (click)="logout()">Salir</button>
 </md-menu>
-
-<footer class="row">
-  <a md-button href="https://www.facebook.com/alvareztech" target="_blank">Facebook</a>
-  <a md-button href="https://twitter.com/alvarez_tech" target="_blank">Twitter</a>
-  <a md-button href="https://www.youtube.com/alvareztech" target="_blank">YouTube</a>
-  <p>Version 0.1 by Daniel Alvarez</p>
-</footer>

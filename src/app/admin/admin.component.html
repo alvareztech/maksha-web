@@ -1,68 +1,71 @@
-<div class="row" *ngIf="!isLabSelected">
-  <h4>Labs</h4>
-  <button md-button (click)="newLab()">New</button>
-</div>
+<div class="container-fluid">
+  <div class="row" *ngIf="!isLabSelected">
+    <h4>Labs</h4>
+    <button md-button (click)="newLab()">New</button>
+  </div>
 
-<div class="row" *ngIf="!isLabSelected">
-  <md-list>
-    <md-list-item *ngFor="let lab of labs | async" (click)="goLab(lab)">
-      <md-icon md-list-icon>folder</md-icon>
-      <h4 md-line>{{ lab.title }}</h4>
-      <p md-line>{{ lab.updated | date }}</p>
-    </md-list-item>
-  </md-list>
-</div>
-<div class="row" *ngIf="isLabSelected">
-  <form>
+  <div class="row" *ngIf="!isLabSelected">
+    <md-list>
+      <md-list-item *ngFor="let lab of labs | async" (click)="goLab(lab)">
+        <md-icon md-list-icon>folder</md-icon>
+        <h4 md-line>{{ lab.title }}</h4>
+        <p md-line>{{ lab.updated | date }}</p>
+      </md-list-item>
+    </md-list>
+  </div>
+  <div class="row" *ngIf="isLabSelected">
+    <form>
 
-    <md-input-container class="col-12">
-      <input mdInput placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
-    </md-input-container>
-    <!--<small id="identifier" class="form-text text-muted">Identifier: <a-->
-    <!--href="https://beta.alvarez.tech/labs/{{ currentLab?.$key }}" target="_blank">{{currentLab?.$key}}</a>-->
-    <!--</small>-->
-    <md-input-container *ngIf="isNewLab">
-      <input mdInput placeholder="Identifier" [(ngModel)]="currentLab.$key" name="Identifier">
-    </md-input-container>
+      <md-input-container class="col-12">
+        <input mdInput placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
+      </md-input-container>
+      <!--<small id="identifier" class="form-text text-muted">Identifier: <a-->
+      <!--href="https://beta.alvarez.tech/labs/{{ currentLab?.$key }}" target="_blank">{{currentLab?.$key}}</a>-->
+      <!--</small>-->
+      <md-input-container *ngIf="isNewLab">
+        <input mdInput placeholder="Identifier" [(ngModel)]="currentLab.$key" name="Identifier">
+      </md-input-container>
 
-    <md-input-container class="col-12">
-      <input mdInput id="stepTitle"
-             placeholder="Step title" [(ngModel)]="currentStep.title" name="Step Title">
-    </md-input-container>
+      <md-input-container class="col-12">
+        <input mdInput id="stepTitle"
+               placeholder="Step title" [(ngModel)]="currentStep.title" name="Step Title">
+      </md-input-container>
 
-    <md-input-container class="col-12">
+      <md-input-container class="col-12">
     <textarea mdInput rows="25" [(ngModel)]="currentStep.content"
               name="Content"></textarea>
-    </md-input-container>
+      </md-input-container>
 
 
-    <md-select id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required ngDefaultControl>
-      <md-option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">{{ tech.name }}</md-option>
-    </md-select>
+      <md-select id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required ngDefaultControl>
+        <md-option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">{{ tech.name }}
+        </md-option>
+      </md-select>
 
-    <md-select id="levelLab" name="Level" [(ngModel)]="currentLab.level" required ngDefaultControl>
-      <md-option *ngFor="let level of technologyService.getLevels()" [value]="level.id">{{ level.name }}</md-option>
-    </md-select>
+      <md-select id="levelLab" name="Level" [(ngModel)]="currentLab.level" required ngDefaultControl>
+        <md-option *ngFor="let level of technologyService.getLevels()" [value]="level.id">{{ level.name }}</md-option>
+      </md-select>
 
-    <md-button-toggle-group #group="mdButtonToggleGroup" class="col-12">
-      <md-button-toggle *ngFor="let x of currentLab.steps; let i = index;">
-        {{ i }}
-      </md-button-toggle>
-    </md-button-toggle-group>
+      <md-button-toggle-group #group="mdButtonToggleGroup" class="col-12">
+        <md-button-toggle *ngFor="let x of currentLab.steps; let i = index;">
+          {{ i }}
+        </md-button-toggle>
+      </md-button-toggle-group>
 
-    <!--<ul class="pagination pagination-sm">-->
-    <!--<li class="page-item" *ngFor="let x of currentLab.steps; let i = index;"-->
-    <!--[class.active]="currentStepNumber == i">-->
-    <!--<a class="page-link" (click)="setStep(i)">{{ i }}</a>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <button md-button (click)="newStep()">New step</button>
+      <!--<ul class="pagination pagination-sm">-->
+      <!--<li class="page-item" *ngFor="let x of currentLab.steps; let i = index;"-->
+      <!--[class.active]="currentStepNumber == i">-->
+      <!--<a class="page-link" (click)="setStep(i)">{{ i }}</a>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <button md-button (click)="newStep()">New step</button>
 
-    <md-checkbox class="col-12" [(ngModel)]="currentLab.published" name="Published" ngDefaultControl>Published
-    </md-checkbox>
+      <md-checkbox class="col-12" [(ngModel)]="currentLab.published" name="Published" ngDefaultControl>Published
+      </md-checkbox>
 
-    <button md-raised-button color="primary" (click)="saveLab()">SAVE</button>
-    <button md-raised-button (click)="returnLabs()">BACK</button>
+      <button md-raised-button color="primary" (click)="saveLab()">SAVE</button>
+      <button md-raised-button (click)="returnLabs()">BACK</button>
 
-  </form>
+    </form>
+  </div>
 </div>
