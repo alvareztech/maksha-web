@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TechnologyService} from '../services/technology.service';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import * as firebase from 'firebase';
+import {MdSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-admin',
@@ -31,7 +32,7 @@ export class AdminComponent implements OnInit {
 
   isLabSelected = false;
 
-  constructor(public technologyService: TechnologyService, private db: AngularFireDatabase) {
+  constructor(public technologyService: TechnologyService, private db: AngularFireDatabase, public snackBar: MdSnackBar) {
     this.labs = db.list('/labs');
   }
 
@@ -54,10 +55,14 @@ export class AdminComponent implements OnInit {
           title: 'Resumen',
           content: 'Resumen \n\n## Aprenderás\n\n* Primero\n\n## Requisitos\n\n* Otro'
         }]
+      }).then(a => {
+        this.snackBar.open('New lab successfully saved!', null, { duration: 2000 });
       });
     } else {
       this.currentLab['level'] = +this.currentLab['level'];
-      this.lab.update(this.currentLab);
+      this.lab.update(this.currentLab).then(a => {
+        this.snackBar.open('Successfully saved!', null, { duration: 2000 });
+      });
     }
   }
 

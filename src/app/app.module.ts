@@ -30,7 +30,7 @@ import {
   MdButtonToggleModule,
   MdSelectModule,
   MdCheckboxModule,
-  MdSnackBar
+  MdSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -62,7 +62,7 @@ import {
     MdSelectModule,
     MdCheckboxModule,
     MdButtonToggleModule,
-    MdSnackBar
+    MdSnackBarModule
   ],
   providers: [TechnologyService],
   bootstrap: [AppComponent],
