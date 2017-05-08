@@ -21,6 +21,8 @@ export class AppComponent {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut().then(a => {
+      console.log('signOut:', a);
+    });
   }
 }

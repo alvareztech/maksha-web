@@ -5,13 +5,13 @@
 
   <span class="dottech-spacer"></span>
 
-  <a md-button routerLink="labs">Labs</a>
-  <a md-button>Artículos</a>
+  <a md-button routerLink="labs">LABS</a>
+  <a md-button>ARTÍCULOS</a>
 
-  <img [src]="(user | async)?.photoURL" height="30" width="30" *ngIf="(user | async)">
+  <img md-card-avatar [src]="(user | async)?.photoURL" height="40" width="40" *ngIf="(user | async)">
 
-  <a md-button (click)="login()" *ngIf="!(user | async)">Ingresar</a>
-  <button md-icon-button [mdMenuTriggerFor]="themeMenu">
+  <a md-raised-button color="accent" (click)="login()" *ngIf="!(user | async)">INGRESAR</a>
+  <button md-icon-button [mdMenuTriggerFor]="themeMenu" *ngIf="(user | async)">
     <md-icon>more_vert</md-icon>
   </button>
 </md-toolbar>
@@ -19,5 +19,6 @@
 <router-outlet></router-outlet>
 
 <md-menu #themeMenu x-position="before">
-  <button md-menu-item (click)="logout()">Salir</button>
+  <button md-menu-item routerLink="admin" *ngIf="(user | async)?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">ADMIN</button>
+  <button md-menu-item (click)="logout()">SALIR</button>
 </md-menu>

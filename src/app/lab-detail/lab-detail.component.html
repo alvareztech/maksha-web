@@ -1,18 +1,21 @@
+<md-toolbar *ngIf="(lab | async)"
+            [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <h1>{{ (lab | async)?.title }}</h1>
+      </div>
+      <div class="col">
+        <md-icon color="accent">ic_access_time</md-icon>
+        <img *ngIf="(lab | async)"
+             height="40"
+             [src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"
+             alt="Technology">
+      </div>
+    </div>
+  </div>
+</md-toolbar>
 <div class="container">
-
-  <md-spinner *ngIf="!(lab | async)"></md-spinner>
-
-  <md-card class="row"
-           *ngIf="(lab | async)"
-           [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
-
-    <img *ngIf="(lab | async)"
-         height="40"
-         [src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"
-         alt="{{ technologyService.getTechnology((lab | async)?.technology)?.name }}">
-    <h1>{{ (lab | async)?.title }}</h1>
-
-  </md-card>
 
   <div class="row">
 
@@ -35,7 +38,7 @@
 
     </md-card>
 
-    <md-card class="col-lg-3 offset-lg-1">
+    <md-card class="col-lg-3">
       <md-list>
         <md-list-item>
           {{ technologyService.getLevel((lab | async)?.level )?.name }}
