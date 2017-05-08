@@ -32,6 +32,8 @@ import {
   MdCheckboxModule,
   MdSnackBarModule
 } from '@angular/material';
+import { ArticleListComponent } from './article/article-list/article-list.component';
+import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {
     HomeComponent,
     AdminComponent,
     MarkdownPipe,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    ArticleListComponent,
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule,

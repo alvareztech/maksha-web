@@ -4,6 +4,8 @@ import {LabDetailComponent} from './lab-detail/lab-detail.component';
 import {LabListComponent} from './lab-list/lab-list.component';
 import {HomeComponent} from './home/home.component';
 import {AdminComponent} from './admin/admin.component';
+import {ArticleListComponent} from './article/article-list/article-list.component';
+import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: 'labs/:id',
     component: LabDetailComponent
+  },
+  {
+    path: 'articles',
+    component: ArticleListComponent
+  },
+  {
+    path: 'articles/:id',
+    component: ArticleDetailComponent
   },
   {
     path: 'admin',

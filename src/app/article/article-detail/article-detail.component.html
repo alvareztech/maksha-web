@@ -1,0 +1,18 @@
+<md-toolbar color="primary">
+  <div class="container">
+    {{ (article | async)?.title }}
+  </div>
+</md-toolbar>
+<md-toolbar>
+  <div class="container">
+    Actualizado el {{ (article | async)?.updated | date }} pero creado el {{ (article | async)?.created | date }}
+  </div>
+</md-toolbar>
+<div class="container">
+  <div class="row">
+    <md-card>
+      <md-card-content class="article-content" [innerHtml]="articleObject.content | markdown | sanitizeHtml">
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
