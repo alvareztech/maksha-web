@@ -30,3 +30,17 @@ exports.generatePreview = functions.database.ref('/labs/{labId}').onWrite(event 
     return event.data.ref.parent.parent.child('previews/labs/' + event.params.labId).remove();
   }
 });
+
+exports.generateArticlePreview = functions.database.ref('/articles/{articleId}').onWrite(event => {
+  const article = event.data.val();
+  if (event.data.exists() && article.published) {
+    console.log('Article update public: %j', event);
+    return event.data.ref.parent.parent.child('previews/articles/' + event.params.articleId).set({
+      title: article.title,
+      updated: article.updated
+    });
+  } else {
+    console.log('Article update private: %j', event);
+    return event.data.ref.parent.parent.child('previews/articles/' + event.params.articleId).remove();
+  }
+});
