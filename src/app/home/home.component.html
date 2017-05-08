@@ -14,12 +14,10 @@
         {{ lab.updated | date }}
       </md-card-content>
       <md-card-header>
-        <div md-card-avatar [style.background]="technologyService.getTechnology(lab.technology).color">
-          <img src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
-               alt="{{ technologyService.getTechnology(lab.technology).name }}"
-               width="30"
-          >
-        </div>
+        <img md-card-avatar src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
+             alt="Technology"
+             [style.background]="technologyService.getTechnology(lab.technology).color"
+        >
         <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
         <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
       </md-card-header>

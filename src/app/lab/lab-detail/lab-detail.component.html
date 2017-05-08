@@ -6,7 +6,7 @@
         <h1>{{ (lab | async)?.title }}</h1>
       </div>
       <div class="col">
-        <md-icon color="accent">ic_access_time</md-icon>
+        <md-icon color="accent">access_time</md-icon>
         <img *ngIf="(lab | async)"
              height="40"
              [src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"

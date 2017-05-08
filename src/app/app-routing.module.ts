@@ -1,7 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {LabDetailComponent} from './lab-detail/lab-detail.component';
-import {LabListComponent} from './lab-list/lab-list.component';
+import {LabDetailComponent} from './lab/lab-detail/lab-detail.component';
+import {LabListComponent} from './lab/lab-list/lab-list.component';
 import {HomeComponent} from './home/home.component';
 import {AdminComponent} from './admin/admin.component';
 import {ArticleListComponent} from './article/article-list/article-list.component';

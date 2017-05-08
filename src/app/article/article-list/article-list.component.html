@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-
-    <md-card class="col-12 col-md-6 col-lg-4" *ngFor="let article of articles | async">
-      <md-card-title>{{ article.title }}</md-card-title>
-      <md-card-content>{{ article.updated | date }}</md-card-content>
-      <a md-raised-button color="primary" [routerLink]="'/articles/' + [article.$key]">LEER</a>
-    </md-card>
-
+    <div class="col-12">
+      <md-card *ngFor="let article of articles | async">
+        <md-card-title>{{ article.title }}</md-card-title>
+        <md-card-content>{{ article.updated | date }}</md-card-content>
+        <a md-raised-button color="primary" [routerLink]="'/articles/' + [article.$key]">LEER</a>
+      </md-card>
+    </div>
   </div>
 </div>

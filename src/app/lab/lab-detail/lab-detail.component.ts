@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {ActivatedRoute, Params} from '@angular/router';
-import {TechnologyService} from '../services/technology.service';
+import {TechnologyService} from '../../services/technology.service';
 
 import {Title} from '@angular/platform-browser';
 import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
