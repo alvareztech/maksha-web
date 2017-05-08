@@ -29,7 +29,8 @@ import {
   MdInputModule,
   MdButtonToggleModule,
   MdSelectModule,
-  MdCheckboxModule
+  MdCheckboxModule,
+  MdSnackBar
 } from '@angular/material';
 
 @NgModule({
@@ -60,7 +61,8 @@ import {
     MdInputModule,
     MdSelectModule,
     MdCheckboxModule,
-    MdButtonToggleModule
+    MdButtonToggleModule,
+    MdSnackBar
   ],
   providers: [TechnologyService],
   bootstrap: [AppComponent],
