@@ -35,11 +35,10 @@
   <div class="row">
     <md-card class="col-12 col-md-6 col-lg-4" *ngFor="let article of articlesPreview | async">
       <md-card-title>{{ article.title }}</md-card-title>
-      <md-card-subtitle>{{ article.description }}</md-card-subtitle>
       <md-card-content>
         {{ article.updated | date }}
       </md-card-content>
-      <a md-raised-button color="primary" href="{{ article.link }}" target="_blank">LEER</a>
+      <a md-raised-button color="primary" [routerLink]="'/articles/' + [article.$key]" target="_blank">LEER</a>
     </md-card>
   </div>
   <div class="row">
