@@ -1,3 +1,6 @@
+.dottech-spacer {
+  flex: 1 1 auto;
+}
 md-card {
   margin: 16px 0 16px 0;
 }
@@ -7,25 +10,26 @@ md-card.hero1 {
 }
 
 md-card h2 {
-  font-family: 'Roboto Mono', monospace;
-  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  /*text-transform: uppercase;*/
 }
 
 md-card p {
-  font-family: Merriweather, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-transform: none;
   font-weight: 300;
 }
 
 md-card.hero2 {
   color: white;
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-image: linear-gradient(to right, #ff0844 0%, #ffb199 100%);
 }
 
 md-card-title {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto', sans-serif;
   /*text-transform: uppercase;*/
-  letter-spacing: -1px;
+  /*letter-spacing: -1px;*/
+  font-weight: bold;
   color: white;
 }
 

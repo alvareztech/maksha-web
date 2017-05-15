@@ -3,8 +3,11 @@ md-card {
 }
 
 md-card-title {
-  font-family: 'Roboto Mono', monospace;
-  /*text-transform: uppercase;*/
-  letter-spacing: -1px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   color: white;
+}
+
+.dottech-spacer {
+  flex: 1 1 auto;
 }

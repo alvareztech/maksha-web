@@ -1,13 +1,16 @@
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
-@import "https://fonts.googleapis.com/css?family=Roboto:400,300";
+@import "https://fonts.googleapis.com/css?family=Roboto:300";
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:500";
-@import "https://fonts.googleapis.com/css?family=Merriweather:300";
 
 html, body {
   margin: 0;
   padding: 0;
-  font-family: Merriweather, Arial, sans-serif;
-  background-color: #ECEFF1;
+  font-family: 'Roboto', sans-serif;
+  background-color: #F5F5F5;
+}
+
+button, a {
+  font-family: 'Roboto Mono', monospace !important;
 }
 
 /*body {*/

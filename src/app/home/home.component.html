@@ -4,43 +4,45 @@
       <md-card class="hero1">
         <h2>Creación & capacitación</h2>
         <p>Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
-        <button md-raised-button color="accent">ESCRÍBENOS</button>
+        <a md-raised-button color="accent" href="https://m.me/alvareztech" target="_blank">ESCRÍBENOS</a>
       </md-card>
     </div>
   </div>
 
   <div class="row">
     <div class="col">
-      <h3>Últimos labs</h3>
+      <md-toolbar>
+        <p>Últimos labs</p>
+        <span class="dottech-spacer"></span>
+        <button md-button routerLink="labs">VER MÁS</button>
+      </md-toolbar>
     </div>
   </div>
 
   <div class="row">
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
       <md-card [style.background]="technologyService.getTechnology(lab.technology).color">
-        <md-card-title>{{ lab.title }}
-        </md-card-title>
         <md-card-header>
           <img md-card-avatar src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
                alt="Technology"
           >
-          <md-card-title>{{ technologyService.getLevel(lab.level).name }}</md-card-title>
+          <md-card-title>{{ technologyService.getTechnology(lab.technology).name }}</md-card-title>
           <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
         </md-card-header>
-        <md-card-content>
-          {{ lab.updated | date }}
-        </md-card-content>
+        <md-card-title>{{ lab.title }}</md-card-title>
+        <md-card-content>Actualizado en {{ lab.updated | date }}</md-card-content>
         <button md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">INICIAR</button>
       </md-card>
     </div>
   </div>
-  <div class="row">
-    <button class="col" md-button routerLink="labs">Ver más</button>
-  </div>
 
   <div class="row">
     <div class="col">
-      <h3>Últimos artículos</h3>
+      <md-toolbar>
+        <p>Últimos artículos</p>
+        <span class="dottech-spacer"></span>
+        <button md-button routerLink="articles">VER MÁS</button>
+      </md-toolbar>
     </div>
   </div>
 
@@ -51,13 +53,8 @@
         <md-card-content>
           {{ article.updated | date }}
         </md-card-content>
-        <a md-raised-button color="primary" [routerLink]="'/articles/' + [article.$key]">LEER</a>
+        <button md-raised-button color="primary" [routerLink]="'/articles/' + [article.$key]">LEER</button>
       </md-card>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <button md-button routerLink="articles">Ver más</button>
     </div>
   </div>
 
@@ -66,7 +63,7 @@
       <md-card class="hero2">
         <h2>Nuestro canal de YouTube</h2>
         <p>Vídeos paso a paso de desarrollo de aplicaciones, míralo, te gustará.</p>
-        <button md-raised-button color="accent">IR AL CANAL DE YOUTUBE</button>
+        <a md-raised-button color="accent" href="https://www.youtube.com/channel/UCQBP46vtgU0OA91xL2tl-nQ" target="_blank">IR AL CANAL DE YOUTUBE</a>
       </md-card>
     </div>
   </div>

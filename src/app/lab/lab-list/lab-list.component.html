@@ -3,7 +3,7 @@
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
 
       <md-card [style.background]="technologyService.getTechnology(lab.technology).color">
-        <md-card-title>{{ lab.title }}</md-card-title>
+
         <md-card-header>
           <img md-card-avatar src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
                alt="Tecnology"
@@ -11,8 +11,14 @@
           <md-card-title>{{ technologyService.getTechnology(lab.technology).name }}</md-card-title>
           <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
         </md-card-header>
-        <md-card-content>{{ lab.updated | date }}</md-card-content>
+
+        <md-card-title>{{ lab.title }}</md-card-title>
+        <md-card-content>
+          <p>Actualizado en {{ lab.updated | date }}</p>
+        </md-card-content>
         <a md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">INICIAR</a>
+        <span class="dottech-spacer"></span>
+
       </md-card>
 
     </div>
