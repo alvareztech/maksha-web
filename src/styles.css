@@ -1,16 +1,18 @@
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
-@import "https://fonts.googleapis.com/css?family=Roboto:300";
+@import "https://fonts.googleapis.com/css?family=Roboto:300,500";
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:500";
 
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   background-color: #F5F5F5;
 }
 
 button, a {
   font-family: 'Roboto Mono', monospace !important;
+  font-weight: 500 !important;
 }
 
 /*body {*/

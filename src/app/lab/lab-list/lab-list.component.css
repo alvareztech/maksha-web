@@ -3,11 +3,21 @@ md-card {
 }
 
 md-card-title {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+  font-weight: 500;
   color: white;
 }
 
 .dottech-spacer {
   flex: 1 1 auto;
+}
+
+md-card-content {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+md-card-header md-card-title {
+  color: white;
+}
+md-card-header md-card-subtitle {
+  color: rgba(255, 255, 255, 0.7);
 }

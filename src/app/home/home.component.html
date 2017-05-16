@@ -3,7 +3,7 @@
     <div class="col">
       <md-card class="hero1">
         <h2>Creación & capacitación</h2>
-        <p>Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
+        <p>Creamos Aplicaciones iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.</p>
         <a md-raised-button color="accent" href="https://m.me/alvareztech" target="_blank">ESCRÍBENOS</a>
       </md-card>
     </div>
@@ -50,7 +50,7 @@
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let article of articlesPreview | async">
       <md-card>
         <md-card-title class="article">{{ article.title }}</md-card-title>
-        <md-card-content>
+        <md-card-content class="article">
           {{ article.updated | date }}
         </md-card-content>
         <button md-raised-button color="primary" [routerLink]="'/articles/' + [article.$key]">LEER</button>
