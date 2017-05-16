@@ -30,10 +30,8 @@ md-card-content.article {
 }
 
 md-card-header md-card-title {
-  /*text-transform: uppercase;*/
   color: white;
 }
 md-card-header md-card-subtitle {
-  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
 }
