@@ -1,18 +1,37 @@
-md-toolbar h1 {
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  /*padding: 0;*/
-  /*margin: 0;*/
-  font-size: 24px;
-  /*text-transform: uppercase;*/
+.container {
+  /*background-color: white;*/
 }
-md-card h1 {
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: -1px;
-  font-size: 1.8rem;
+.step-number {
   color: white;
-  /*text-transform: uppercase;*/
-  /*font-weight: normal;*/
+  background-color: #69F0AE;
+  border-radius: 4px;
+}
+
+.step-end {
+  margin: 0 0 32px 0;
+}
+
+md-card {
+  margin: 16px 0 16px 0;
+}
+md-card-title {
+  font-weight: 500;
+  color: white;
+}
+md-card-content {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+md-card-header md-card-title {
+  color: white;
+}
+md-card-header md-card-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+md-list-item.selected {
+  color: #69F0AE;
+  font-weight: 500;
 }
 :host >>> .lab-content img {
   display: block;
