@@ -30,7 +30,8 @@ import {
   MdButtonToggleModule,
   MdSelectModule,
   MdCheckboxModule,
-  MdSnackBarModule
+  MdSnackBarModule,
+  MdChipsModule
 } from '@angular/material';
 import { ArticleListComponent } from './article/article-list/article-list.component';
 import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
@@ -66,7 +67,8 @@ import { ArticleDetailComponent } from './article/article-detail/article-detail.
     MdSelectModule,
     MdCheckboxModule,
     MdButtonToggleModule,
-    MdSnackBarModule
+    MdSnackBarModule,
+    MdChipsModule
   ],
   providers: [TechnologyService],
   bootstrap: [AppComponent],

@@ -1,46 +1,48 @@
-<md-toolbar *ngIf="(lab | async)"
-            [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
-  <div class="container">
-    <div class="row">
-      <div class="col-8">
-        <h1>{{ (lab | async)?.title }}</h1>
-      </div>
-      <div class="col">
-        <!--<md-icon color="accent">access_time</md-icon>-->
-        <!--<img *ngIf="(lab | async)"-->
-             <!--height="40"-->
-             <!--[src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"-->
-             <!--alt="Technology">-->
-      </div>
-    </div>
-  </div>
-</md-toolbar>
 <div class="container">
+  <div class="row">
+    <div class="col">
+      <md-card *ngIf="(lab | async)"
+               [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
+        <h1>{{ (lab | async)?.title }}</h1>
+      </md-card>
+    </div>
+    <!--<div class="col">-->
+    <!--<md-icon color="accent">access_time</md-icon>-->
+    <!--<img *ngIf="(lab | async)"-->
+    <!--height="40"-->
+    <!--[src]="'/assets/' + technologyService.getTechnology((lab | async)?.technology)?.icon"-->
+    <!--alt="Technology">-->
+    <!--</div>-->
+  </div>
 
   <div class="row">
 
-    <md-card class="col-lg-8 mb-4">
+    <div class="col-lg-8">
 
-      <div *ngIf="currentStepNumber > 0">
-        <h2>
-          <span class="badge badge-primary">{{ currentStepNumber }}</span>
-          {{ currentStep.title }}
-        </h2>
-      </div>
+      <md-card>
 
-      <div class="lab-content" [innerHtml]="currentStep.content | markdown | sanitizeHtml">
-      </div>
+        <div *ngIf="currentStepNumber > 0">
+          <h2>
+            <span class="badge badge-primary">{{ currentStepNumber }}</span>
+            {{ currentStep.title }}
+          </h2>
+        </div>
 
+        <div class="lab-content" [innerHtml]="currentStep.content | markdown | sanitizeHtml">
+        </div>
+      </md-card>
       <button md-raised-button color="primary" (click)="goNextStep()"
               *ngIf="currentStepNumber < totalStepsNumber-1">
         {{ currentStepNumber === 0 ? 'INICIAR' : 'SIGUIENTE'}}
       </button>
 
-    </md-card>
+    </div>
 
-    <md-card class="col-lg-3">
-      <md-list>
-        <md-list-item>
+    <div class="col-lg-4">
+
+
+      <md-nav-list>
+        <md-list-item class="selected" routerLinkActive="active-link">
           {{ technologyService.getLevel((lab | async)?.level )?.name }}
         </md-list-item>
         <md-divider></md-divider>
@@ -50,9 +52,11 @@
                       [class.active]="currentStepNumber === i">
           {{ step.title }}
         </md-list-item>
-      </md-list>
-      <p>Por Daniel Alvarez</p>
-    </md-card>
+        <md-divider></md-divider>
+        <md-list-item>Por Daniel Alvarez</md-list-item>
+      </md-nav-list>
+
+    </div>
 
   </div>
 
