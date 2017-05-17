@@ -10,3 +10,21 @@
 md-card {
   margin: 16px 0 16px 0;
 }
+
+h1.article-title {
+  color: white;
+  text-shadow: 1px 0 0 #32325D, -1px 0 0 #32325D, 0 1px 0 #32325D, 0 -1px 0 #32325D, 1px 1px #32325D, -1px -1px 0 #32325D, 1px -1px 0 #32325D, -1px 1px 0 #32325D;
+}
+
+p.article-title {
+  color: white;
+  text-shadow: 1px 0 0 #32325D, -1px 0 0 #32325D, 0 1px 0 #32325D, 0 -1px 0 #32325D, 1px 1px #32325D, -1px -1px 0 #32325D, 1px -1px 0 #32325D, -1px 1px 0 #32325D;
+}
+
+.fondo {
+  background-color: #32325D;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}

@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-12">
-      <md-card *ngFor="let article of articles | async">
+    <div class="col-12" *ngFor="let article of articles | async">
+      <md-card [ngStyle]="{'background-image': 'url(' + article.coverUrl + ')'}">
         <md-card-title>{{ article.title }}</md-card-title>
         <md-card-content>{{ article.updated | date }}</md-card-content>
-        <a md-raised-button color="primary" [routerLink]="'/articles/' + [article.$key]">LEER</a>
+        <a md-raised-button color="accent" [routerLink]="'/articles/' + [article.$key]">LEER</a>
       </md-card>
     </div>
   </div>
