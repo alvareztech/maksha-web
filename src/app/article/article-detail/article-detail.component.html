@@ -1,13 +1,15 @@
-<div class="fondo" [ngStyle]="{'background-image': 'url(' + (article | async)?.coverUrl + ')'}">
+<div class="fondo">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
         <h1 class="article-title">{{ (article | async)?.title }}</h1>
-        <p class="article-title" *ngIf="(article | async)">Actualizado el {{ (article | async)?.updated | date }} pero creado el {{ (article | async)?.created | date
+        <p class="article-title" *ngIf="(article | async)">Actualizado el {{ (article | async)?.updated | date }} pero
+          creado el {{ (article | async)?.created | date
           }}</p>
       </div>
       <div class="col-lg-8">
-        <md-card>
+        <md-card *ngIf="article| async">
+          <img md-card-image [src]="(article| async)?.coverUrl">
           <div class="article-content" [innerHtml]="articleObject.content | markdown | sanitizeHtml">
           </div>
         </md-card>

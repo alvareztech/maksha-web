@@ -1,8 +1,5 @@
 md-card {
+  background-color: #32325D;
   color: white;
   margin: 16px 0 16px 0;
-  background-color: #32325D;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
