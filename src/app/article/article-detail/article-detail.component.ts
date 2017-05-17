@@ -27,8 +27,16 @@ export class ArticleDetailComponent implements OnInit {
       this.article.forEach(value => {
         this.titleService.setTitle(value.title);
         this.articleObject = value;
+        this.downloadJS('http://platform.twitter.com/widgets.js');
+        this.downloadJS('http://platform.instagram.com/en_US/embeds.js');
       });
     });
+  }
+
+  downloadJS(fileURL) {
+    const script = document.createElement('script');
+    script.src = (fileURL);
+    document.head.appendChild(script);
   }
 
 }
