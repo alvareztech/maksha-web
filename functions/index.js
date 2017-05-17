@@ -37,7 +37,8 @@ exports.generateArticlePreview = functions.database.ref('/articles/{articleId}')
     console.log('Article update public: %j', event);
     return event.data.ref.parent.parent.child('previews/articles/' + event.params.articleId).set({
       title: article.title,
-      updated: article.updated
+      updated: article.updated,
+      coverUrl: article.coverUrl
     });
   } else {
     console.log('Article update private: %j', event);
