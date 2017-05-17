@@ -1,5 +1,7 @@
 md-card {
-  background-color: #32325D;
-  color: white;
+  color: #32325D;
   margin: 16px 0 16px 0;
+}
+md-card-title {
+  font-weight: 500;
 }
