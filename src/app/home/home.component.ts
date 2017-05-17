@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TechnologyService} from '../services/technology.service';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home',
@@ -9,21 +10,25 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 })
 export class HomeComponent implements OnInit {
 
-  labsPreview: FirebaseListObservable<any>;
-  articlesPreview: FirebaseListObservable<any>;
+  labsPreview: Observable<any>;
+  articlesPreview: Observable<any>;
 
   constructor(db: AngularFireDatabase, private technologyService: TechnologyService) {
     this.labsPreview = db.list('/previews/labs', {
       query: {
         orderByChild: 'updated',
-        limitToFirst: 3
+        limitToLast: 3
       }
+    }).map((arr) => {
+      return arr.reverse();
     });
     this.articlesPreview = db.list('/previews/articles', {
       query: {
         orderByChild: 'updated',
-        limitToFirst: 3
+        limitToLast: 3
       }
+    }).map((arr) => {
+      return arr.reverse();
     });
   }
 

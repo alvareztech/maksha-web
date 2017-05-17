@@ -2,6 +2,12 @@ md-card {
   color: #32325D;
   margin: 16px 0 16px 0;
 }
+
 md-card-title {
   font-weight: 500;
+}
+
+md-spinner {
+  width: 48px;
+  margin: auto;
 }

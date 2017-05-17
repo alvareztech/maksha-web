@@ -22,7 +22,10 @@
   </div>
 
   <div class="row">
+    <md-spinner *ngIf="!(labsPreview | async)"></md-spinner>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
+
+
       <md-card [style.background]="technologyService.getTechnology(lab.technology).color">
         <md-card-header>
           <img md-card-avatar src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
@@ -49,6 +52,7 @@
   </div>
 
   <div class="row">
+    <md-spinner *ngIf="!(articlesPreview | async)"></md-spinner>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let article of articlesPreview | async">
       <md-card>
         <img md-card-image [src]="article.coverUrl">

@@ -38,8 +38,16 @@ export class AdminComponent implements OnInit {
   isArticleSelected = false;
 
   constructor(public technologyService: TechnologyService, private db: AngularFireDatabase, public snackBar: MdSnackBar) {
-    this.labs = db.list('/labs');
-    this.articles = db.list('/articles');
+    this.labs = db.list('/labs', {
+      query: {
+        orderByChild: 'updated'
+      }
+    });
+    this.articles = db.list('/articles', {
+      query: {
+        orderByChild: 'updated'
+      }
+    });
   }
 
   ngOnInit() {

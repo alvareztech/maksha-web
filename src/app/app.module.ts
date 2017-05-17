@@ -31,10 +31,10 @@ import {
   MdSelectModule,
   MdCheckboxModule,
   MdSnackBarModule,
-  MdChipsModule
+  MdChipsModule, MdProgressSpinnerModule
 } from '@angular/material';
-import { ArticleListComponent } from './article/article-list/article-list.component';
-import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+import {ArticleListComponent} from './article/article-list/article-list.component';
+import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import { ArticleDetailComponent } from './article/article-detail/article-detail.
     MdCheckboxModule,
     MdButtonToggleModule,
     MdSnackBarModule,
-    MdChipsModule
+    MdChipsModule,
+    MdProgressSpinnerModule
   ],
   providers: [TechnologyService],
   bootstrap: [AppComponent],

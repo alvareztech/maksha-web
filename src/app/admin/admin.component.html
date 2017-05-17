@@ -21,15 +21,17 @@
           </button>
         </md-toolbar>
 
+
         <div *ngIf="!isLabSelected" class="row">
-          <md-list>
+          <md-spinner *ngIf="!(labs | async)"></md-spinner>
+          <md-nav-list>
             <md-list-item *ngFor="let lab of labs | async" (click)="goLab(lab)">
               <md-icon md-list-icon *ngIf="!lab.published">build</md-icon>
-              <md-icon md-list-icon *ngIf="lab.published">check_circle</md-icon>
-              <h4 md-line>{{ lab.title }}</h4>
-              <p md-line>{{ lab.updated | date }}</p>
+              <md-icon md-list-icon *ngIf="lab.published" color="accent">check_circle</md-icon>
+              <h4>{{ lab.title }}</h4>
+              <p>&nbsp;{{ lab.updated | date }}</p>
             </md-list-item>
-          </md-list>
+          </md-nav-list>
         </div>
 
         <div class="row" *ngIf="isLabSelected">
@@ -134,14 +136,15 @@
         </md-toolbar>
 
         <div *ngIf="!isArticleSelected">
-          <md-list>
+          <md-spinner *ngIf="!(articles | async)"></md-spinner>
+          <md-nav-list>
             <md-list-item *ngFor="let article of articles | async" (click)="goArticle(article)">
               <md-icon md-list-icon *ngIf="!article.published">build</md-icon>
-              <md-icon md-list-icon *ngIf="article.published">check_circle</md-icon>
-              <h4 md-line>{{ article.title }}</h4>
-              <p md-line>{{ article.updated | date }}</p>
+              <md-icon md-list-icon *ngIf="article.published" color="accent">check_circle</md-icon>
+              <h4>{{ article.title }}</h4>
+              <p>&nbsp;{{ article.updated | date }}</p>
             </md-list-item>
-          </md-list>
+          </md-nav-list>
         </div>
         <div *ngIf="isArticleSelected">
           <md-input-container>

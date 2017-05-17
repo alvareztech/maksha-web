@@ -1,13 +1,16 @@
 .dottech-spacer {
   flex: 1 1 auto;
 }
+
 md-card {
   margin: 16px 0 16px 0;
 }
+
 md-card.hero1 {
   color: white;
   background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
+
 md-card.hero2 {
   color: white;
   background-image: linear-gradient(to right, #ff0844 0%, #ffb199 100%);
@@ -17,6 +20,7 @@ md-card-title {
   font-weight: 500;
   color: white;
 }
+
 md-card-content {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.7);
@@ -25,6 +29,7 @@ md-card-content {
 md-card-title.article {
   color: #32325D;
 }
+
 md-card-content.article {
   color: #32325D;
 }
@@ -32,6 +37,7 @@ md-card-content.article {
 md-card-header md-card-title {
   color: white;
 }
+
 md-card-header md-card-subtitle {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -39,4 +45,9 @@ md-card-header md-card-subtitle {
 md-toolbar span {
   color: #32325D;
   font-weight: 500;
+}
+
+md-spinner {
+  width: 48px;
+  margin: auto;
 }

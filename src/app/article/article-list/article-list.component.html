@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
+    <md-spinner *ngIf="!(articles | async)"></md-spinner>
     <div class="col-12 col-md-6" *ngFor="let article of articles | async">
       <md-card>
         <img md-card-image [src]="article.coverUrl">
         <md-card-title>{{ article.title }}</md-card-title>
-        <md-card-content>{{ article.updated | date }}</md-card-content>
+        <md-card-content>Actualizado en {{ article.updated | date }}</md-card-content>
         <a md-raised-button color="accent" [routerLink]="'/articles/' + [article.$key]">LEER</a>
       </md-card>
     </div>
