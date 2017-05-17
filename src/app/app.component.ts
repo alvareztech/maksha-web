@@ -25,4 +25,8 @@ export class AppComponent {
       console.log('signOut:', a);
     });
   }
+
+  onDeactivate() {
+    document.body.scrollTop = 0;
+  }
 }

@@ -16,7 +16,7 @@
   </button>
 </md-toolbar>
 
-<router-outlet></router-outlet>
+<router-outlet (deactivate)="onDeactivate()"></router-outlet>
 
 <md-menu #themeMenu x-position="before">
   <button md-menu-item routerLink="admin" *ngIf="(user | async)?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">ADMIN</button>
