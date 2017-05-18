@@ -2,26 +2,30 @@
 
   <div class="row">
 
-    <div class="col-lg-4">
+    <md-spinner *ngIf="!loadFinish"></md-spinner>
 
-      <md-card *ngIf="(lab | async)"
-               [style.background]="technologyService.getTechnology((lab | async)?.technology)?.color">
+    <div class="col-lg-4" *ngIf="loadFinish">
+
+      <md-card [style.background]="technologyService.getTechnology(labObject.technology)?.color">
 
         <md-card-header>
-          <img md-card-avatar src="/assets/{{ technologyService.getTechnology((lab | async)?.technology).icon }}"
+          <img md-card-avatar src="/assets/{{ technologyService.getTechnology(labObject.technology).icon }}"
                alt="Tecnology"
           >
-          <md-card-title>{{ technologyService.getTechnology((lab | async)?.technology).name }}</md-card-title>
-          <md-card-subtitle>{{ technologyService.getLevel((lab | async)?.level).name }}</md-card-subtitle>
+          <md-card-title>{{ technologyService.getTechnology(labObject.technology).name }}</md-card-title>
+          <md-card-subtitle>{{ technologyService.getLevel(labObject.level).name }}</md-card-subtitle>
         </md-card-header>
 
-        <md-card-title>{{ (lab | async)?.title }}</md-card-title>
+        <md-card-title>{{ labObject.title }}</md-card-title>
         <md-card-content>
-          <p>Actualizado en {{ (lab | async)?.updated | date }}</p>
+          <p>Actualizado en {{ labObject.updated | date }}</p>
         </md-card-content>
+        <md-card-actions *ngIf="labObject.videoId">
+          <a md-button color="accent" href="{{ 'https://www.youtube.com/watch?v=' + labObject.videoId }}" target="_blank">VER EN YOUTUBE</a>
+        </md-card-actions>
       </md-card>
 
-      <md-nav-list *ngFor="let step of (lab | async)?.steps; let i = index;">
+      <md-nav-list *ngFor="let step of labObject.steps; let i = index;">
         <md-list-item
           (click)="changeStep(i, step.title, step.content)"
           [class.selected]="currentStepNumber === i">
@@ -39,7 +43,13 @@
 
     </div>
 
-    <div class="col-lg-8">
+    <div class="col-lg-8" *ngIf="loadFinish">
+
+      <md-card class="youtube" *ngIf="labObject.videoId">
+        <iframe width="560" height="315" [src]="labObject.trustVideoUrl"
+                frameborder="0"
+                allowfullscreen></iframe>
+      </md-card>
 
       <md-card>
         <h2 *ngIf="currentStepNumber > 0">

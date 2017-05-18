@@ -23,7 +23,8 @@ exports.generatePreview = functions.database.ref('/labs/{labId}').onWrite(event 
       title: lab.title,
       level: lab.level,
       technology: lab.technology,
-      updated: lab.updated
+      updated: lab.updated,
+      videoId: lab.videoId
     });
   } else {
     console.log('Lab update private: %j', event);
