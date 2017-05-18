@@ -35,7 +35,6 @@ import {
 } from '@angular/material';
 import {ArticleListComponent} from './article/article-list/article-list.component';
 import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +46,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MarkdownPipe,
     SanitizeHtmlPipe,
     ArticleListComponent,
-    ArticleDetailComponent,
-    NotFoundComponent
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule,
