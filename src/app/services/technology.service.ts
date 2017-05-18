@@ -8,23 +8,23 @@ export class TechnologyService {
   levels: Level[] = [
     {
       id: 1,
-      name: 'Básico'
+      name: 'Essential'
     },
     {
       id: 2,
-      name: 'Intermedio'
+      name: 'Basic'
     },
     {
       id: 3,
-      name: 'Avanzado'
+      name: 'Intermediate'
     },
     {
       id: 4,
-      name: 'Desafiante'
+      name: 'Advanced'
     },
     {
       id: 5,
-      name: 'Otro nivel'
+      name: 'Professional'
     }
   ];
 
@@ -56,8 +56,20 @@ export class TechnologyService {
     {
       id: 'angular',
       name: 'Angular',
-      color: '#FF0844',
+      color: '#E23237',
       icon: 'angular.svg'
+    },
+    {
+      id: 'productivity',
+      name: 'Productividad',
+      color: '#434343',
+      icon: 'productivity.svg'
+    },
+    {
+      id: 'gcp',
+      name: 'Google Cloud Platform',
+      color: '#3B78E7',
+      icon: 'gcp.svg'
     }
   ];
 
