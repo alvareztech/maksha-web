@@ -1,19 +1,18 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col" *ngIf="!isArticleSelected">
+    <!-- Labs -->
+    <div class="col" *ngIf="isVisible('lab')">
 
       <form>
         <md-toolbar>
           <button md-button (click)="returnLabs()">LABS</button>
-          <span *ngIf="isLabSelected">
-          <a md-button href="https://beta.alvarez.tech/labs/{{ currentLab?.$key }}"
-             target="_blank">/{{currentLab?.$key}}</a>
-        </span>
-          <span *ngIf="isLabSelected">
-          <a md-button
-             href="https://console.firebase.google.com/project/maksha-41f4f/database/data/labs/{{ currentLab?.$key }}"
-             target="_blank">/firebase</a>
-        </span>
+          <div *ngIf="isLabSelected">
+            <a md-button href="https://beta.alvarez.tech/labs/{{ currentLab?.$key }}"
+               target="_blank">/{{currentLab?.$key}}</a>
+            <a md-button
+               href="https://console.firebase.google.com/project/maksha-41f4f/database/data/labs/{{ currentLab?.$key }}"
+               target="_blank">/firebase</a>
+          </div>
           <span class="dottech-spacer"></span>
           <button md-raised-button (click)="newLab()" *ngIf="!isLabSelected">NEW</button>
           <button md-raised-button color="primary" (click)="saveLab()" *ngIf="isLabSelected && isNewLab">SAVE</button>
@@ -111,20 +110,21 @@
       </form>
 
     </div>
-    <div class="col" *ngIf="!isLabSelected">
+    <!-- Articles -->
+    <div class="col" *ngIf="isVisible('art')">
+
       <form>
 
         <md-toolbar>
           <button md-button (click)="returnArticles()">ARTICLES</button>
-          <span *ngIf="isArticleSelected">
-          <a md-button href="https://beta.alvarez.tech/articles/{{ currentArticle?.$key }}"
-             target="_blank">/{{currentArticle?.$key}}</a>
-        </span>
-          <span *ngIf="isArticleSelected">
-           <a md-button
-              href="https://console.firebase.google.com/project/maksha-41f4f/database/data/articles/{{ currentArticle?.$key }}"
-              target="_blank">/firebase</a>
-        </span>
+          <div *ngIf="isArticleSelected">
+            <a md-button href="https://beta.alvarez.tech/articles/{{ currentArticle?.$key }}"
+               target="_blank">/{{currentArticle?.$key}}</a>
+
+            <a md-button
+               href="https://console.firebase.google.com/project/maksha-41f4f/database/data/articles/{{ currentArticle?.$key }}"
+               target="_blank">/firebase</a>
+          </div>
           <span class="dottech-spacer"></span>
           <button md-raised-button (click)="goNewArticle()" *ngIf="!isArticleSelected">NEW</button>
           <button md-raised-button color="primary" (click)="saveArticle()" *ngIf="isArticleSelected && isNewArticle">
@@ -161,6 +161,61 @@
         </div>
 
       </form>
+
+    </div>
+    <!-- Pages -->
+    <div class="col" *ngIf="isVisible('pag')">
+
+      <form>
+        <md-toolbar>
+          <button md-button (click)="returnPages()">PAGES</button>
+          <div *ngIf="isPageSelected">
+            <a md-button href="https://beta.alvarez.tech/{{ currentPage?.$key }}"
+               target="_blank">/{{currentPage?.$key}}</a>
+            <a md-button
+               href="https://console.firebase.google.com/project/maksha-41f4f/database/data/pages/{{ currentPage?.$key }}"
+               target="_blank">/firebase</a>
+          </div>
+          <span class="dottech-spacer"></span>
+          <button md-raised-button (click)="goNewPage()" *ngIf="!isPageSelected">NEW</button>
+          <button md-raised-button color="primary" (click)="savePage()" *ngIf="isPageSelected && isNewPage">SAVE</button>
+          <button md-raised-button color="primary" (click)="updatePage()" *ngIf="isPageSelected && !isNewPage">UPDATE
+          </button>
+        </md-toolbar>
+
+        <div class="row" *ngIf="!isPageSelected">
+          <md-spinner *ngIf="!(pages | async)"></md-spinner>
+          <md-nav-list>
+            <md-list-item *ngFor="let page of pages | async" (click)="goPage(page)">
+              <h4>{{ page.name }}</h4>
+            </md-list-item>
+          </md-nav-list>
+        </div>
+
+        <div class="row" *ngIf="isPageSelected">
+          <div class="col-12">
+
+            <md-card>
+
+              <md-input-container>
+                <input mdInput placeholder="Name" [(ngModel)]="currentPage.name" name="Name">
+              </md-input-container>
+
+              <md-input-container *ngIf="isNewLab">
+                <input mdInput placeholder="Identifier" [(ngModel)]="currentPage.$key" name="Identifier">
+              </md-input-container>
+
+              <md-input-container>
+                <textarea mdInput rows="25" [(ngModel)]="currentPage.content" name="Content"></textarea>
+              </md-input-container>
+
+            </md-card>
+
+          </div>
+        </div>
+
+      </form>
+
     </div>
   </div>
 </div>

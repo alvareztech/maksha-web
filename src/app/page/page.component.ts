@@ -33,6 +33,7 @@ export class PageComponent implements OnInit {
           this.isFinishLoad = true;
           this.downloadJS('https://apis.google.com/js/platform.js');
           this.downloadJS('https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=269827340075535');
+          this.downloadJS('https://speakerdeck.com/assets/embed.js');
           this.pageObject = value;
         }
       });

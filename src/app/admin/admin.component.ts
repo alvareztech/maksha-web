@@ -24,18 +24,23 @@ export class AdminComponent implements OnInit {
   };
   isNewLab = true; // update otherwise
   isNewArticle = true; // update otherwise
+  isNewPage = true; // update otherwise
 
   currentArticle = {};
+  currentPage = {};
 
   lab: FirebaseObjectObservable<any>;
   labs: FirebaseListObservable<any>;
   article: FirebaseObjectObservable<any>;
   articles: FirebaseListObservable<any>;
+  page: FirebaseObjectObservable<any>;
+  pages: FirebaseListObservable<any>;
 
   currentStepNumber = 0;
 
   isLabSelected = false;
   isArticleSelected = false;
+  isPageSelected = false;
 
   constructor(public technologyService: TechnologyService, private db: AngularFireDatabase, public snackBar: MdSnackBar) {
     this.labs = db.list('/labs', {
@@ -47,6 +52,10 @@ export class AdminComponent implements OnInit {
       query: {
         orderByChild: 'updated'
       }
+    });
+    this.pages = db.list('/pages');
+    this.pages.subscribe(value => {
+      console.log('console: %j', value);
     });
   }
 
@@ -190,4 +199,79 @@ export class AdminComponent implements OnInit {
     this.isArticleSelected = false;
   }
 
+  // Pages methods
+
+  savePage() {
+    this.pages.update(this.currentPage['$key'], {
+      name: this.currentPage['name'],
+      content: this.currentPage['content']
+    }).then(a => {
+      this.snackBar.open('New page successfully saved!', null, {duration: 2000});
+    }).catch(a => {
+      this.snackBar.open('Error:' + a.message, null, {duration: 2000});
+    });
+  }
+
+  updatePage() {
+    this.pages.update(this.currentPage['$key'], {
+      name: this.currentPage['name'],
+      content: this.currentPage['content']
+    }).then(a => {
+      this.snackBar.open('Page successfully updated!', null, {duration: 2000});
+    }).catch(a => {
+      this.snackBar.open('Error:' + a.message, null, {duration: 2000});
+    });
+  }
+
+  returnPages() {
+    this.isPageSelected = false;
+  }
+
+  goNewPage() {
+    this.isPageSelected = true;
+    // this.isNewArticle = true;
+
+    this.currentPage = {
+      $key: '',
+      name: 'Page name',
+      content: 'Page content'
+    };
+  }
+
+  goPage(page: any) {
+    this.isPageSelected = true;
+    this.isNewPage = false;
+
+    this.page = this.db.object('/pages/' + page.$key);
+    this.page.subscribe(a => {
+      this.currentPage = a;
+    });
+  }
+
+  // Util
+
+  isVisible(type: string) {
+    if (!this.isLabSelected && !this.isArticleSelected && !this.isPageSelected) {
+      return true;
+    }
+    if (this.isLabSelected) {
+      if (type === 'art' || type === 'pag') {
+        return false;
+      }
+      return true;
+    }
+    if (this.isArticleSelected) {
+      if (type === 'lab' || type === 'pag') {
+        return false;
+      }
+      return true;
+    }
+    if (this.isPageSelected) {
+      if (type === 'lab' || type === 'art') {
+        return false;
+      }
+      return true;
+    }
+    return false;
+  }
 }
