@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+
+    <md-spinner *ngIf="!isFinishLoad"></md-spinner>
+
+    <div class="col-lg-8" *ngIf="isFinishLoad">
+      <md-card>
+        <div class="page-content" [innerHtml]="pageObject.content | markdown | sanitizeHtml">
+        </div>
+      </md-card>
+    </div>
+    <div class="col-lg-4" *ngIf="isFinishLoad">
+
+      <p></p>
+
+      <div class="g-ytsubscribe" data-channelid="UCQBP46vtgU0OA91xL2tl-nQ" data-layout="full"
+           data-count="default"></div>
+
+      <p></p>
+
+      <div class="fb-like" width="80" data-href="https://www.facebook.com/alvareztech" data-layout="standard"
+           data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
+
+    </div>
+  </div>
+</div>
