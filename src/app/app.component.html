@@ -5,8 +5,8 @@
 
   <span class="dottech-spacer"></span>
 
-  <a md-button routerLink="labs">LABS</a>
-  <a md-button routerLink="articles">ARTÍCULOS</a>
+  <button md-button routerLink="labs">LABS</button>
+  <button md-button routerLink="articles">ARTÍCULOS</button>
 
   <img md-card-avatar [src]="(user | async)?.photoURL" height="40" width="40" *ngIf="(user | async)">
 
