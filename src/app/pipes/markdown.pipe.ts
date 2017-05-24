@@ -10,7 +10,8 @@ export class MarkdownPipe implements PipeTransform {
   transform(value: string): string {
     if (value) {
       let mark = marked(value);
-      mark = mark.replace(/(<a.*href="([^"]*)"[^>]*)>/ig, '$1 class=\"btn btn-outline-primary\">');
+      // mark = mark.replace(/(<a.*href="([^"]*)"[^>]*)>/ig, '$1 class=\"btn btn-outline-primary\">');
+      // mark = mark.replace(/\<(?:pre|php)\>([\s\S]+?)\<\/(?:pre|php)\>/, '<code>Hola</code>');
       return mark;
     }
     return '';
