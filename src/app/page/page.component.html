@@ -5,7 +5,7 @@
 
     <div class="col-lg-8" *ngIf="isFinishLoad">
       <md-card>
-        <div class="page-content" [innerHtml]="pageObject.content | markdown | sanitizeHtml">
+        <div class="markdown-content" [innerHtml]="pageObject.content | markdown | sanitizeHtml">
         </div>
       </md-card>
     </div>

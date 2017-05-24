@@ -18,10 +18,11 @@
 
         <md-card-title>{{ labObject.title }}</md-card-title>
         <md-card-content>
-          <p>Actualizado en {{ labObject.updated | date }}</p>
+          Actualizado en {{ labObject.updated | date }}
         </md-card-content>
         <md-card-actions *ngIf="labObject.videoId">
-          <a md-button color="accent" href="{{ 'https://www.youtube.com/watch?v=' + labObject.videoId }}" target="_blank">VER EN YOUTUBE</a>
+          <a md-button color="accent" href="{{ 'https://www.youtube.com/watch?v=' + labObject.videoId }}"
+             target="_blank">VER EN YOUTUBE</a>
         </md-card-actions>
       </md-card>
 
@@ -55,7 +56,7 @@
         <h2 *ngIf="currentStepNumber > 0">
           <span class="step-number">&nbsp;{{ currentStepNumber }}&nbsp;</span>&nbsp;{{ currentStep.title }}
         </h2>
-        <div class="lab-content" [innerHtml]="currentStep.content | markdown | sanitizeHtml">
+        <div class="markdown-content" [innerHtml]="currentStep.content | markdown | sanitizeHtml">
         </div>
       </md-card>
 
