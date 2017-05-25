@@ -7,7 +7,7 @@
         <md-toolbar>
           <button md-button (click)="returnLabs()">LABS</button>
           <div *ngIf="isLabSelected">
-            <a md-button href="https://beta.alvarez.tech/labs/{{ currentLab?.$key }}"
+            <a md-button href="https://alvarez.tech/labs/{{ currentLab?.$key }}"
                target="_blank">/{{currentLab?.$key}}</a>
             <a md-button
                href="https://console.firebase.google.com/project/maksha-41f4f/database/data/labs/{{ currentLab?.$key }}"
@@ -118,7 +118,7 @@
         <md-toolbar>
           <button md-button (click)="returnArticles()">ARTICLES</button>
           <div *ngIf="isArticleSelected">
-            <a md-button href="https://beta.alvarez.tech/articles/{{ currentArticle?.$key }}"
+            <a md-button href="https://alvarez.tech/articles/{{ currentArticle?.$key }}"
                target="_blank">/{{currentArticle?.$key}}</a>
 
             <a md-button
@@ -170,7 +170,7 @@
         <md-toolbar>
           <button md-button (click)="returnPages()">PAGES</button>
           <div *ngIf="isPageSelected">
-            <a md-button href="https://beta.alvarez.tech/{{ currentPage?.$key }}"
+            <a md-button href="https://alvarez.tech/{{ currentPage?.$key }}"
                target="_blank">/{{currentPage?.$key}}</a>
             <a md-button
                href="https://console.firebase.google.com/project/maksha-41f4f/database/data/pages/{{ currentPage?.$key }}"

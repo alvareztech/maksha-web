@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TechnologyService} from '../services/technology.service';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
   labsPreview: Observable<any>;
   articlesPreview: Observable<any>;
 
-  constructor(db: AngularFireDatabase, private technologyService: TechnologyService) {
+  constructor(db: AngularFireDatabase, private technologyService: TechnologyService, private titleService: Title) {
+    this.titleService.setTitle('ALVAREZ.tech');
     this.labsPreview = db.list('/previews/labs', {
       query: {
         orderByChild: 'updated',

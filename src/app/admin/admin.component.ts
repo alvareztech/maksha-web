@@ -3,6 +3,7 @@ import {TechnologyService} from '../services/technology.service';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import * as firebase from 'firebase';
 import {MdSnackBar} from '@angular/material';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin',
@@ -42,7 +43,11 @@ export class AdminComponent implements OnInit {
   isArticleSelected = false;
   isPageSelected = false;
 
-  constructor(public technologyService: TechnologyService, private db: AngularFireDatabase, public snackBar: MdSnackBar) {
+  constructor(public technologyService: TechnologyService,
+              private db: AngularFireDatabase,
+              public snackBar: MdSnackBar,
+              private titleService: Title) {
+    this.titleService.setTitle('Administrator');
     this.labs = db.list('/labs', {
       query: {
         orderByChild: 'updated'
