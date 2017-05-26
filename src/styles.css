@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Material+Icons");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,500");
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Product+Sans:400');
+@import url("https://fonts.googleapis.com/css?family=Roboto|Product+Sans:400|Roboto+Mono:400,500|Material+Icons");
 
 html, body {
   margin: 0;
