@@ -150,3 +150,9 @@ md-card.youtube {
   max-height: 40em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
+
+.markdown-content blockquote {
+  background-color: rgba(105, 240, 174, 0.5);
+  border-radius: 4px;
+  padding: 1px 8px 1px 8px;
+}
