@@ -16,6 +16,10 @@
         </md-card-header>
 
         <md-card-title>{{ lab.title }}</md-card-title>
+        <md-card-subtitle *ngIf="lab.videoId">
+          <md-icon>ondemand_video</md-icon>
+          <span>Video disponible</span>
+        </md-card-subtitle>
         <md-card-content>
           Actualizado en {{ lab.updated | date }}
         </md-card-content>
