@@ -11,9 +11,15 @@ import * as firebase from 'firebase/app';
 export class AppComponent {
   title = 'ALVAREZ.tech';
   user: Observable<firebase.User>;
+  isLoad = false;
+  userObject: any;
 
   constructor(public afAuth: AngularFireAuth) {
     this.user = afAuth.authState;
+    this.user.subscribe(x => {
+      this.isLoad = true;
+      this.userObject = x;
+    });
   }
 
   login() {

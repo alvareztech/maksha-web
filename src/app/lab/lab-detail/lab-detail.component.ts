@@ -6,7 +6,10 @@ import {TechnologyService} from '../../services/technology.service';
 import {Title} from '@angular/platform-browser';
 import {DomSanitizer} from '@angular/platform-browser';
 import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
-import {MdSnackBar} from '@angular/material';
+import {MdDialog, MdSnackBar} from '@angular/material';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {Observable} from 'rxjs/Observable';
+import {InvitationEnterComponent} from '../../invitation-enter/invitation-enter.component';
 
 @Component({
   selector: 'app-lab-detail',
@@ -30,13 +33,22 @@ export class LabDetailComponent implements OnInit {
   };
   loadFinish = false;
 
+  user: Observable<firebase.User>;
+  userObject: any;
+
   constructor(private route: ActivatedRoute,
               private db: AngularFireDatabase,
               public technologyService: TechnologyService,
               private titleService: Title,
               private sanitizer: DomSanitizer,
               private router: Router,
-              public snackBar: MdSnackBar) {
+              public snackBar: MdSnackBar,
+              public afAuth: AngularFireAuth,
+              public dialog: MdDialog) {
+    this.user = afAuth.authState;
+    this.user.subscribe(x => {
+      this.userObject = x;
+    });
   }
 
   ngOnInit() {
@@ -60,18 +72,34 @@ export class LabDetailComponent implements OnInit {
   }
 
   changeStep(i: number) {
-    this.currentStepNumber = i;
-    this.currentStep = this.labObject.steps[this.currentStepNumber];
+    if (this.userObject) {
+      this.currentStepNumber = i;
+      this.currentStep = this.labObject.steps[this.currentStepNumber];
+    } else {
+      this.showInvitationEnter();
+    }
   }
 
   goNextStep() {
-    this.currentStepNumber++;
-    this.currentStep = this.labObject.steps[this.currentStepNumber];
+    if (this.userObject) {
+      this.currentStepNumber++;
+      this.currentStep = this.labObject.steps[this.currentStepNumber];
+    } else {
+      this.showInvitationEnter();
+    }
   }
 
   getSecureUrl(videoId: string) {
-    console.log('getSecureUrl called: ' + videoId);
     return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + videoId + '?rel=0&showinfo=0');
+  }
+
+  showInvitationEnter() {
+    const dialogRef = this.dialog.open(InvitationEnterComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (this.userObject) {
+        this.snackBar.open('¡Hola ' + this.userObject.displayName + '! 👋', null, {duration: 3000});
+      }
+    });
   }
 
 }

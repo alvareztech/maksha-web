@@ -31,11 +31,12 @@ import {
   MdSelectModule,
   MdCheckboxModule,
   MdSnackBarModule,
-  MdChipsModule, MdProgressSpinnerModule
+  MdChipsModule, MdProgressSpinnerModule, MdDialogModule
 } from '@angular/material';
 import {ArticleListComponent} from './article/article-list/article-list.component';
 import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
-import { PageComponent } from './page/page.component';
+import {PageComponent} from './page/page.component';
+import {InvitationEnterComponent} from './invitation-enter/invitation-enter.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +49,10 @@ import { PageComponent } from './page/page.component';
     SanitizeHtmlPipe,
     ArticleListComponent,
     ArticleDetailComponent,
-    PageComponent
+    PageComponent,
+    InvitationEnterComponent
   ],
+  entryComponents: [InvitationEnterComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -71,7 +74,8 @@ import { PageComponent } from './page/page.component';
     MdButtonToggleModule,
     MdSnackBarModule,
     MdChipsModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    MdDialogModule
   ],
   providers: [TechnologyService],
   bootstrap: [AppComponent],

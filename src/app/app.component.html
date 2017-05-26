@@ -8,10 +8,10 @@
   <button md-button routerLink="labs">LABS</button>
   <button md-button routerLink="articles">ARTÍCULOS</button>
 
-  <img md-card-avatar [src]="(user | async)?.photoURL" height="40" width="40" *ngIf="(user | async)">
+  <img md-card-avatar [src]="userObject?.photoURL" height="40" width="40" *ngIf="userObject">
 
-  <a md-raised-button color="accent" (click)="login()" *ngIf="!(user | async)">INGRESAR</a>
-  <button md-icon-button [mdMenuTriggerFor]="themeMenu" *ngIf="(user | async)">
+  <a md-raised-button color="accent" (click)="login()" *ngIf="!userObject">INGRESAR</a>
+  <button md-icon-button [mdMenuTriggerFor]="themeMenu" *ngIf="userObject">
     <md-icon>more_vert</md-icon>
   </button>
 </md-toolbar>
@@ -19,6 +19,6 @@
 <router-outlet (deactivate)="onDeactivate()"></router-outlet>
 
 <md-menu #themeMenu x-position="before">
-  <button md-menu-item routerLink="admin" *ngIf="(user | async)?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">ADMIN</button>
+  <button md-menu-item routerLink="admin" *ngIf="userObject?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">ADMIN</button>
   <button md-menu-item (click)="logout()">SALIR</button>
 </md-menu>
