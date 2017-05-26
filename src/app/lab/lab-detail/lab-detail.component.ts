@@ -109,12 +109,14 @@ export class LabDetailComponent implements OnInit {
   }
 
   saveInitLab() {
-    const itemObservable = this.db.object('/users/' + this.userObject.uid + '/labs/' + this.labId);
-    itemObservable.set({
-      started: true,
-      lastStep: 0,
-      lastEntry: firebase.database.ServerValue.TIMESTAMP
-    });
+    if (this.userObject) {
+      const itemObservable = this.db.object('/users/' + this.userObject.uid + '/labs/' + this.labId);
+      itemObservable.set({
+        started: true,
+        lastStep: 0,
+        lastEntry: firebase.database.ServerValue.TIMESTAMP
+      });
+    }
   }
 
 }
