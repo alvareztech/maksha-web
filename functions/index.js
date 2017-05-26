@@ -24,7 +24,7 @@ exports.generatePreview = functions.database.ref('/labs/{labId}').onWrite(event 
       level: lab.level,
       technology: lab.technology,
       updated: lab.updated,
-      videoId: lab.videoId
+      videoId: lab.videoId ? lab.videoId : null
     });
   } else {
     console.log('Lab update private: %j', event);
