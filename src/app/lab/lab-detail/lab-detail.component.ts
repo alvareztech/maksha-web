@@ -10,6 +10,7 @@ import {MdDialog, MdSnackBar} from '@angular/material';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Observable} from 'rxjs/Observable';
 import {InvitationEnterComponent} from '../../invitation-enter/invitation-enter.component';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-lab-detail',
@@ -18,6 +19,7 @@ import {InvitationEnterComponent} from '../../invitation-enter/invitation-enter.
 })
 export class LabDetailComponent implements OnInit {
 
+  labId: string;
   lab: FirebaseObjectObservable<any>;
   currentStepNumber: number;
   totalStepsNumber: number;
@@ -53,6 +55,7 @@ export class LabDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(params => {
+      this.labId = params['id'];
       this.lab = this.db.object('/labs/' + params['id']);
       this.lab.subscribe(value => {
         if (value.hasOwnProperty('$value') && !value['$value']) {
@@ -82,6 +85,9 @@ export class LabDetailComponent implements OnInit {
 
   goNextStep() {
     if (this.userObject) {
+      if (this.currentStepNumber === 0) {
+        this.saveInitLab();
+      }
       this.currentStepNumber++;
       this.currentStep = this.labObject.steps[this.currentStepNumber];
     } else {
@@ -99,6 +105,15 @@ export class LabDetailComponent implements OnInit {
       if (this.userObject) {
         this.snackBar.open('¡Hola ' + this.userObject.displayName + '! 👋', null, {duration: 3000});
       }
+    });
+  }
+
+  saveInitLab() {
+    const itemObservable = this.db.object('/users/' + this.userObject.uid + '/labs/' + this.labId);
+    itemObservable.set({
+      started: true,
+      lastStep: 0,
+      lastEntry: firebase.database.ServerValue.TIMESTAMP
     });
   }
 
