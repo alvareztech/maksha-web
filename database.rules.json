@@ -1,6 +1,30 @@
 {
   "rules": {
-    ".read": true,
-    ".write": "auth != null"
+    "users": {
+      ".read": "auth.uid == 'VPzZ9izNNravYPUNfiBimpr7put2'",
+      ".write": "auth != null"
+    },
+    "previews": {
+      ".read": true,
+      ".write": "auth != null",
+      "articles": {
+        ".indexOn": "updated"
+      },
+      "labs": {
+        ".indexOn": "updated"
+      }
+    },
+    "articles": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "labs": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "pages": {
+      ".read": true,
+      ".write": "auth != null"
+    }
   }
 }
