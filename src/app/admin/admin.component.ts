@@ -4,6 +4,9 @@ import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} f
 import * as firebase from 'firebase';
 import {MdSnackBar} from '@angular/material';
 import {Title} from '@angular/platform-browser';
+import {Router} from '@angular/router';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-admin',
@@ -43,28 +46,47 @@ export class AdminComponent implements OnInit {
   isArticleSelected = false;
   isPageSelected = false;
 
+  user: Observable<firebase.User>;
+  userObject: any;
+
   constructor(public technologyService: TechnologyService,
               private db: AngularFireDatabase,
               public snackBar: MdSnackBar,
-              private titleService: Title) {
-    this.titleService.setTitle('Administrator');
-    this.labs = db.list('/labs', {
-      query: {
-        orderByChild: 'updated'
+              private titleService: Title,
+              public afAuth: AngularFireAuth,
+              private router: Router) {
+    this.user = afAuth.authState;
+    this.user.subscribe(result => {
+      this.userObject = result;
+      if (this.userObject && this.userObject.uid === 'VPzZ9izNNravYPUNfiBimpr7put2') {
+        this.load();
+      } else {
+        this.router.navigate(['/']);
       }
-    });
-    this.articles = db.list('/articles', {
-      query: {
-        orderByChild: 'updated'
-      }
-    });
-    this.pages = db.list('/pages');
-    this.pages.subscribe(value => {
-      console.log('console: %j', value);
     });
   }
 
   ngOnInit() {
+  }
+
+  // Load
+
+  load() {
+    this.titleService.setTitle('Administrator');
+    this.labs = this.db.list('/labs', {
+      query: {
+        orderByChild: 'updated'
+      }
+    });
+    this.articles = this.db.list('/articles', {
+      query: {
+        orderByChild: 'updated'
+      }
+    });
+    this.pages = this.db.list('/pages');
+    this.pages.subscribe(value => {
+      console.log('console: %j', value);
+    });
   }
 
   // Labs methods
