@@ -20,5 +20,6 @@
 
 <md-menu #themeMenu x-position="before">
   <button md-menu-item routerLink="admin" *ngIf="userObject?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">ADMIN</button>
+  <button md-menu-item routerLink="stats" *ngIf="userObject?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">STATS</button>
   <button md-menu-item (click)="logout()">SALIR</button>
 </md-menu>

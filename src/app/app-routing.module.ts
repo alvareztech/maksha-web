@@ -7,6 +7,7 @@ import {AdminComponent} from './admin/admin.component';
 import {ArticleListComponent} from './article/article-list/article-list.component';
 import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
 import {PageComponent} from './page/page.component';
+import {StatsComponent} from "./stats/stats.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent
+  },
+  {
+    path: 'stats',
+    component: StatsComponent
   },
   {
     path: ':id',

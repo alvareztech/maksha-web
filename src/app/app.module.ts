@@ -37,6 +37,7 @@ import {ArticleListComponent} from './article/article-list/article-list.componen
 import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
 import {PageComponent} from './page/page.component';
 import {InvitationEnterComponent} from './invitation-enter/invitation-enter.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {InvitationEnterComponent} from './invitation-enter/invitation-enter.comp
     ArticleListComponent,
     ArticleDetailComponent,
     PageComponent,
-    InvitationEnterComponent
+    InvitationEnterComponent,
+    StatsComponent
   ],
   entryComponents: [InvitationEnterComponent],
   imports: [
