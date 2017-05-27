@@ -1,4 +1,6 @@
-var functions = require('firebase-functions');
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
@@ -45,4 +47,20 @@ exports.generateArticlePreview = functions.database.ref('/articles/{articleId}')
     console.log('Article update private: %j', event);
     return event.data.ref.parent.parent.child('previews/articles/' + event.params.articleId).remove();
   }
+});
+
+exports.saveUserInformation = functions.auth.user().onCreate(event => {
+  const user = event.data;
+
+  const email = user.email;
+  const displayName = user.displayName;
+  const photoURL = user.photoURL;
+
+  console.log('saveUserInformation: ' + displayName);
+
+  return admin.database().ref('users/' + user.uid).set({
+    displayName: displayName,
+    email: email,
+    photoURL: photoURL
+  });
 });
