@@ -103,10 +103,6 @@ md-card.article {
   background-image: linear-gradient(to left, #868f96 0%, #596164 100%);
 }
 
-.fondo {
-  background-image: linear-gradient(to left, #868f96 0%, #596164 100%);
-}
-
 md-spinner {
   width: 48px !important;
   margin: auto;

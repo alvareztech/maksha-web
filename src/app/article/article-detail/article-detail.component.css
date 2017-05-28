@@ -5,3 +5,7 @@
 .article-header p {
   color: rgba(255, 255, 255, 0.7);
 }
+
+.article-background {
+  background-image: linear-gradient(to left, #868f96 0%, #596164 100%) !important;
+}

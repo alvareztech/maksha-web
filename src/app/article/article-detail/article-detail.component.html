@@ -1,6 +1,9 @@
-<div class="fondo">
+<div class="article-background">
   <div class="container">
     <div class="row">
+
+      <md-spinner *ngIf="!isFinishLoad"></md-spinner>
+
       <div class="col-lg-4 article-header" *ngIf="isFinishLoad">
         <h1>{{ articleObject.title }}</h1>
         <p>Actualizado el {{ articleObject.updated | date }}</p>
