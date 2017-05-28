@@ -95,6 +95,11 @@ export class LabDetailComponent implements OnInit {
     }
   }
 
+  goBackStep() {
+    this.currentStepNumber--;
+    this.currentStep = this.labObject.steps[this.currentStepNumber];
+  }
+
   getSecureUrl(videoId: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + videoId + '?rel=0&showinfo=0');
   }

@@ -61,9 +61,17 @@
       </md-card>
 
       <div class="step-end">
+        <button md-mini-fab color="primary" *ngIf="currentStepNumber > 0" (click)="goBackStep()">
+          <md-icon>navigate_before</md-icon>
+        </button>
+        <span *ngIf="currentStepNumber < totalStepsNumber - 1 && currentStepNumber != 0">&nbsp;</span>
+        <button md-mini-fab color="primary" *ngIf="currentStepNumber < totalStepsNumber - 1 && currentStepNumber != 0"
+                (click)="goNextStep()">
+          <md-icon>navigate_next</md-icon>
+        </button>
         <button md-raised-button color="primary" (click)="goNextStep()"
-                *ngIf="currentStepNumber < totalStepsNumber-1">
-          {{ currentStepNumber === 0 ? 'INICIAR' : 'SIGUIENTE'}}
+                *ngIf="currentStepNumber === 0">
+          INICIAR
         </button>
       </div>
 
