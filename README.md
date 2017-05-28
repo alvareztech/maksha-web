@@ -1,7 +1,7 @@
 # Maksha
 
-[https://alvarez.tech](https://alvarez.tech)
-[https://maksha-41f4f.firebaseapp.com](https://maksha-41f4f.firebaseapp.com)
+* [https://alvarez.tech](https://alvarez.tech)
+* [https://maksha-41f4f.firebaseapp.com](https://maksha-41f4f.firebaseapp.com)
 
 ## Used technologies
 
