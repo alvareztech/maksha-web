@@ -5,13 +5,20 @@
 
   <span class="dottech-spacer"></span>
 
-  <button md-button routerLink="labs">LABS</button>
-  <button md-button routerLink="articles">ARTÍCULOS</button>
+  <div class="hiddenForMobile">
+    <button md-button routerLink="labs">LABS</button>
+    <button md-button routerLink="articles">ARTÍCULOS</button>
+  </div>
 
   <img md-card-avatar [src]="userObject?.photoURL" height="40" width="40" *ngIf="userObject">
 
   <a md-raised-button color="accent" (click)="login()" *ngIf="!userObject">INGRESAR</a>
-  <button md-icon-button [mdMenuTriggerFor]="themeMenu" *ngIf="userObject">
+
+  <button md-icon-button [mdMenuTriggerFor]="themeMenu" *ngIf="userObject" class="hiddenForMobile">
+    <md-icon>more_vert</md-icon>
+  </button>
+
+  <button md-icon-button [mdMenuTriggerFor]="mobileMenu" class="showForMobile">
     <md-icon>more_vert</md-icon>
   </button>
 </md-toolbar>
@@ -21,5 +28,13 @@
 <md-menu #themeMenu x-position="before">
   <button md-menu-item routerLink="admin" *ngIf="userObject?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">ADMIN</button>
   <button md-menu-item routerLink="stats" *ngIf="userObject?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">STATS</button>
-  <button md-menu-item (click)="logout()">SALIR</button>
+  <button md-menu-item (click)="logout()" *ngIf="userObject">SALIR</button>
+</md-menu>
+
+<md-menu #mobileMenu x-position="before">
+  <button md-menu-item routerLink="labs">LABS</button>
+  <button md-menu-item routerLink="articles">ARTÍCULOS</button>
+  <button md-menu-item routerLink="admin" *ngIf="userObject?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">ADMIN</button>
+  <button md-menu-item routerLink="stats" *ngIf="userObject?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">STATS</button>
+  <button md-menu-item (click)="logout()" *ngIf="userObject">SALIR</button>
 </md-menu>

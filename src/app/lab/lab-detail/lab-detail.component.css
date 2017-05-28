@@ -11,3 +11,11 @@
 md-list-item.selected {
   color: #69F0AE;
 }
+
+/* Responsive */
+
+@media (max-width: 991px) {
+  .hiddenForMobile {
+    display: none
+  }
+}

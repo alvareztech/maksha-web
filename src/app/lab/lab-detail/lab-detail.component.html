@@ -26,7 +26,7 @@
         </md-card-actions>
       </md-card>
 
-      <md-nav-list *ngFor="let step of labObject.steps; let i = index;">
+      <md-nav-list *ngFor="let step of labObject.steps; let i = index;" class="hiddenForMobile">
         <md-list-item
           (click)="changeStep(i, step.title, step.content)"
           [class.selected]="currentStepNumber === i">
@@ -34,7 +34,7 @@
         </md-list-item>
         <md-divider *ngIf="i == 0"></md-divider>
       </md-nav-list>
-      <md-nav-list>
+      <md-nav-list class="hiddenForMobile">
         <md-divider></md-divider>
         <md-list-item>
           <h4 md-line>Daniel Alvarez</h4>

@@ -1,0 +1,12 @@
+.showForMobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .hiddenForMobile {
+    display: none;
+  }
+  .showForMobile {
+    display: inline;
+  }
+}
