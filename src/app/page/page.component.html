@@ -10,24 +10,24 @@
       </md-card>
     </div>
     <div class="col-lg-4" *ngIf="isFinishLoad">
-
       <p></p>
 
-      <div class="g-ytsubscribe" data-channelid="UCQBP46vtgU0OA91xL2tl-nQ" data-layout="full"
-           data-count="default"></div>
+      <div class="fb-page" data-href="https://www.facebook.com/alvareztech/" data-small-header="true"
+           data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/alvareztech/" class="fb-xfbml-parse-ignore"><a
+          href="https://www.facebook.com/alvareztech/">ALVAREZ.tech</a></blockquote>
+      </div>
 
-      <p></p>
-
-      <div class="fb-like" width="80" data-href="https://www.facebook.com/alvareztech" data-layout="standard"
-           data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
-
-      <p></p>
-      <p>
-        <a md-button color="primary" href="https://m.me/alvareztech" target="_blank">HABLEMOS POR CHAT</a>
-      </p>
-      <p>
-        <a md-button color="primary" href="mailto:daniel@alvarez.tech">ENVÍANOS UN CORREO</a>
-      </p>
+      <md-nav-list>
+        <md-list-item (click)="openYoutube()">
+          <h4 md-line>Canal de YouTube</h4>
+          <p md-line>alvareztech</p>
+        </md-list-item>
+        <md-list-item (click)="sendMail()">
+          <h4 md-line>Correo</h4>
+          <p md-line>daniel@alvarez.tech</p>
+        </md-list-item>
+      </md-nav-list>
 
     </div>
   </div>

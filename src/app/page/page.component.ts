@@ -31,7 +31,7 @@ export class PageComponent implements OnInit {
           this.router.navigate(['/']);
         } else {
           this.isFinishLoad = true;
-          this.downloadJS('https://apis.google.com/js/platform.js');
+          // this.downloadJS('https://apis.google.com/js/platform.js');
           this.downloadJS('https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=269827340075535');
           this.downloadJS('https://speakerdeck.com/assets/embed.js');
           this.pageObject = value;
@@ -44,6 +44,14 @@ export class PageComponent implements OnInit {
     const script = document.createElement('script');
     script.src = (fileURL);
     document.head.appendChild(script);
+  }
+
+  openYoutube() {
+    window.open('https://www.youtube.com/alvareztech');
+  }
+
+  sendMail() {
+    window.open('mailto:daniel@alvarez.tech');
   }
 
 }
