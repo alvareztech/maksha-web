@@ -25,6 +25,10 @@
     "pages": {
       ".read": true,
       ".write": "auth != null"
+    },
+    "comments": {
+      ".read": true,
+      ".write": "auth != null"
     }
   }
 }
