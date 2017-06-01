@@ -48,28 +48,28 @@ p, li {
 /* Code */
 
 code {
+  color: #596164;
+  background-color: #f5f7fa;
+  border-radius: 2px;
+  padding: 0 2px 0 2px;
   line-height: normal;
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
-  font-size: 12px;
-  background-color: #263238;
-  color: #fff;
-  border-radius: 2px;
-  padding: 2px;
+  font-size: 14px;
+  /*padding: 2px;*/
+}
+
+pre code {
+  padding: 0;
 }
 
 pre {
-  line-height: normal;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 400 !important;
-  /*font-size: 14px;*/
-  background-color: #263238;
+  padding: 8px;
+  background-color: #f5f7fa;
   border-radius: 2px;
-  color: #fff;
   overflow: auto;
   word-wrap: normal;
   white-space: pre;
-  padding: 8px;
 }
 
 /* UI Material Design */

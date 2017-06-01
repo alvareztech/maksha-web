@@ -1,0 +1,12 @@
+md-input-container {
+  width: 100%;
+}
+
+.comments {
+  background-color: #90a4ae;
+}
+
+.photo {
+  width: 40px !important;
+  background-color: #69F0AE;
+}
