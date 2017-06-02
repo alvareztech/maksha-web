@@ -63,9 +63,6 @@ export class AdminComponent implements OnInit {
       }
     });
     this.pages = this.db.list('/pages');
-    this.pages.subscribe(value => {
-      console.log('console: %j', value);
-    });
   }
 
   // Labs methods
@@ -105,7 +102,6 @@ export class AdminComponent implements OnInit {
 
     this.article = this.db.object('/articles/' + art.$key);
     this.article.subscribe(a => {
-      console.log('Llego art: ', a);
       this.currentArticle = a;
     });
   }

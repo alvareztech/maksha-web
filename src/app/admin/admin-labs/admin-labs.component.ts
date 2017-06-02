@@ -45,12 +45,7 @@ export class AdminLabsComponent implements OnInit {
 
     this.user = afAuth.authState;
     this.user.subscribe(result => {
-      this.userObject = result;
-      if (this.userObject && this.userObject.uid === 'VPzZ9izNNravYPUNfiBimpr7put2') {
-        this.load();
-      } else {
-        // this.router.navigate(['/']);
-      }
+      this.load();
     });
   }
 
@@ -102,7 +97,6 @@ export class AdminLabsComponent implements OnInit {
     this.lab = this.db.object('/labs/' + o.$key);
 
     this.lab.forEach(value => {
-      console.log('Lab: %j', value);
       this.currentLab = value;
       this.currentStep = value.steps[0];
       this.currentStepNumber = 0;

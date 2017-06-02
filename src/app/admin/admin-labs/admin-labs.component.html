@@ -6,17 +6,19 @@
          target="_blank">/{{currentLab?.$key}}</a>
       <a md-button
          href="https://console.firebase.google.com/project/maksha-41f4f/database/data/labs/{{ currentLab?.$key }}"
-         target="_blank">/firebase</a>
+         target="_blank"><md-icon>cloud</md-icon></a>
     </div>
     <span class="dottech-spacer"></span>
     <button md-mini-fab (click)="newLab()" *ngIf="!isLabSelected">
       <md-icon>add</md-icon>
     </button>
-    <button md-raised-button color="primary" (click)="saveLab()" *ngIf="isLabSelected && isNewLab">SAVE</button>
-    <button md-raised-button color="primary" (click)="updateLab()" *ngIf="isLabSelected && !isNewLab">UPDATE
+    <button md-mini-fab color="accent" (click)="saveLab()" *ngIf="isLabSelected && isNewLab">
+      <md-icon>save</md-icon>
+    </button>
+    <button md-mini-fab color="accent" (click)="updateLab()" *ngIf="isLabSelected && !isNewLab">
+      <md-icon>update</md-icon>
     </button>
   </md-toolbar>
-
 
   <div *ngIf="!isLabSelected" class="row">
     <md-spinner *ngIf="!(labs | async)"></md-spinner>
@@ -31,7 +33,8 @@
   </div>
 
   <div class="row" *ngIf="isLabSelected">
-    <div class="col-8">
+
+    <div class="col-12 col-sm-4">
       <md-card>
 
         <md-input-container>
@@ -47,58 +50,43 @@
                  placeholder="Step title" [(ngModel)]="currentStep.title" name="Step Title">
         </md-input-container>
 
-        <md-input-container>
-          <textarea mdInput rows="25" [(ngModel)]="currentStep.content" name="Content"></textarea>
-        </md-input-container>
+        <p>
+          <md-select id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required
+                     ngDefaultControl>
+            <md-option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">{{ tech.name
+              }}
+            </md-option>
+          </md-select>
+        </p>
+
+        <p>
+          <md-select id="levelLab" name="Level" [(ngModel)]="currentLab.level" required ngDefaultControl>
+            <md-option *ngFor="let level of technologyService.getLevels()" [value]="level.id">{{ level.name }}
+            </md-option>
+          </md-select>
+        </p>
+        <p>
+          <md-button-toggle-group #group="mdButtonToggleGroup">
+            <md-button-toggle *ngFor="let x of currentLab.steps; let i = index;" (click)="setStep(i)">
+              {{ i }}
+            </md-button-toggle>
+          </md-button-toggle-group>
+        </p>
+
+        <button md-button (click)="newStep()">New step</button>
+
+        <md-checkbox [(ngModel)]="currentLab.published" name="Published" ngDefaultControl>Published
+        </md-checkbox>
 
       </md-card>
     </div>
 
-    <div class="col-4">
+    <div class="col-12 col-sm-8">
       <md-card>
 
-        <br/>
-
-        <div class="row">
-          <div class="col">
-            <md-select id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required
-                       ngDefaultControl>
-              <md-option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">{{ tech.name
-                }}
-              </md-option>
-            </md-select>
-          </div>
-        </div>
-
-        <br/>
-
-        <div class="row">
-          <div class="col">
-            <md-select id="levelLab" name="Level" [(ngModel)]="currentLab.level" required ngDefaultControl>
-              <md-option *ngFor="let level of technologyService.getLevels()" [value]="level.id">{{ level.name }}
-              </md-option>
-            </md-select>
-          </div>
-        </div>
-
-        <br/>
-
-        <md-button-toggle-group #group="mdButtonToggleGroup">
-          <md-button-toggle *ngFor="let x of currentLab.steps; let i = index;" (click)="setStep(i)">
-            {{ i }}
-          </md-button-toggle>
-        </md-button-toggle-group>
-
-        <div class="row">
-          <div class="col">
-            <button md-button (click)="newStep()">New step</button>
-          </div>
-        </div>
-
-        <br/>
-
-        <md-checkbox [(ngModel)]="currentLab.published" name="Published" ngDefaultControl>Published
-        </md-checkbox>
+        <md-input-container>
+          <textarea mdInput rows="25" [(ngModel)]="currentStep.content" name="Content"></textarea>
+        </md-input-container>
 
       </md-card>
     </div>
