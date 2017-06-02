@@ -81,6 +81,7 @@ export class LabDetailComponent implements OnInit {
     } else {
       this.showInvitationEnter();
     }
+    window.scrollTo(0, 0);
   }
 
   goNextStep() {
@@ -93,11 +94,13 @@ export class LabDetailComponent implements OnInit {
     } else {
       this.showInvitationEnter();
     }
+    window.scrollTo(0, 0);
   }
 
   goBackStep() {
     this.currentStepNumber--;
     this.currentStep = this.labObject.steps[this.currentStepNumber];
+    window.scrollTo(0, 0);
   }
 
   getSecureUrl(videoId: string) {
