@@ -4,6 +4,7 @@ import {TechnologyService} from '../../services/technology.service';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Observable} from 'rxjs/Observable';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-admin-labs',
@@ -45,6 +46,7 @@ export class AdminLabsComponent implements OnInit {
 
     this.user = afAuth.authState;
     this.user.subscribe(result => {
+      this.userObject = result;
       this.load();
     });
   }

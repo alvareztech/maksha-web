@@ -6,7 +6,9 @@
          target="_blank">/{{currentLab?.$key}}</a>
       <a md-button
          href="https://console.firebase.google.com/project/maksha-41f4f/database/data/labs/{{ currentLab?.$key }}"
-         target="_blank"><md-icon>cloud</md-icon></a>
+         target="_blank">
+        <md-icon>cloud</md-icon>
+      </a>
     </div>
     <span class="dottech-spacer"></span>
     <button md-mini-fab (click)="newLab()" *ngIf="!isLabSelected">
@@ -52,16 +54,18 @@
 
         <p>
           <md-select id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required
-                     ngDefaultControl>
-            <md-option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">{{ tech.name
-              }}
+                     ngDefaultControl placeholder="Technology">
+            <md-option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">
+              {{ tech.name }}
             </md-option>
           </md-select>
         </p>
 
         <p>
-          <md-select id="levelLab" name="Level" [(ngModel)]="currentLab.level" required ngDefaultControl>
-            <md-option *ngFor="let level of technologyService.getLevels()" [value]="level.id">{{ level.name }}
+          <md-select id="levelLab" name="Level" [(ngModel)]="currentLab.level" required ngDefaultControl
+                     placeholder="Level">
+            <md-option *ngFor="let level of technologyService.getLevels()" [value]="level.id">
+              {{ level.name }}
             </md-option>
           </md-select>
         </p>
