@@ -5,10 +5,18 @@ textarea {
   resize: none;
 }
 
-md-input-container {
+.full-width {
   width: 100%;
 }
 
-md-select {
-  width: 100%;
+tr {
+  height: 60px;
+}
+
+md-card {
+  margin: 0;
+}
+
+table {
+  padding: 16px;
 }
