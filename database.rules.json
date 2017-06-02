@@ -28,7 +28,16 @@
     },
     "comments": {
       ".read": true,
-      ".write": "auth != null"
+      ".write": "auth != null",
+      "labs": {
+        "$labId": {
+          "$commentId": {
+            "content": {
+              ".validate": "newData.isString() && newData.val().length < 141"
+            }
+          }
+        }
+      }
     }
   }
 }
