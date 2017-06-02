@@ -14,7 +14,7 @@
                target="_blank">/firebase</a>
           </div>
           <span class="dottech-spacer"></span>
-          <button md-raised-button (click)="newLab()" *ngIf="!isLabSelected">NEW</button>
+          <button md-mini-fab (click)="newLab()" *ngIf="!isLabSelected"><md-icon>add</md-icon></button>
           <button md-raised-button color="primary" (click)="saveLab()" *ngIf="isLabSelected && isNewLab">SAVE</button>
           <button md-raised-button color="primary" (click)="updateLab()" *ngIf="isLabSelected && !isNewLab">UPDATE
           </button>
@@ -126,7 +126,7 @@
                target="_blank">/firebase</a>
           </div>
           <span class="dottech-spacer"></span>
-          <button md-raised-button (click)="goNewArticle()" *ngIf="!isArticleSelected">NEW</button>
+          <button md-mini-fab (click)="goNewArticle()" *ngIf="!isArticleSelected"><md-icon>add</md-icon></button>
           <button md-raised-button color="primary" (click)="saveArticle()" *ngIf="isArticleSelected && isNewArticle">
             SAVE
           </button>
@@ -177,7 +177,7 @@
                target="_blank">/firebase</a>
           </div>
           <span class="dottech-spacer"></span>
-          <button md-raised-button (click)="goNewPage()" *ngIf="!isPageSelected">NEW</button>
+          <button md-mini-fab (click)="goNewPage()" *ngIf="!isPageSelected"><md-icon>add</md-icon></button>
           <button md-raised-button color="primary" (click)="savePage()" *ngIf="isPageSelected && isNewPage">SAVE</button>
           <button md-raised-button color="primary" (click)="updatePage()" *ngIf="isPageSelected && !isNewPage">UPDATE
           </button>
