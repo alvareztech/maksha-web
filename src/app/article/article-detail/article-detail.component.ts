@@ -17,6 +17,7 @@ export class ArticleDetailComponent implements OnInit {
     content: ''
   };
   isFinishLoad = false;
+  articleId: string;
 
   constructor(private route: ActivatedRoute,
               private db: AngularFireDatabase,
@@ -27,6 +28,7 @@ export class ArticleDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(params => {
+      this.articleId = params['id'];
       this.article = this.db.object('/articles/' + params['id']);
       this.article.subscribe(value => {
         if (value.hasOwnProperty('$value') && !value['$value']) {

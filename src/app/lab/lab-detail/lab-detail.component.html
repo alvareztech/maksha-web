@@ -75,7 +75,7 @@
         </button>
       </div>
 
-      <!--<app-comments></app-comments>-->
+      <app-comments *ngIf="currentStepNumber > 0" [type]="'labs'" [identifier]="labId" [step]="currentStepNumber"></app-comments>
 
     </div>
 
