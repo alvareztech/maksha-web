@@ -1,0 +1,13 @@
+textarea {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+md-input-container {
+  width: 100%;
+}
+
+md-select {
+  width: 100%;
+}

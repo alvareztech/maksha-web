@@ -39,6 +39,7 @@ import {PageComponent} from './page/page.component';
 import {InvitationEnterComponent} from './invitation-enter/invitation-enter.component';
 import { StatsComponent } from './stats/stats.component';
 import { CommentsComponent } from './comments/comments.component';
+import { AdminLabsComponent } from './admin/admin-labs/admin-labs.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CommentsComponent } from './comments/comments.component';
     PageComponent,
     InvitationEnterComponent,
     StatsComponent,
-    CommentsComponent
+    CommentsComponent,
+    AdminLabsComponent
   ],
   entryComponents: [InvitationEnterComponent],
   imports: [

@@ -14,33 +14,17 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  currentLab = {
-    $key: '',
-    title: '',
-    level: 0,
-    technology: '',
-    published: false,
-    steps: []
-  };
-  currentStep = {
-    title: '',
-    content: ''
-  };
-  isNewLab = true; // update otherwise
+
   isNewArticle = true; // update otherwise
   isNewPage = true; // update otherwise
 
   currentArticle = {};
   currentPage = {};
 
-  lab: FirebaseObjectObservable<any>;
-  labs: FirebaseListObservable<any>;
   article: FirebaseObjectObservable<any>;
   articles: FirebaseListObservable<any>;
   page: FirebaseObjectObservable<any>;
   pages: FirebaseListObservable<any>;
-
-  currentStepNumber = 0;
 
   isLabSelected = false;
   isArticleSelected = false;
@@ -73,11 +57,6 @@ export class AdminComponent implements OnInit {
 
   load() {
     this.titleService.setTitle('Administrator');
-    this.labs = this.db.list('/labs', {
-      query: {
-        orderByChild: 'updated'
-      }
-    });
     this.articles = this.db.list('/articles', {
       query: {
         orderByChild: 'updated'
@@ -91,85 +70,6 @@ export class AdminComponent implements OnInit {
 
   // Labs methods
 
-  saveLab() {
-    this.currentLab.steps[this.currentStepNumber] = this.currentStep;
-    this.currentLab['updated'] = firebase.database.ServerValue.TIMESTAMP;
-
-    this.labs.update(this.currentLab['$key'], {
-      title: this.currentLab['title'],
-      updated: firebase.database.ServerValue.TIMESTAMP,
-      technology: this.currentLab['technology'],
-      level: +this.currentLab['level'],
-      published: false,
-      steps: [{
-        title: 'Resumen',
-        content: 'Resumen \n\n## Aprenderás\n\n* Primero\n\n## Requisitos\n\n* Otro'
-      }]
-    }).then(a => {
-      this.snackBar.open('New lab successfully saved!', null, {duration: 2000});
-    });
-  }
-
-  updateLab() {
-    this.currentLab.steps[this.currentStepNumber] = this.currentStep;
-    this.currentLab['updated'] = firebase.database.ServerValue.TIMESTAMP;
-
-    this.currentLab['level'] = +this.currentLab['level'];
-    this.lab.update(this.currentLab).then(a => {
-      this.snackBar.open('Lab successfully updated!', null, {duration: 2000});
-    });
-  }
-
-  goLab(o: any) {
-    this.isLabSelected = true;
-    this.isNewLab = false;
-
-    this.lab = this.db.object('/labs/' + o.$key);
-
-    this.lab.forEach(value => {
-      console.log('Lab: %j', value);
-      this.currentLab = value;
-      this.currentStep = value.steps[0];
-      this.currentStepNumber = 0;
-    });
-  }
-
-  newStep() {
-    console.log('newStep()');
-    this.currentLab.steps.push({
-      title: 'Nuevo título'
-    });
-    this.currentStepNumber = this.currentLab.steps.length - 1;
-    this.currentStep = this.currentLab.steps[this.currentStepNumber];
-  }
-
-  setStep(position: number) {
-    console.log('setStep():' + position);
-    this.currentStepNumber = position;
-    this.currentStep = this.currentLab.steps[this.currentStepNumber];
-  }
-
-  newLab() {
-    this.isLabSelected = true;
-    this.isNewLab = true;
-    this.currentStepNumber = 0;
-    this.currentLab = {
-      $key: '',
-      title: 'New',
-      level: 1,
-      technology: '',
-      published: false,
-      steps: []
-    };
-    this.currentStep = {
-      title: 'Resumen',
-      content: ''
-    };
-  }
-
-  returnLabs() {
-    this.isLabSelected = false;
-  }
 
   // Articles methods
 
@@ -300,5 +200,9 @@ export class AdminComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  onLabSelected(selected: boolean) {
+    this.isLabSelected = selected;
   }
 }
