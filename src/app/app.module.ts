@@ -40,6 +40,7 @@ import {InvitationEnterComponent} from './invitation-enter/invitation-enter.comp
 import { StatsComponent } from './stats/stats.component';
 import { CommentsComponent } from './comments/comments.component';
 import { AdminLabsComponent } from './admin/admin-labs/admin-labs.component';
+import { UsersStatsComponent } from './stats/users-stats/users-stats.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AdminLabsComponent } from './admin/admin-labs/admin-labs.component';
     InvitationEnterComponent,
     StatsComponent,
     CommentsComponent,
-    AdminLabsComponent
+    AdminLabsComponent,
+    UsersStatsComponent
   ],
   entryComponents: [InvitationEnterComponent],
   imports: [

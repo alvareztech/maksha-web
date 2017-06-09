@@ -8,6 +8,7 @@ import {ArticleListComponent} from './article/article-list/article-list.componen
 import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
 import {PageComponent} from './page/page.component';
 import {StatsComponent} from "./stats/stats.component";
+import {UsersStatsComponent} from "./stats/users-stats/users-stats.component";
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'stats',
     component: StatsComponent
+  },
+  {
+    path: 'stats/users',
+    component: UsersStatsComponent
   },
   {
     path: ':id',

@@ -1,15 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
-      <md-nav-list>
-        <h3 md-subheader>Users ({{ usersObjects?.length }})</h3>
-        <md-list-item *ngFor="let user of usersObjects">
-          <img md-list-avatar [src]="user?.photoURL" *ngIf="user?.photoURL">
-          <h4 md-line>{{ user?.displayName }}</h4>
-          <p md-line>{{ user?.email }}</p>
-          <p md-line>{{ user?.$key }}</p>
-        </md-list-item>
-      </md-nav-list>
+    <div class="photo" *ngFor="let user of usersObjects">
+      <img width="72" height="72" [src]="user?.photoURL"
+           *ngIf="user?.photoURL && user?.photoURL!=='https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg'">
     </div>
   </div>
 </div>
