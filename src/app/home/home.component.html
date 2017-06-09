@@ -14,16 +14,6 @@
   </div>
 
   <div class="row">
-    <div class="col">
-      <md-toolbar>
-        <span>Últimos labs</span>
-        <span class="dottech-spacer"></span>
-        <button md-button color="primary" routerLink="labs">VER MÁS</button>
-      </md-toolbar>
-    </div>
-  </div>
-
-  <div class="row">
     <md-spinner *ngIf="!(labsPreview | async)"></md-spinner>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
 
@@ -46,15 +36,7 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <md-toolbar>
-        <span>Últimos artículos</span>
-        <span class="dottech-spacer"></span>
-        <button md-button color="primary" routerLink="articles">VER MÁS</button>
-      </md-toolbar>
-    </div>
-  </div>
+  <button class="more-button" md-button color="primary" routerLink="labs">VER MÁS LABS</button>
 
   <div class="row">
     <md-spinner *ngIf="!(articlesPreview | async)"></md-spinner>
@@ -69,6 +51,8 @@
       </md-card>
     </div>
   </div>
+
+  <button class="more-button" md-button color="primary" routerLink="articles">VER MÁS ARTÍCULOS</button>
 
   <div class="row">
     <div class="col">

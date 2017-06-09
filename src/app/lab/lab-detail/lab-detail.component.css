@@ -1,3 +1,7 @@
+.mc {
+  padding: 16px 16px 32px 16px;
+}
+
 .step-number {
   color: white;
   background-color: #69F0AE;
@@ -5,6 +9,7 @@
 }
 
 .step-end {
+  padding: 16px 16px 32px 16px;
   margin: 0 0 32px 0;
 }
 

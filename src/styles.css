@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #F5F5F5;
+  background-color: white;
 }
 
 button, a {
@@ -94,6 +94,11 @@ md-card-content {
 
 md-card {
   margin: 16px 0 16px 0;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+.mat-card-image {
+  border-radius: 8px 8px 0 0 !important;
 }
 
 md-card.article {

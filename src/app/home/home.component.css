@@ -18,3 +18,7 @@ md-card-subtitle span {
   margin: 4px;
   vertical-align: 7px;
 }
+
+.more-button {
+  width: 100%;
+}
