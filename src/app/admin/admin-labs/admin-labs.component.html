@@ -1,6 +1,6 @@
 <form>
-  <md-toolbar>
-    <button md-button (click)="returnLabs()">LABS</button>
+  <md-toolbar color="primary">
+    <button md-button (click)="returnLabs()" color="accent">LABS</button>
     <div *ngIf="isLabSelected">
       <a md-button href="https://alvarez.tech/labs/{{ currentLab?.$key }}"
          target="_blank">/{{currentLab?.$key}}</a>

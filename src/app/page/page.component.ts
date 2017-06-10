@@ -46,12 +46,4 @@ export class PageComponent implements OnInit {
     document.head.appendChild(script);
   }
 
-  openYoutube() {
-    window.open('https://www.youtube.com/alvareztech');
-  }
-
-  sendMail() {
-    window.open('mailto:daniel@alvarez.tech');
-  }
-
 }

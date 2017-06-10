@@ -18,12 +18,12 @@ a:visited {
 }
 
 a:hover {
-  color: #32325D;
+  color: black;
   text-decoration: none;
 }
 
 a:active {
-  color: #32325D;
+  color: black;
   text-decoration: none;
 }
 

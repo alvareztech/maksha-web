@@ -4,31 +4,25 @@
     <md-spinner *ngIf="!isFinishLoad" color="accent"></md-spinner>
 
     <div class="col-lg-8" *ngIf="isFinishLoad">
-      <md-card>
-        <div class="markdown-content" [innerHtml]="pageObject.content | markdown | sanitizeHtml">
-        </div>
-      </md-card>
+      <div class="markdown-content" [innerHtml]="pageObject.content | markdown | sanitizeHtml">
+      </div>
     </div>
     <div class="col-lg-4" *ngIf="isFinishLoad">
-      <p></p>
-
-      <div class="fb-page" data-href="https://www.facebook.com/alvareztech/" data-small-header="true"
-           data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/alvareztech/" class="fb-xfbml-parse-ignore"><a
-          href="https://www.facebook.com/alvareztech/">ALVAREZ.tech</a></blockquote>
-      </div>
-
-      <md-nav-list>
-        <md-list-item (click)="openYoutube()">
-          <h4 md-line>Canal en YouTube</h4>
-          <p md-line>alvareztech</p>
-        </md-list-item>
-        <md-list-item (click)="sendMail()">
-          <h4 md-line>Correo</h4>
-          <p md-line>daniel@alvarez.tech</p>
-        </md-list-item>
-      </md-nav-list>
-
+      <md-card>
+        <div class="fb-like" data-href="https://www.facebook.com/alvareztech" data-width="100" data-layout="standard"
+             data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
+      </md-card>
+      <md-card>
+        <a class="social" target="_blank" href="https://www.youtube.com/alvareztech" md-button>CANAL EN YOUTUBE</a>
+        <a class="social" target="_blank" href="https://www.facebook.com/alvareztech" md-button>FACEBOOK</a>
+        <a class="social" target="_blank" href="https://twitter.com/alvarez_tech" md-button>TWITTER</a>
+        <a class="social" target="_blank" href="https://www.instagram.com/alvareztech/" md-button>INSTAGRAM</a>
+      </md-card>
+      <md-card>
+        <p>
+          También puedes enviarnos un correo a <a href="mailto:daniel@alvarez.tech">daniel@alvarez.tech</a>.
+        </p>
+      </md-card>
     </div>
   </div>
 </div>
