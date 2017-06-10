@@ -32,7 +32,7 @@
         </md-toolbar>
 
         <div *ngIf="!isArticleSelected">
-          <md-spinner *ngIf="!(articles | async)"></md-spinner>
+          <md-spinner *ngIf="!(articles | async)" color="accent"></md-spinner>
           <md-nav-list>
             <md-list-item *ngFor="let article of articles | async" (click)="goArticle(article)">
               <md-icon md-list-icon *ngIf="!article.published">build</md-icon>
@@ -80,7 +80,7 @@
         </md-toolbar>
 
         <div class="row" *ngIf="!isPageSelected">
-          <md-spinner *ngIf="!(pages | async)"></md-spinner>
+          <md-spinner *ngIf="!(pages | async)" color="accent"></md-spinner>
           <md-nav-list>
             <md-list-item *ngFor="let page of pages | async" (click)="goPage(page)">
               <h4>{{ page.name }}</h4>

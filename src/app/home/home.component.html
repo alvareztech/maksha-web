@@ -14,7 +14,7 @@
   </div>
 
   <div class="row">
-    <md-spinner *ngIf="!(labsPreview | async)"></md-spinner>
+    <md-spinner *ngIf="!(labsPreview | async)" color="accent"></md-spinner>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
 
       <md-card [style.background]="technologyService.getTechnology(lab.technology).color">
@@ -31,15 +31,15 @@
           <span>Video disponible</span>
         </md-card-subtitle>
         <md-card-content>Actualizado en {{ lab.updated | date }}</md-card-content>
-        <button md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">INICIAR</button>
+        <button md-raised-button color="accent" [routerLink]="'/labs/' + [lab.$key]">INICIAR</button>
       </md-card>
     </div>
   </div>
 
-  <button class="more-button" md-button color="primary" routerLink="labs">VER MÁS LABS</button>
+  <button class="more-button" md-button color="accent" routerLink="labs">VER MÁS LABS</button>
 
   <div class="row">
-    <md-spinner *ngIf="!(articlesPreview | async)"></md-spinner>
+    <md-spinner *ngIf="!(articlesPreview | async)" color="accent"></md-spinner>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let article of articlesPreview | async">
       <md-card class="article">
         <img md-card-image [src]="article.coverUrl">
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <button class="more-button" md-button color="primary" routerLink="articles">VER MÁS ARTÍCULOS</button>
+  <button class="more-button" md-button color="accent" routerLink="articles">VER MÁS ARTÍCULOS</button>
 
   <div class="row">
     <div class="col">

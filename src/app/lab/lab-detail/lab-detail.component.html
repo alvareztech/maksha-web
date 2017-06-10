@@ -2,7 +2,7 @@
 
   <div class="row">
 
-    <md-spinner *ngIf="!loadFinish"></md-spinner>
+    <md-spinner *ngIf="!loadFinish" color="accent"></md-spinner>
 
     <div class="col-lg-4" *ngIf="loadFinish">
 
@@ -18,10 +18,10 @@
 
         <md-card-title>{{ labObject.title }}</md-card-title>
         <md-card-content>
-          Actualizado en {{ labObject.updated | date }}
+          Actualizado en {{ labObject.updated | date }} por Daniel Alvarez
         </md-card-content>
         <md-card-actions *ngIf="labObject.videoId">
-          <a md-button color="accent" href="{{ 'https://www.youtube.com/watch?v=' + labObject.videoId }}"
+          <a md-button color="primary" href="{{ 'https://www.youtube.com/watch?v=' + labObject.videoId }}"
              target="_blank">VER EN YOUTUBE</a>
         </md-card-actions>
       </md-card>
@@ -36,10 +36,6 @@
       </md-nav-list>
       <md-nav-list class="hiddenForMobile">
         <md-divider></md-divider>
-        <md-list-item>
-          <h4 md-line>Daniel Alvarez</h4>
-          <p md-line>Autor</p>
-        </md-list-item>
       </md-nav-list>
 
     </div>
@@ -61,15 +57,15 @@
       </div>
 
       <div class="step-end">
-        <button md-mini-fab color="primary" *ngIf="currentStepNumber > 0" (click)="goBackStep()">
+        <button md-mini-fab color="accent" *ngIf="currentStepNumber > 0" (click)="goBackStep()">
           <md-icon>navigate_before</md-icon>
         </button>
         <span *ngIf="currentStepNumber < totalStepsNumber - 1 && currentStepNumber != 0">&nbsp;</span>
-        <button md-mini-fab color="primary" *ngIf="currentStepNumber < totalStepsNumber - 1 && currentStepNumber != 0"
+        <button md-mini-fab color="accent" *ngIf="currentStepNumber < totalStepsNumber - 1 && currentStepNumber != 0"
                 (click)="goNextStep()">
           <md-icon>navigate_next</md-icon>
         </button>
-        <button md-raised-button color="primary" (click)="goNextStep()"
+        <button md-raised-button color="accent" (click)="goNextStep()"
                 *ngIf="currentStepNumber === 0">
           INICIAR
         </button>

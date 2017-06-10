@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <md-spinner *ngIf="!(articles | async)"></md-spinner>
+    <md-spinner *ngIf="!(articles | async)" color="accent"></md-spinner>
     <div class="col-12 col-md-6" *ngFor="let article of articles | async">
       <md-card class="article">
         <img md-card-image [src]="article.coverUrl">

@@ -23,7 +23,7 @@
   </md-toolbar>
 
   <div *ngIf="!isLabSelected" class="row">
-    <md-spinner *ngIf="!(labs | async)"></md-spinner>
+    <md-spinner *ngIf="!(labs | async)" color="accent"></md-spinner>
     <md-nav-list>
       <md-list-item *ngFor="let lab of labs | async" (click)="goLab(lab)"
                     [style.background]="technologyService.getTechnology(lab.technology).color">

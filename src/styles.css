@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto|Product+Sans:400|Roboto+Mono:400,500|Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Roboto|Product+Sans:400|Roboto+Mono:400|Material+Icons");
 
 html, body {
   margin: 0;
@@ -7,32 +7,23 @@ html, body {
   background-color: white;
 }
 
-button, a {
-  font-family: 'Roboto Mono', monospace !important;
-  font-weight: 500 !important;
-}
-
 a:link {
-  color: #69F0AE;
-  /*color: #32325D;*/
+  color: #2575fc;
   text-decoration: none;
 }
 
 a:visited {
-  color: #69F0AE;
-  /*color: #32325D;*/
+  color: #2575fc;
   text-decoration: none;
 }
 
 a:hover {
   color: #32325D;
-  /*color: #69F0AE;*/
   text-decoration: none;
 }
 
 a:active {
   color: #32325D;
-  /*color: #69F0AE;*/
   text-decoration: none;
 }
 
@@ -97,6 +88,7 @@ md-card {
   border-radius: 8px !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
+
 .mat-card-image {
   border-radius: 8px 8px 0 0 !important;
 }
@@ -153,7 +145,7 @@ md-card.youtube {
 }
 
 .markdown-content blockquote {
-  background-color: rgba(105, 240, 174, 0.5);
+  background-color: rgba(37, 117, 252, 0.2);
   border-radius: 4px;
   padding: 1px 8px 1px 8px;
 }

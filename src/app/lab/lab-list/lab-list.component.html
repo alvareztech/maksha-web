@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <md-spinner *ngIf="!(labsPreview | async)"></md-spinner>
+    <md-spinner *ngIf="!(labsPreview | async)" color="accent"></md-spinner>
 
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
 
@@ -9,7 +9,7 @@
 
         <md-card-header>
           <img md-card-avatar src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
-               alt="Tecnology"
+               alt="Technology"
           >
           <md-card-title>{{ technologyService.getTechnology(lab.technology).name }}</md-card-title>
           <md-card-subtitle>{{ technologyService.getLevel(lab.level).name }}</md-card-subtitle>
@@ -23,7 +23,7 @@
         <md-card-content>
           Actualizado en {{ lab.updated | date }}
         </md-card-content>
-        <button md-raised-button color="primary" [routerLink]="'/labs/' + [lab.$key]">INICIAR</button>
+        <button md-raised-button color="accent" [routerLink]="'/labs/' + [lab.$key]">INICIAR</button>
         <span class="dottech-spacer"></span>
 
       </md-card>

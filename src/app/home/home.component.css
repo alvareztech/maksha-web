@@ -6,10 +6,6 @@ md-card.hero2 {
   background-image: linear-gradient(to right, #ff0844 0%, #ffb199 100%);
 }
 
-md-toolbar span {
-  color: #32325D;
-}
-
 md-card-subtitle {
   color: white;
 }
