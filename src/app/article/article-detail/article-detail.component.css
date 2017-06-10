@@ -1,11 +1,14 @@
-.article-header h1 {
+h1 {
   color: white;
+  font-size: 36px;
 }
 
-.article-header p {
+p {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.article-background {
-  background-image: linear-gradient(to left, #868f96 0%, #596164 100%) !important;
+.markdown-content {
+  padding: 8px 0 0 0;
+  max-width: 700px;
+  margin: 0 auto;
 }

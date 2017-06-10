@@ -1,24 +1,25 @@
-<div class="article-background">
-  <div class="container">
-    <div class="row">
+<div class="container">
+  <div class="row">
 
-      <md-spinner *ngIf="!isFinishLoad"></md-spinner>
+    <md-spinner *ngIf="!isFinishLoad"></md-spinner>
 
-      <div class="col-lg-4 article-header" *ngIf="isFinishLoad">
-        <h1>{{ articleObject.title }}</h1>
-        <p>Actualizado el {{ articleObject.updated | date }}</p>
-        <p>Por Daniel Alvarez</p>
+    <div class="col" *ngIf="isFinishLoad">
+
+      <md-card class="article">
+        <img md-card-image [src]="articleObject.coverUrl">
+        <md-card-content>
+          <h1>{{ articleObject.title }}</h1>
+          <p>
+            Actualizado el {{ articleObject.updated | date }} por Daniel Alvarez
+          </p>
+        </md-card-content>
+      </md-card>
+
+      <div class="markdown-content" [innerHtml]="articleObject.content | markdown | sanitizeHtml">
       </div>
-      <div class="col-lg-8" *ngIf="isFinishLoad">
-        <md-card>
-          <img md-card-image [src]="articleObject.coverUrl">
-          <div class="markdown-content" [innerHtml]="articleObject.content | markdown | sanitizeHtml">
-          </div>
-        </md-card>
 
-        <!--<app-comments [type]="'articles'" [identifier]="articleId"></app-comments>-->
+      <!--<app-comments [type]="'articles'" [identifier]="articleId"></app-comments>-->
 
-      </div>
     </div>
   </div>
 </div>
