@@ -1,34 +1,39 @@
-<md-card *ngFor="let item of comments | async">
-  <md-card-header>
-    <img md-card-avatar [src]="item.userPhotoURL">
-    <md-card-content>
-      <p>
-        {{ item.content }}
-        <span class="date"><br/>{{ item.publishDate | date }}</span>
-        <br/>
-        <a *ngIf="userObject && item.userId === userObject.uid" (click)="eliminar(item.$key)" href="javascript:void(0)">ELIMINAR</a>
-      </p>
-    </md-card-content>
-  </md-card-header>
-</md-card>
+<div class="comments">
+  <div class="comments-content">
+    <md-card *ngFor="let item of comments | async">
+      <md-card-header>
+        <img md-card-avatar [src]="item.userPhotoURL">
+        <md-card-content>
+          <p>
+            {{ item.content }}
+            <span class="date"><br/>{{ item.publishDate | date }}</span>
+            <br/>
+            <a *ngIf="userObject && item.userId === userObject.uid" (click)="eliminar(item.$key)"
+               href="javascript:void(0)">ELIMINAR</a>
+          </p>
+        </md-card-content>
+      </md-card-header>
+    </md-card>
 
-<md-card *ngIf="userObject">
-  <form (submit)="publish(heroForm)" #heroForm="ngForm">
-    <md-card-header>
-      <img md-card-avatar [src]="userObject.photoURL">
-      <md-card-content>
-        <md-input-container>
+    <md-card *ngIf="userObject">
+      <form (submit)="publish(heroForm)" #heroForm="ngForm">
+        <md-card-header>
+          <img md-card-avatar [src]="userObject.photoURL">
+          <md-card-content>
+            <md-input-container>
           <textarea mdInput maxlength="140" [(ngModel)]="content" name="content" required
                     placeholder="Deja tu comentario, consulta o duda" minlength="3"></textarea>
-          <md-hint align="end">{{ 140 - content.length }}</md-hint>
-        </md-input-container>
-        <button type="submit" md-raised-button color="accent" [disabled]="!heroForm.form.valid">PUBLICAR</button>
-      </md-card-content>
-    </md-card-header>
-  </form>
-</md-card>
+              <md-hint align="end">{{ 140 - content.length }}</md-hint>
+            </md-input-container>
+            <button type="submit" md-raised-button color="accent" [disabled]="!heroForm.form.valid">PUBLICAR</button>
+          </md-card-content>
+        </md-card-header>
+      </form>
+    </md-card>
 
-<div *ngIf="!userObject" class="center">
-  <p>Ingresa con tu cuenta de Google para poder dejar tu comentario, consulta o duda.</p>
-  <button md-raised-button color="accent" (click)="login()">INGRESAR</button>
+    <div *ngIf="!userObject" class="center">
+      <p>Ingresa con tu cuenta de Google para poder dejar tu comentario, consulta o duda.</p>
+      <button md-raised-button color="accent" (click)="login()">INGRESAR</button>
+    </div>
+  </div>
 </div>

@@ -12,6 +12,8 @@ md-card-content {
   word-wrap: break-word;
   overflow: auto;
   width: 100%;
+  padding-bottom: 16px;
+  padding-left: 16px;
 }
 
 md-card-content md-input-container {
@@ -31,4 +33,15 @@ textarea {
   text-align: center;
   padding: 8px;
   margin-bottom: 16px;
+}
+
+.comments {
+  background-color: #FAFAFA;
+}
+
+.comments-content {
+  padding-top: 32px;
+  padding-bottom: 16px;
+  max-width: 700px;
+  margin: 0 auto;
 }

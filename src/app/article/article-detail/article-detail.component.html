@@ -18,8 +18,9 @@
       <div class="markdown-content" [innerHtml]="articleObject.content | markdown | sanitizeHtml">
       </div>
 
-      <!--<app-comments [type]="'articles'" [identifier]="articleId"></app-comments>-->
 
     </div>
   </div>
 </div>
+
+<app-comments *ngIf="isFinishLoad" [type]="'articles'" [identifier]="articleId"></app-comments>
