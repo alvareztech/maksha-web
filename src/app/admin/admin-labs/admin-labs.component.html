@@ -18,7 +18,7 @@
       <md-icon>save</md-icon>
     </button>
     <button md-mini-fab color="accent" (click)="updateLab()" *ngIf="isLabSelected && !isNewLab">
-      <md-icon>update</md-icon>
+      <md-icon>refresh</md-icon>
     </button>
   </md-toolbar>
 
@@ -42,21 +42,21 @@
       <table class="full-width" cellspacing="0">
         <tr>
           <td>
-            <md-input-container class="full-width">
+            <md-input-container color="accent" class="full-width">
               <input mdInput placeholder="Title" [(ngModel)]="currentLab.title" name="Title">
             </md-input-container>
           </td>
         </tr>
         <tr *ngIf="isNewLab">
           <td>
-            <md-input-container class="full-width">
+            <md-input-container color="accent" class="full-width">
               <input mdInput placeholder="Identifier" [(ngModel)]="currentLab.$key" name="Identifier">
             </md-input-container>
           </td>
         </tr>
         <tr>
           <td>
-            <md-input-container class="full-width">
+            <md-input-container color="accent" class="full-width">
               <input mdInput id="stepTitle"
                      placeholder="Step title" [(ngModel)]="currentStep.title" name="Step Title">
             </md-input-container>
@@ -64,7 +64,7 @@
         </tr>
         <tr>
           <td>
-            <md-select id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required
+            <md-select color="accent" id="techLab" [(ngModel)]="currentLab.technology" name="Technology" required
                        ngDefaultControl placeholder="Technology" class="full-width">
               <md-option *ngFor="let tech of technologyService.getTechnologies()" [value]="tech.id">
                 {{ tech.name }}
@@ -74,7 +74,8 @@
         </tr>
         <tr>
           <td>
-            <md-select id="levelLab" name="Level" [(ngModel)]="currentLab.level" required ngDefaultControl
+            <md-select color="accent" id="levelLab" name="Level" [(ngModel)]="currentLab.level" required
+                       ngDefaultControl
                        placeholder="Level" class="full-width">
               <md-option *ngFor="let level of technologyService.getLevels()" [value]="level.id">
                 {{ level.name }}
@@ -111,11 +112,9 @@
     </div>
 
     <div class="col-12 col-sm-8">
-      <md-card>
-        <md-input-container class="full-width">
-          <textarea mdInput rows="31" [(ngModel)]="currentStep.content" name="Content"></textarea>
-        </md-input-container>
-      </md-card>
+      <md-input-container color="accent" class="full-width">
+        <textarea mdInput rows="33" [(ngModel)]="currentStep.content" name="Content"></textarea>
+      </md-input-container>
     </div>
 
   </div>

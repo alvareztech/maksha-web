@@ -3,7 +3,7 @@
     <!-- Labs -->
     <div class="col" *ngIf="isVisible('lab')">
 
-     <app-admin-labs (onLabSelected)="onLabSelected($event)"></app-admin-labs>
+      <app-admin-labs (onLabSelected)="onLabSelected($event)"></app-admin-labs>
 
     </div>
     <!-- Articles -->
@@ -11,23 +11,27 @@
 
       <form>
 
-        <md-toolbar>
-          <button md-button (click)="returnArticles()">ARTICLES</button>
+        <md-toolbar color="primary">
+          <button md-button (click)="returnArticles()" color="accent">ARTICLES</button>
           <div *ngIf="isArticleSelected">
             <a md-button href="https://alvarez.tech/articles/{{ currentArticle?.$key }}"
                target="_blank">/{{currentArticle?.$key}}</a>
 
             <a md-button
                href="https://console.firebase.google.com/project/maksha-41f4f/database/data/articles/{{ currentArticle?.$key }}"
-               target="_blank">/firebase</a>
+               target="_blank">
+              <md-icon>cloud</md-icon>
+            </a>
           </div>
           <span class="dottech-spacer"></span>
-          <button md-mini-fab (click)="goNewArticle()" *ngIf="!isArticleSelected"><md-icon>add</md-icon></button>
-          <button md-raised-button color="primary" (click)="saveArticle()" *ngIf="isArticleSelected && isNewArticle">
-            SAVE
+          <button md-mini-fab (click)="goNewArticle()" *ngIf="!isArticleSelected">
+            <md-icon>add</md-icon>
           </button>
-          <button md-raised-button color="primary" (click)="updateArticle()" *ngIf="isArticleSelected && !isNewArticle">
-            UPDATE
+          <button md-raised-button color="accent" (click)="saveArticle()" *ngIf="isArticleSelected && isNewArticle">
+            <md-icon>save</md-icon>
+          </button>
+          <button md-raised-button color="accent" (click)="updateArticle()" *ngIf="isArticleSelected && !isNewArticle">
+            <md-icon>refresh</md-icon>
           </button>
         </md-toolbar>
 
@@ -43,13 +47,13 @@
           </md-nav-list>
         </div>
         <div *ngIf="isArticleSelected">
-          <md-input-container>
+          <md-input-container color="accent">
             <input mdInput placeholder="Title" name="Title" [(ngModel)]="currentArticle.title">
           </md-input-container>
-          <md-input-container *ngIf="isNewArticle">
+          <md-input-container color="accent" *ngIf="isNewArticle">
             <input mdInput placeholder="Identifier" [(ngModel)]="currentArticle.$key" name="Identifier">
           </md-input-container>
-          <md-input-container>
+          <md-input-container color="accent">
             <textarea mdInput rows="30" name="Content" [(ngModel)]="currentArticle.content"></textarea>
           </md-input-container>
           <md-checkbox [(ngModel)]="currentArticle.published" name="Published" ngDefaultControl>Published
@@ -63,19 +67,26 @@
     <div class="col" *ngIf="isVisible('pag')">
 
       <form>
-        <md-toolbar>
-          <button md-button (click)="returnPages()">PAGES</button>
+        <md-toolbar color="primary">
+          <button md-button (click)="returnPages()" color="accent">PAGES</button>
           <div *ngIf="isPageSelected">
             <a md-button href="https://alvarez.tech/{{ currentPage?.$key }}"
                target="_blank">/{{currentPage?.$key}}</a>
             <a md-button
                href="https://console.firebase.google.com/project/maksha-41f4f/database/data/pages/{{ currentPage?.$key }}"
-               target="_blank">/firebase</a>
+               target="_blank">
+              <md-icon>cloud</md-icon>
+            </a>
           </div>
           <span class="dottech-spacer"></span>
-          <button md-mini-fab (click)="goNewPage()" *ngIf="!isPageSelected"><md-icon>add</md-icon></button>
-          <button md-raised-button color="primary" (click)="savePage()" *ngIf="isPageSelected && isNewPage">SAVE</button>
-          <button md-raised-button color="primary" (click)="updatePage()" *ngIf="isPageSelected && !isNewPage">UPDATE
+          <button md-mini-fab (click)="goNewPage()" *ngIf="!isPageSelected">
+            <md-icon>add</md-icon>
+          </button>
+          <button md-raised-button color="accent" (click)="savePage()" *ngIf="isPageSelected && isNewPage">
+            <md-icon>save</md-icon>
+          </button>
+          <button md-raised-button color="accent" (click)="updatePage()" *ngIf="isPageSelected && !isNewPage">
+            <md-icon>refresh</md-icon>
           </button>
         </md-toolbar>
 
@@ -90,23 +101,15 @@
 
         <div class="row" *ngIf="isPageSelected">
           <div class="col-12">
-
-            <md-card>
-
-              <md-input-container>
-                <input mdInput placeholder="Name" [(ngModel)]="currentPage.name" name="Name">
-              </md-input-container>
-
-              <md-input-container *ngIf="isNewLab">
-                <input mdInput placeholder="Identifier" [(ngModel)]="currentPage.$key" name="Identifier">
-              </md-input-container>
-
-              <md-input-container>
-                <textarea mdInput rows="25" [(ngModel)]="currentPage.content" name="Content"></textarea>
-              </md-input-container>
-
-            </md-card>
-
+            <md-input-container color="accent">
+              <input mdInput placeholder="Name" [(ngModel)]="currentPage.name" name="Name">
+            </md-input-container>
+            <md-input-container *ngIf="isNewLab" color="accent">
+              <input mdInput placeholder="Identifier" [(ngModel)]="currentPage.$key" name="Identifier">
+            </md-input-container>
+            <md-input-container color="accent">
+              <textarea mdInput rows="27" [(ngModel)]="currentPage.content" name="Content"></textarea>
+            </md-input-container>
           </div>
         </div>
 
