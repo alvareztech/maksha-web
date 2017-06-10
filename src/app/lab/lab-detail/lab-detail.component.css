@@ -3,8 +3,8 @@
 }
 
 .step-number {
-  color: white;
-  background-color: #32325D;
+  color: #2575FC;
+  background-color: #F5F7FA;
   border-radius: 2px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 md-list-item.selected {
-  color: #32325D;
+  color: #2575FC;
 }
 
 /* Responsive */

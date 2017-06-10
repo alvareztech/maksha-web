@@ -20,7 +20,7 @@
         <md-card-header>
           <img md-card-avatar [src]="userObject.photoURL">
           <md-card-content>
-            <md-input-container>
+            <md-input-container color="accent">
           <textarea mdInput maxlength="140" [(ngModel)]="content" name="content" required
                     placeholder="Deja tu comentario, consulta o duda" minlength="3"></textarea>
               <md-hint align="end">{{ 140 - content.length }}</md-hint>

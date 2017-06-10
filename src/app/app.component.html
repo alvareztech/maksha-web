@@ -1,24 +1,24 @@
 <md-toolbar color="primary">
-  <a md-button routerLink="">
+  <a md-button routerLink="" color="accent">
     <img src="/assets/alvareztech.svg" width="80" height="40" alt="ALVAREZ.tech">
   </a>
 
   <span class="dottech-spacer"></span>
 
   <div class="hiddenForMobile">
-    <button md-button routerLink="labs">LABS</button>
-    <button md-button routerLink="articles">ARTÍCULOS</button>
+    <button md-button routerLink="labs" color="accent">LABS</button>
+    <button md-button routerLink="articles" color="accent">ARTÍCULOS</button>
   </div>
 
   <img md-card-avatar [src]="userObject?.photoURL" height="40" width="40" *ngIf="userObject">
 
   <a md-raised-button color="accent" (click)="login()" *ngIf="!userObject">INGRESAR</a>
 
-  <button md-icon-button [mdMenuTriggerFor]="themeMenu" *ngIf="userObject" class="hiddenForMobile">
+  <button md-icon-button color="accent" [mdMenuTriggerFor]="themeMenu" *ngIf="userObject" class="hiddenForMobile">
     <md-icon>more_vert</md-icon>
   </button>
 
-  <button md-icon-button [mdMenuTriggerFor]="mobileMenu" class="showForMobile">
+  <button md-icon-button color="accent" [mdMenuTriggerFor]="mobileMenu" class="showForMobile">
     <md-icon>more_vert</md-icon>
   </button>
 </md-toolbar>
