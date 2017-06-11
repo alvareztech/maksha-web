@@ -17,7 +17,7 @@
     <md-spinner *ngIf="!(labsPreview | async)" color="accent"></md-spinner>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
 
-      <md-card [style.background]="technologyService.getTechnology(lab.technology).color">
+      <md-card [class]="'tech-' + technologyService.getTechnology(lab.technology).id">
         <md-card-header>
           <img md-card-avatar src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
                alt="Technology"

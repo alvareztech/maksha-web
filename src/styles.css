@@ -145,3 +145,41 @@ md-card.youtube {
   border-radius: 4px;
   padding: 1px 8px 1px 8px;
 }
+
+/* Technologies */
+
+.tech-android {
+  background-image: linear-gradient(120deg, #3ECF8E, #3ECF8E, #B9F4BC) !important;
+}
+
+.tech-prog {
+  background-image: linear-gradient(120deg, #b224ef, #b224ef, #7579ff) !important;
+}
+
+.tech-java {
+  background-image: linear-gradient(120deg, #ff0844, #ff0844, #ffb199) !important;
+}
+
+.tech-angular {
+  background-image: linear-gradient(120deg, #DD0031, #DD0031, #C3002F) !important;
+}
+
+.tech-firebase {
+  background-image: linear-gradient(120deg, #FCCA3F, #FCCA3F, #FFA712) !important;
+}
+
+.tech-ios {
+  background-image: linear-gradient(120deg, #1C56FB, #1C56FB, #00c6fb) !important;
+}
+
+.tech-gcp {
+  background-image: linear-gradient(120deg, #3B78E7, #3B78E7, #005bea) !important;
+}
+
+.tech-productivity {
+  background-image: linear-gradient(120deg, #243949, #243949, #517fa4) !important;
+}
+
+.tech-other {
+  background-image: linear-gradient(120deg, #00c9ff, #00c9ff, #92fe9d) !important;
+}

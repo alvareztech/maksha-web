@@ -6,7 +6,7 @@
 
     <div class="col-lg-4" *ngIf="loadFinish">
 
-      <md-card [style.background]="technologyService.getTechnology(labObject.technology)?.color">
+      <md-card [class]="'tech-' + technologyService.getTechnology(labObject.technology).id">
 
         <md-card-header>
           <img md-card-avatar src="/assets/{{ technologyService.getTechnology(labObject.technology).icon }}"
@@ -77,4 +77,5 @@
 
 </div>
 
-<app-comments *ngIf="currentStepNumber > 0" [type]="'labs'" [identifier]="labId" [step]="currentStepNumber"></app-comments>
+<app-comments *ngIf="currentStepNumber > 0" [type]="'labs'" [identifier]="labId"
+              [step]="currentStepNumber"></app-comments>
