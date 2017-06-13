@@ -137,6 +137,9 @@ md-card.youtube {
   max-width: 100%;
   min-height: 2em;
   max-height: 40em;
+}
+
+.markdown-content img.shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
 
@@ -144,6 +147,11 @@ md-card.youtube {
   background-color: rgba(37, 117, 252, 0.2);
   border-radius: 4px;
   padding: 1px 8px 1px 8px;
+}
+
+.markdown-content a span {
+  font-size: 20px;
+  vertical-align: bottom;
 }
 
 /* Technologies */

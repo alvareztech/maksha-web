@@ -9,9 +9,28 @@ export class MarkdownPipe implements PipeTransform {
 
   transform(value: string): string {
     if (value) {
-      let mark = marked(value);
-      // mark = mark.replace(/(<a.*href="([^"]*)"[^>]*)>/ig, '$1 class=\"btn btn-outline-primary\">');
-      // mark = mark.replace(/\<(?:pre|php)\>([\s\S]+?)\<\/(?:pre|php)\>/, '<code>Hola</code>');
+
+      const renderer = new marked.Renderer();
+      renderer.link = function (href, title, text) {
+        if (href.includes('alvarez.tech')) {
+          return '<a href="' + href + '">' + text + '</a>';
+        } else {
+          return '<a target="_blank" href="' + href + '">' +
+            text +
+            '&nbsp;' +
+            '<span class="material-icons">launch</span>' +
+            '</a>';
+        }
+      };
+      renderer.image = function (href, title, text) {
+        if (text.includes('*')) {
+          return '<img class="shadow" alt="' + text + '" src="' + href + '">';
+        } else {
+          return '<img alt="' + text + '" src="' + href + '">';
+        }
+      };
+
+      const mark = marked(value, {renderer: renderer});
       return mark;
     }
     return '';
