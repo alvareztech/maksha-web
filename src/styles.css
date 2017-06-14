@@ -63,6 +63,30 @@ pre {
   white-space: pre;
 }
 
+span.hljs-keyword {
+  color: #2575fc;
+}
+
+span.hljs-string {
+  color: #FFA712;
+}
+
+span.hljs-title {
+  font-weight: bold;
+}
+
+span.hljs-number {
+  color: #FFA712;
+}
+
+span.hljs-meta {
+  color: #868f96;
+}
+
+span.hljs-name {
+  color: #2575fc;
+}
+
 /* UI Material Design */
 
 md-card-title {

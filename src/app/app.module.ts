@@ -37,10 +37,12 @@ import {ArticleListComponent} from './article/article-list/article-list.componen
 import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
 import {PageComponent} from './page/page.component';
 import {InvitationEnterComponent} from './invitation-enter/invitation-enter.component';
-import { StatsComponent } from './stats/stats.component';
-import { CommentsComponent } from './comments/comments.component';
-import { AdminLabsComponent } from './admin/admin-labs/admin-labs.component';
-import { UsersStatsComponent } from './stats/users-stats/users-stats.component';
+import {StatsComponent} from './stats/stats.component';
+import {CommentsComponent} from './comments/comments.component';
+import {AdminLabsComponent} from './admin/admin-labs/admin-labs.component';
+import {UsersStatsComponent} from './stats/users-stats/users-stats.component';
+
+import {HighlightJsModule} from 'angular2-highlight-js';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,8 @@ import { UsersStatsComponent } from './stats/users-stats/users-stats.component';
     MdSnackBarModule,
     MdChipsModule,
     MdProgressSpinnerModule,
-    MdDialogModule
+    MdDialogModule,
+    HighlightJsModule
   ],
   providers: [TechnologyService],
   bootstrap: [AppComponent],

@@ -4,7 +4,7 @@
     <md-spinner *ngIf="!isFinishLoad" color="accent"></md-spinner>
 
     <div class="col-lg-8" *ngIf="isFinishLoad">
-      <div class="markdown-content" [innerHtml]="pageObject.content | markdown | sanitizeHtml">
+      <div class="markdown-content" [innerHtml]="pageObject.content | markdown | sanitizeHtml" highlight-js-content>
       </div>
     </div>
     <div class="col-lg-4" *ngIf="isFinishLoad">
