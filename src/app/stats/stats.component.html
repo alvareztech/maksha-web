@@ -1,8 +1,11 @@
 <div class="container-fluid">
   <div class="row">
+    <button md-button routerLink="users">Users</button>
+  </div>
+  <div class="row">
     <div class="photo" *ngFor="let user of usersObjects">
-      <img width="72" height="72" [src]="user?.photoURL"
-           *ngIf="user?.photoURL && user?.photoURL!=='https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg'">
+      <img width="48" height="48" [src]="user?.photoURL"
+           *ngIf="user?.photoURL">
     </div>
   </div>
 </div>

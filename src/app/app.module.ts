@@ -43,6 +43,7 @@ import {AdminLabsComponent} from './admin/admin-labs/admin-labs.component';
 import {UsersStatsComponent} from './stats/users-stats/users-stats.component';
 
 import {HighlightJsModule} from 'angular2-highlight-js';
+import { AdminArticlesComponent } from './admin/admin-articles/admin-articles.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {HighlightJsModule} from 'angular2-highlight-js';
     StatsComponent,
     CommentsComponent,
     AdminLabsComponent,
-    UsersStatsComponent
+    UsersStatsComponent,
+    AdminArticlesComponent
   ],
   entryComponents: [InvitationEnterComponent],
   imports: [

@@ -1,0 +1,10 @@
+textarea {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  font-size: 14px;
+  resize: none;
+}
+
+.full-width {
+  width: 100%;
+}

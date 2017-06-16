@@ -9,58 +9,7 @@
     <!-- Articles -->
     <div class="col" *ngIf="isVisible('art')">
 
-      <form>
-
-        <md-toolbar color="primary">
-          <button md-button (click)="returnArticles()" color="accent">ARTICLES</button>
-          <div *ngIf="isArticleSelected">
-            <a md-button href="https://alvarez.tech/articles/{{ currentArticle?.$key }}"
-               target="_blank">/{{currentArticle?.$key}}</a>
-
-            <a md-button
-               href="https://console.firebase.google.com/project/maksha-41f4f/database/data/articles/{{ currentArticle?.$key }}"
-               target="_blank">
-              <md-icon>cloud</md-icon>
-            </a>
-          </div>
-          <span class="dottech-spacer"></span>
-          <button md-mini-fab (click)="goNewArticle()" *ngIf="!isArticleSelected">
-            <md-icon>add</md-icon>
-          </button>
-          <button md-mini-fab color="accent" (click)="saveArticle()" *ngIf="isArticleSelected && isNewArticle">
-            <md-icon>save</md-icon>
-          </button>
-          <button md-mini-fab color="accent" (click)="updateArticle()" *ngIf="isArticleSelected && !isNewArticle">
-            <md-icon>refresh</md-icon>
-          </button>
-        </md-toolbar>
-
-        <div *ngIf="!isArticleSelected">
-          <md-spinner *ngIf="!(articles | async)" color="accent"></md-spinner>
-          <md-nav-list>
-            <md-list-item *ngFor="let article of articles | async" (click)="goArticle(article)">
-              <md-icon md-list-icon *ngIf="!article.published">build</md-icon>
-              <md-icon md-list-icon *ngIf="article.published" color="accent">check_circle</md-icon>
-              <h4>{{ article.title }}</h4>
-              <p>&nbsp;{{ article.updated | date }}</p>
-            </md-list-item>
-          </md-nav-list>
-        </div>
-        <div *ngIf="isArticleSelected">
-          <md-input-container color="accent">
-            <input mdInput placeholder="Title" name="Title" [(ngModel)]="currentArticle.title">
-          </md-input-container>
-          <md-input-container color="accent" *ngIf="isNewArticle">
-            <input mdInput placeholder="Identifier" [(ngModel)]="currentArticle.$key" name="Identifier">
-          </md-input-container>
-          <md-input-container color="accent">
-            <textarea mdInput rows="30" name="Content" [(ngModel)]="currentArticle.content"></textarea>
-          </md-input-container>
-          <md-checkbox [(ngModel)]="currentArticle.published" name="Published" ngDefaultControl>Published
-          </md-checkbox>
-        </div>
-
-      </form>
+      <app-admin-articles (onArticleSelected)="onArticleSelected($event)"></app-admin-articles>
 
     </div>
     <!-- Pages -->

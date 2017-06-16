@@ -38,6 +38,7 @@ export class StatsComponent implements OnInit {
     this.users = this.db.list('/users');
     this.users.subscribe(result => {
       this.usersObjects = result;
+      this.titleService.setTitle(this.usersObjects.length + ' users');
     });
   }
 

@@ -15,14 +15,10 @@ import {Observable} from 'rxjs/Observable';
 })
 export class AdminComponent implements OnInit {
 
-  isNewArticle = true; // update otherwise
   isNewPage = true; // update otherwise
 
-  currentArticle = {};
   currentPage = {};
 
-  article: FirebaseObjectObservable<any>;
-  articles: FirebaseListObservable<any>;
   page: FirebaseObjectObservable<any>;
   pages: FirebaseListObservable<any>;
 
@@ -57,69 +53,7 @@ export class AdminComponent implements OnInit {
 
   load() {
     this.titleService.setTitle('Administrator');
-    this.articles = this.db.list('/articles', {
-      query: {
-        orderByChild: 'updated'
-      }
-    });
     this.pages = this.db.list('/pages');
-  }
-
-  // Labs methods
-
-
-  // Articles methods
-
-  saveArticle() {
-    this.articles.update(this.currentArticle['$key'], {
-      title: this.currentArticle['title'],
-      content: this.currentArticle['content'],
-      updated: firebase.database.ServerValue.TIMESTAMP,
-      created: firebase.database.ServerValue.TIMESTAMP,
-    }).then(a => {
-      this.snackBar.open('New article successfully saved!', null, {duration: 2000});
-    }).catch(a => {
-      this.snackBar.open('Error:' + a.message, null, {duration: 2000});
-    });
-  }
-
-  updateArticle() {
-    this.articles.update(this.currentArticle['$key'], {
-      title: this.currentArticle['title'],
-      content: this.currentArticle['content'],
-      published: this.currentArticle['published'],
-      updated: firebase.database.ServerValue.TIMESTAMP
-    }).then(a => {
-      this.snackBar.open('Article successfully updated!', null, {duration: 2000});
-    }).catch(a => {
-      this.snackBar.open('Error:' + a.message, null, {duration: 2000});
-    });
-  }
-
-  goArticle(art: any) {
-    this.isArticleSelected = true;
-    this.isNewArticle = false;
-
-    this.article = this.db.object('/articles/' + art.$key);
-    this.article.subscribe(a => {
-      this.currentArticle = a;
-    });
-  }
-
-  goNewArticle() {
-    this.isArticleSelected = true;
-    this.isNewArticle = true;
-
-    this.currentArticle = {
-      $key: '',
-      title: 'New article',
-      published: false,
-      content: 'Any content'
-    };
-  }
-
-  returnArticles() {
-    this.isArticleSelected = false;
   }
 
   // Pages methods
@@ -200,5 +134,9 @@ export class AdminComponent implements OnInit {
 
   onLabSelected(selected: boolean) {
     this.isLabSelected = selected;
+  }
+
+  onArticleSelected(selected: boolean) {
+    this.isArticleSelected = selected;
   }
 }
