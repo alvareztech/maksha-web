@@ -27,10 +27,10 @@
           <button md-mini-fab (click)="goNewArticle()" *ngIf="!isArticleSelected">
             <md-icon>add</md-icon>
           </button>
-          <button md-raised-button color="accent" (click)="saveArticle()" *ngIf="isArticleSelected && isNewArticle">
+          <button md-mini-fab color="accent" (click)="saveArticle()" *ngIf="isArticleSelected && isNewArticle">
             <md-icon>save</md-icon>
           </button>
-          <button md-raised-button color="accent" (click)="updateArticle()" *ngIf="isArticleSelected && !isNewArticle">
+          <button md-mini-fab color="accent" (click)="updateArticle()" *ngIf="isArticleSelected && !isNewArticle">
             <md-icon>refresh</md-icon>
           </button>
         </md-toolbar>
@@ -82,10 +82,10 @@
           <button md-mini-fab (click)="goNewPage()" *ngIf="!isPageSelected">
             <md-icon>add</md-icon>
           </button>
-          <button md-raised-button color="accent" (click)="savePage()" *ngIf="isPageSelected && isNewPage">
+          <button md-mini-fab color="accent" (click)="savePage()" *ngIf="isPageSelected && isNewPage">
             <md-icon>save</md-icon>
           </button>
-          <button md-raised-button color="accent" (click)="updatePage()" *ngIf="isPageSelected && !isNewPage">
+          <button md-mini-fab color="accent" (click)="updatePage()" *ngIf="isPageSelected && !isNewPage">
             <md-icon>refresh</md-icon>
           </button>
         </md-toolbar>
