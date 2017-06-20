@@ -6,6 +6,9 @@
   <span class="dottech-spacer"></span>
 
   <div class="hiddenForMobile">
+    <a md-button
+       href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=daniel%40alvarez%2etech&lc=US&item_name=Mas%20y%20mejores%20videos%2c%20tutoriales%20de%20ALVAREZ%2etech&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest"
+       color="accent" target="_blank">DONAR</a>
     <button md-button routerLink="labs" color="accent">LABS</button>
     <button md-button routerLink="articles" color="accent">ARTÍCULOS</button>
   </div>
@@ -32,6 +35,9 @@
 </md-menu>
 
 <md-menu #mobileMenu x-position="before">
+  <a md-menu-item
+     href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=daniel%40alvarez%2etech&lc=US&item_name=Mas%20y%20mejores%20videos%2c%20tutoriales%20de%20ALVAREZ%2etech&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest"
+     color="accent" target="_blank">DONAR</a>
   <button md-menu-item routerLink="labs">LABS</button>
   <button md-menu-item routerLink="articles">ARTÍCULOS</button>
   <button md-menu-item routerLink="admin" *ngIf="userObject?.uid === 'VPzZ9izNNravYPUNfiBimpr7put2'">ADMIN</button>

@@ -6,6 +6,10 @@ md-card.hero2 {
   background-image: linear-gradient(to right, #ff0844 0%, #ffb199 100%);
 }
 
+md-card.donate {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
 md-card-subtitle {
   color: white;
 }
@@ -17,4 +21,12 @@ md-card-subtitle span {
 
 .more-button {
   width: 100%;
+}
+
+.donate md-card-title {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.donate md-card-content p {
+  color: rgba(0, 0, 0, 0.7) !important;
 }
