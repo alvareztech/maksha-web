@@ -16,6 +16,10 @@ md-card-content {
   padding-left: 16px;
 }
 
+md-card-content p {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
 md-card-content md-input-container {
   width: 100%;
 }
