@@ -6,7 +6,7 @@
 
     <div class="col-lg-4" *ngIf="loadFinish">
 
-      <md-card [class]="'tech-' + technologyService.getTechnology(labObject.technology).id">
+      <md-card [ngClass]="'tech-' + technologyService.getTechnology(labObject.technology).id">
 
         <md-card-header>
           <img md-card-avatar src="/assets/{{ technologyService.getTechnology(labObject.technology).icon }}"

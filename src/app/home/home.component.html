@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-12 col-lg-8">
       <md-card class="hero1">
+        <p>
+          <img src="/assets/android.svg" width="40" height="40">
+          <img src="/assets/ios.svg" width="40" height="40">
+        </p>
         <md-card-title>Creación, asesoramiento, capacitación</md-card-title>
         <md-card-content>
           <p>
             Creamos tu aplicación móvil iOS, Android usando tecnología y servicios de Firebase y Google Cloud Platform.
-          </p>
-          <p>
-            <img src="/assets/android.svg" width="40" height="40">
-            <img src="/assets/ios.svg" width="40" height="40">
           </p>
         </md-card-content>
         <a md-raised-button color="accent" href="https://m.me/alvareztech" target="_blank">HABLEMOS POR CHAT</a>
@@ -40,7 +40,7 @@
     <md-spinner *ngIf="!(labsPreview | async)" color="accent"></md-spinner>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labsPreview | async">
 
-      <md-card [class]="'tech-' + technologyService.getTechnology(lab.technology).id">
+      <md-card [ngClass]="'tech-'+technologyService.getTechnology(lab.technology).id ">
         <md-card-header>
           <img md-card-avatar src="/assets/{{ technologyService.getTechnology(lab.technology).icon }}"
                alt="Technology"
@@ -56,6 +56,7 @@
         <md-card-content>Actualizado en {{ lab.updated | date }}</md-card-content>
         <button md-raised-button color="accent" [routerLink]="'/labs/' + [lab.$key]">INICIAR</button>
       </md-card>
+
     </div>
   </div>
 
