@@ -3,6 +3,7 @@ import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} f
 import {TechnologyService} from '../../services/technology.service';
 import {MdSnackBar} from '@angular/material';
 import {Title} from '@angular/platform-browser';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-admin-articles',
@@ -56,7 +57,8 @@ export class AdminArticlesComponent implements OnInit {
       title: this.currentArticle['title'],
       content: this.currentArticle['content'],
       published: this.currentArticle['published'],
-      updated: firebase.database.ServerValue.TIMESTAMP
+      updated: firebase.database.ServerValue.TIMESTAMP,
+      coverUrl: this.currentArticle['coverUrl']
     }).then(a => {
       this.snackBar.open('Article successfully updated!', null, {duration: 2000});
     }).catch(a => {
@@ -71,8 +73,11 @@ export class AdminArticlesComponent implements OnInit {
     this.isNewArticle = false;
 
     this.article = this.db.object('/articles/' + art.$key);
-    this.article.subscribe(a => {
-      this.currentArticle = a;
+    this.article.subscribe(result => {
+      this.currentArticle = result;
+      if (!this.currentArticle['published']) {
+        this.currentArticle['published'] = false;
+      }
     });
   }
 

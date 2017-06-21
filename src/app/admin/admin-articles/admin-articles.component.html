@@ -11,6 +11,12 @@
          target="_blank">
         <md-icon>cloud</md-icon>
       </a>
+
+      <a md-button
+         href="https://console.firebase.google.com/project/maksha-41f4f/storage/maksha-41f4f.appspot.com/files/articles/{{ currentArticle?.$key }}"
+         target="_blank">
+        <md-icon>folder</md-icon>
+      </a>
     </div>
     <span class="dottech-spacer"></span>
     <button md-mini-fab (click)="goNewArticle()" *ngIf="!isArticleSelected">
@@ -52,7 +58,15 @@
         </tr>
         <tr>
           <td>
-            <md-checkbox class="full-width" [(ngModel)]="currentArticle.published" name="Published" ngDefaultControl>
+            <md-input-container color="accent" class="full-width">
+              <input mdInput placeholder="Cover URL" name="Cover URL" [(ngModel)]="currentArticle.coverUrl">
+            </md-input-container>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <md-checkbox class="full-width" [(ngModel)]="currentArticle.published"
+                         name="Published" ngDefaultControl>
               Published
             </md-checkbox>
           </td>

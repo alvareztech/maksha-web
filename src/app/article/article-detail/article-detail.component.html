@@ -6,7 +6,7 @@
     <div class="col" *ngIf="isFinishLoad">
 
       <md-card class="article">
-        <img md-card-image [src]="articleObject.coverUrl">
+        <img md-card-image [src]="articleObject.coverUrl" *ngIf="articleObject.coverUrl">
         <md-card-content>
           <h1>{{ articleObject.title }}</h1>
           <p>
@@ -17,7 +17,6 @@
 
       <div class="markdown-content" [innerHtml]="articleObject.content | markdown | sanitizeHtml" highlight-js-content>
       </div>
-
 
     </div>
   </div>
