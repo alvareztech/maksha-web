@@ -3,7 +3,7 @@
     <button md-button routerLink="users">Users</button>
   </div>
   <div class="row">
-    <div class="photo" *ngFor="let user of usersObjects">
+    <div class="photo" *ngFor="let user of usersObjects" [mdTooltip]="user?.displayName">
       <img width="48" height="48" [src]="user?.photoURL"
            *ngIf="user?.photoURL">
     </div>

@@ -2,7 +2,7 @@
   <div class="comments-content">
     <md-card *ngFor="let item of comments | async">
       <md-card-header>
-        <img md-card-avatar [src]="item.userPhotoURL">
+        <img md-card-avatar [src]="item.userPhotoURL"  [mdTooltip]="item.userName">
         <md-card-content>
           <p>
             {{ item.content }}

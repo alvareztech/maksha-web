@@ -31,7 +31,11 @@ import {
   MdSelectModule,
   MdCheckboxModule,
   MdSnackBarModule,
-  MdChipsModule, MdProgressSpinnerModule, MdDialogModule
+  MdChipsModule,
+  MdProgressSpinnerModule,
+  MdDialogModule,
+  MdExpansionModule,
+  MdTooltipModule
 } from '@angular/material';
 import {ArticleListComponent} from './article/article-list/article-list.component';
 import {ArticleDetailComponent} from './article/article-detail/article-detail.component';
@@ -43,7 +47,7 @@ import {AdminLabsComponent} from './admin/admin-labs/admin-labs.component';
 import {UsersStatsComponent} from './stats/users-stats/users-stats.component';
 
 import {HighlightJsModule} from 'angular2-highlight-js';
-import { AdminArticlesComponent } from './admin/admin-articles/admin-articles.component';
+import {AdminArticlesComponent} from './admin/admin-articles/admin-articles.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +92,8 @@ import { AdminArticlesComponent } from './admin/admin-articles/admin-articles.co
     MdChipsModule,
     MdProgressSpinnerModule,
     MdDialogModule,
+    MdExpansionModule,
+    MdTooltipModule,
     HighlightJsModule
   ],
   providers: [TechnologyService],
