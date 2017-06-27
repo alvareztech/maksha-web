@@ -5,7 +5,7 @@ import {TechnologyService} from '../../services/technology.service';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import {AngularFireDatabase} from 'angularfire2/database';
-import {Title} from "@angular/platform-browser";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-lab-list',
