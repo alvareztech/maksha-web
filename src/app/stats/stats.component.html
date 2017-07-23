@@ -1,11 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <button md-button routerLink="users">Users</button>
+    <div *ngFor="let user of usersObjects" [mdTooltip]="user?.displayName">
+      <div class="photo"
+           *ngIf="user?.photoURL && user.photoURL !== 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg'">
+        <img width="48" height="48" [src]="user?.photoURL">
+      </div>
+    </div>
   </div>
   <div class="row">
-    <div class="photo" *ngFor="let user of usersObjects" [mdTooltip]="user?.displayName">
-      <img width="48" height="48" [src]="user?.photoURL"
-           *ngIf="user?.photoURL">
-    </div>
+    <button class="more-button" md-button routerLink="users">View more details of the users</button>
   </div>
 </div>
