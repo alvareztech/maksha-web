@@ -6,3 +6,10 @@
 .more-button {
   width: 100%;
 }
+
+.number {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  font-size: 100px;
+}

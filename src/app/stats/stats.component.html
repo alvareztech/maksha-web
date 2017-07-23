@@ -1,5 +1,6 @@
 <div class="container-fluid">
-  <div class="row">
+  <md-spinner *ngIf="!usersObjects" color="accent"></md-spinner>
+  <div class="row" *ngIf="usersObjects">
     <div *ngFor="let user of usersObjects" [mdTooltip]="user?.displayName">
       <div class="photo"
            *ngIf="user?.photoURL && user.photoURL !== 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg'">
@@ -7,7 +8,12 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="usersObjects">
+    <div class="number">
+      {{ usersObjects.length }}
+    </div>
+  </div>
+  <div class="row" *ngIf="usersObjects">
     <button class="more-button" md-button routerLink="users">View more details of the users</button>
   </div>
 </div>
