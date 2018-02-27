@@ -3,7 +3,7 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 const Filter = require('bad-words');
-const badWordsFilter = new Filter({ list: ['mierda', 'carajo'], placeHolder: '😮' });
+const badWordsFilter = new Filter({ list: ['mierda', 'carajo', 'rayos'], placeHolder: '😮' });
 
 const capitalizeSentence = require('capitalize-sentence');
 

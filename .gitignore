@@ -43,3 +43,11 @@ Thumbs.db
 
 # keys
 /src/app/keys.ts
+
+# Firebase Cloud Functions
+
+**/node_modules/*
+**/.firebaserc
+*/npm-debug.log
+*~
+service-account-credentials.json

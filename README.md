@@ -1,34 +1,39 @@
-# Maksha
+# Maksha project
 
-* [https://alvarez.tech](https://alvarez.tech)
-* [https://maksha-41f4f.firebaseapp.com](https://maksha-41f4f.firebaseapp.com)
+This is the first version of ALVAREZ.tech website: [https://alvarez.tech](https://alvarez.tech)
 
-## Used technologies
+## Technologies
 
-### Angular CLI
+### Firebase
 
-* [cli.angular.io](https://cli.angular.io/)
-* [github.com/angular/angular-cli](https://github.com/angular/angular-cli)
+* Firebase Realtime Database
+* Firebase Authentication
+* Firebase Cloud Funcions
+* Firebase Hosting
 
-### Angular Material
+> Something more...
 
-* [material.angular.io](https://material.angular.io/)
-* [github.com/angular/material2](https://github.com/angular/material2)
+### Angular
 
-### AngularFire2
+* Angular CLI
+ * [cli.angular.io](https://cli.angular.io/)
+ * [github.com/angular/angular-cli](https://github.com/angular/angular-cli)
 
-* [github.com/angular/angularfire2](https://github.com/angular/angularfire2)
+* Angular Material
+ * [material.angular.io](https://material.angular.io/)
+ * [github.com/angular/material2](https://github.com/angular/material2)
 
-## Angular CLI commands
+* AngularFire2
+ * [github.com/angular/angularfire2](https://github.com/angular/angularfire2)
 
-### Development server
+> Something more...
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## For your own version 
 
-
-## Requirements
-
-The project requires a file with Firebase keys called `src/app/keys.ts`.
+0. Clone the repository
+1. `npm install`
+2. Create your Firebase project and prepare the services: [console.firebase.google.com](https://console.firebase.google.com)
+3. Create the file `/src/app/keys.ts` with your Firebase project information:
 
 ```typescript
 export const FIREBASE_CONFIG = {
@@ -40,3 +45,8 @@ export const FIREBASE_CONFIG = {
   messagingSenderId: 'SENDER_ID_HERE'
 };
 ```
+
+4. `ng serve`
+5. Enjoy! XD
+
+Soon more information and new version. You can write me to: daniel@alvarez.tech
