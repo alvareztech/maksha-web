@@ -15,16 +15,19 @@ This is the first version of ALVAREZ.tech website: [https://alvarez.tech](https:
 
 ### Angular
 
-* Angular CLI
- * [cli.angular.io](https://cli.angular.io/)
- * [github.com/angular/angular-cli](https://github.com/angular/angular-cli)
+__Angular CLI__
 
-* Angular Material
- * [material.angular.io](https://material.angular.io/)
- * [github.com/angular/material2](https://github.com/angular/material2)
+* [cli.angular.io](https://cli.angular.io/)
+* [github.com/angular/angular-cli](https://github.com/angular/angular-cli)
 
-* AngularFire2
- * [github.com/angular/angularfire2](https://github.com/angular/angularfire2)
+__Angular Material__
+
+* [material.angular.io](https://material.angular.io/)
+* [github.com/angular/material2](https://github.com/angular/material2)
+
+__AngularFire2__
+
+* [github.com/angular/angularfire2](https://github.com/angular/angularfire2)
 
 > Something more...
 
@@ -49,4 +52,4 @@ export const FIREBASE_CONFIG = {
 4. `ng serve`
 5. Enjoy! XD
 
-Soon more information and new version. You can write me to: daniel@alvarez.tech
+Soon more information and new version. You can write me to: [daniel@alvarez.tech](mailto:daniel@alvarez.tech)
